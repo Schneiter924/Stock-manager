@@ -17,14 +17,53 @@ namespace Stock_manager
             InitializeComponent();
         }
 
-        private void frmLogin_FormClosing(object sender, FormClosingEventArgs e)
+        private void cmdConnexion_Click(object sender, EventArgs e)
         {
-            System.Text.StringBuilder messageBoxCS = new System.Text.StringBuilder();
-            messageBoxCS.AppendFormat("{0} = {1}", "CloseReason", e.CloseReason);
-            messageBoxCS.AppendLine();
-            messageBoxCS.AppendFormat("{0} = {1}", "Cancel", e.Cancel);
-            messageBoxCS.AppendLine();
-            MessageBox.Show(messageBoxCS.ToString(), "FormClosing Event");
+            if (txtLogin.Text == "")
+            {
+                string message = "Nom d'utilisateur vide";
+                string caption = "Erreur";
+                MessageBoxButtons bouton = MessageBoxButtons.OK;
+                MessageBox.Show(message, caption, bouton, MessageBoxIcon.Error);
+            }
+            else if (txtPassword.Text == "")
+            {
+                string message = "Mot de passe vide";
+                string caption = "Erreur";
+                MessageBoxButtons bouton = MessageBoxButtons.OK;
+                MessageBox.Show(message, caption, bouton, MessageBoxIcon.Error);
+            }
+            else if (txtLogin.Text != "vendeur")
+            {
+                string message = "Nom d'utilisateur inconnu";
+                string caption = "Erreur";
+                MessageBoxButtons bouton = MessageBoxButtons.OK;
+                MessageBox.Show(message, caption, bouton, MessageBoxIcon.Error);
+            }
+            else if (txtPassword.Text != "Pa$$w0rd")
+            {
+                string message = "Mot de passe inconnu";
+                string caption = "Erreur";
+                MessageBoxButtons bouton = MessageBoxButtons.OK;
+                MessageBox.Show(message, caption, bouton, MessageBoxIcon.Error);
+            }
+            else
+            {
+                Form frmMenu = new frmMain();
+                frmMenu.Show();
+                this.Hide();
+            }
+        }
+
+        private void cmdAnnuler_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void cmdReset_Click(object sender, EventArgs e)
+        {
+            txtLogin.Text = "";
+            txtPassword.Text = "";
         }
     }
 }

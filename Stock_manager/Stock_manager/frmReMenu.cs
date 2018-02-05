@@ -16,5 +16,33 @@ namespace Stock_manager
         {
             InitializeComponent();
         }
+
+        private void cmdMot_Click(object sender, EventArgs e)
+        {
+            Form frmMot = new frmReMot();
+            frmMot.Show();
+            this.Dispose();
+        }
+
+        private void cmdHistorique_Click(object sender, EventArgs e)
+        {
+            Form frmHis = new frmReHis();
+            frmHis.Show();
+            this.Dispose();
+        }
+
+        private void cmdHors_Click(object sender, EventArgs e)
+        {
+            Form frmHors = new frmReHors();
+            frmHors.Show();
+            this.Dispose();
+        }
+
+        private void cmdQuitter_Click(object sender, EventArgs e)
+        {
+            Form frmMenu = new frmMain();
+            frmMenu.Show();
+            this.Dispose();
+        }
     }
 }

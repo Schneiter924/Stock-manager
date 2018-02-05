@@ -76,6 +76,7 @@
             this.cmdRetour.TabIndex = 4;
             this.cmdRetour.Text = "Retour";
             this.cmdRetour.UseVisualStyleBackColor = true;
+            this.cmdRetour.Click += new System.EventHandler(this.cmdRetour_Click);
             // 
             // frmReMot
             // 
@@ -87,7 +88,11 @@
             this.Controls.Add(this.txtRecherche);
             this.Controls.Add(this.lblRecherche);
             this.Controls.Add(this.lstRecherche);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmReMot";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Recherche mot-clé";
             this.ResumeLayout(false);
             this.PerformLayout();

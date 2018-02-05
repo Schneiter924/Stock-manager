@@ -43,6 +43,7 @@
             this.cmdInventaire.TabIndex = 0;
             this.cmdInventaire.Text = "Voir l\'inventaire";
             this.cmdInventaire.UseVisualStyleBackColor = true;
+            this.cmdInventaire.Click += new System.EventHandler(this.cmdInventaire_Click);
             // 
             // cmdEntree
             // 
@@ -52,6 +53,7 @@
             this.cmdEntree.TabIndex = 1;
             this.cmdEntree.Text = "Entrée de la pièce";
             this.cmdEntree.UseVisualStyleBackColor = true;
+            this.cmdEntree.Click += new System.EventHandler(this.cmdEntree_Click);
             // 
             // cmdSortie
             // 
@@ -61,6 +63,7 @@
             this.cmdSortie.TabIndex = 2;
             this.cmdSortie.Text = "Sortie de la pièce";
             this.cmdSortie.UseVisualStyleBackColor = true;
+            this.cmdSortie.Click += new System.EventHandler(this.cmdSortie_Click);
             // 
             // cmdRecherche
             // 
@@ -70,6 +73,7 @@
             this.cmdRecherche.TabIndex = 3;
             this.cmdRecherche.Text = "Recherche de pièce";
             this.cmdRecherche.UseVisualStyleBackColor = true;
+            this.cmdRecherche.Click += new System.EventHandler(this.cmdRecherche_Click);
             // 
             // cmdQuitter
             // 
@@ -79,6 +83,7 @@
             this.cmdQuitter.TabIndex = 4;
             this.cmdQuitter.Text = "Quitter";
             this.cmdQuitter.UseVisualStyleBackColor = true;
+            this.cmdQuitter.Click += new System.EventHandler(this.cmdQuitter_Click);
             // 
             // frmMain
             // 
@@ -90,7 +95,11 @@
             this.Controls.Add(this.cmdSortie);
             this.Controls.Add(this.cmdEntree);
             this.Controls.Add(this.cmdInventaire);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Stock manager";
             this.ResumeLayout(false);
 

@@ -55,6 +55,7 @@
             this.cmdRetour.TabIndex = 14;
             this.cmdRetour.Text = "Retour";
             this.cmdRetour.UseVisualStyleBackColor = true;
+            this.cmdRetour.Click += new System.EventHandler(this.cmdRetour_Click);
             // 
             // txtLoueur
             // 
@@ -122,7 +123,11 @@
             this.Controls.Add(this.lblLoueur);
             this.Controls.Add(this.lblDuree);
             this.Controls.Add(this.lblNumero);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmSortie";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmSortie";
             this.ResumeLayout(false);
             this.PerformLayout();

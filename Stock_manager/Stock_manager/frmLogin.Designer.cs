@@ -78,6 +78,7 @@
             this.cmdReset.TabIndex = 4;
             this.cmdReset.Text = "reset";
             this.cmdReset.UseVisualStyleBackColor = true;
+            this.cmdReset.Click += new System.EventHandler(this.cmdReset_Click);
             // 
             // cmdAnnuler
             // 
@@ -87,6 +88,7 @@
             this.cmdAnnuler.TabIndex = 5;
             this.cmdAnnuler.Text = "Annuler";
             this.cmdAnnuler.UseVisualStyleBackColor = true;
+            this.cmdAnnuler.Click += new System.EventHandler(this.cmdAnnuler_Click);
             // 
             // cmdConnexion
             // 
@@ -96,6 +98,7 @@
             this.cmdConnexion.TabIndex = 6;
             this.cmdConnexion.Text = "Connexion";
             this.cmdConnexion.UseVisualStyleBackColor = true;
+            this.cmdConnexion.Click += new System.EventHandler(this.cmdConnexion_Click);
             // 
             // frmLogin
             // 
@@ -109,12 +112,12 @@
             this.Controls.Add(this.txtLogin);
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblLogin);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Connextion au serveur";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmLogin_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

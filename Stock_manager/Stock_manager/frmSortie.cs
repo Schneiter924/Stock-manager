@@ -17,6 +17,11 @@ namespace Stock_manager
             InitializeComponent();
         }
 
-        
+        private void cmdRetour_Click(object sender, EventArgs e)
+        {
+            Form frmMenu = new frmMain();
+            frmMenu.Show();
+            this.Dispose();
+        }
     }
 }

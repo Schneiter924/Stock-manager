@@ -40,6 +40,7 @@
             this.cmdRetour.TabIndex = 7;
             this.cmdRetour.Text = "Retour";
             this.cmdRetour.UseVisualStyleBackColor = true;
+            this.cmdRetour.Click += new System.EventHandler(this.cmdRetour_Click);
             // 
             // lstInventaire
             // 
@@ -56,7 +57,11 @@
             this.ClientSize = new System.Drawing.Size(364, 272);
             this.Controls.Add(this.lstInventaire);
             this.Controls.Add(this.cmdRetour);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmInventaire";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inventaire";
             this.ResumeLayout(false);
 

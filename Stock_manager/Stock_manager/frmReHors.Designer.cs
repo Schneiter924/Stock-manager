@@ -40,6 +40,7 @@
             this.cmdRetour.TabIndex = 11;
             this.cmdRetour.Text = "Retour";
             this.cmdRetour.UseVisualStyleBackColor = true;
+            this.cmdRetour.Click += new System.EventHandler(this.cmdRetour_Click);
             // 
             // lstRecherche
             // 
@@ -56,7 +57,11 @@
             this.ClientSize = new System.Drawing.Size(370, 262);
             this.Controls.Add(this.cmdRetour);
             this.Controls.Add(this.lstRecherche);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmReHors";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Rechercher hors-délai";
             this.ResumeLayout(false);
 

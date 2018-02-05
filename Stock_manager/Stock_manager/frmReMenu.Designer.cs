@@ -42,6 +42,7 @@
             this.cmdQuitter.TabIndex = 8;
             this.cmdQuitter.Text = "Quitter";
             this.cmdQuitter.UseVisualStyleBackColor = true;
+            this.cmdQuitter.Click += new System.EventHandler(this.cmdQuitter_Click);
             // 
             // cmdHors
             // 
@@ -51,6 +52,7 @@
             this.cmdHors.TabIndex = 7;
             this.cmdHors.Text = "hors-délai";
             this.cmdHors.UseVisualStyleBackColor = true;
+            this.cmdHors.Click += new System.EventHandler(this.cmdHors_Click);
             // 
             // cmdHistorique
             // 
@@ -60,6 +62,7 @@
             this.cmdHistorique.TabIndex = 6;
             this.cmdHistorique.Text = "Historique";
             this.cmdHistorique.UseVisualStyleBackColor = true;
+            this.cmdHistorique.Click += new System.EventHandler(this.cmdHistorique_Click);
             // 
             // cmdMot
             // 
@@ -69,6 +72,7 @@
             this.cmdMot.TabIndex = 5;
             this.cmdMot.Text = "mot-clé";
             this.cmdMot.UseVisualStyleBackColor = true;
+            this.cmdMot.Click += new System.EventHandler(this.cmdMot_Click);
             // 
             // frmReMenu
             // 
@@ -79,7 +83,12 @@
             this.Controls.Add(this.cmdHors);
             this.Controls.Add(this.cmdHistorique);
             this.Controls.Add(this.cmdMot);
+            this.Cursor = System.Windows.Forms.Cursors.Default;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmReMenu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Recherche";
             this.ResumeLayout(false);
 

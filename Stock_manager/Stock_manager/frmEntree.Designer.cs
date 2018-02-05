@@ -99,6 +99,7 @@
             this.cmdRetour.TabIndex = 6;
             this.cmdRetour.Text = "Retour";
             this.cmdRetour.UseVisualStyleBackColor = true;
+            this.cmdRetour.Click += new System.EventHandler(this.cmdRetour_Click);
             // 
             // cmdAjout
             // 
@@ -108,6 +109,7 @@
             this.cmdAjout.TabIndex = 7;
             this.cmdAjout.Text = "Ajouter";
             this.cmdAjout.UseVisualStyleBackColor = true;
+            this.cmdAjout.Click += new System.EventHandler(this.cmdAjout_Click);
             // 
             // frmEntree
             // 
@@ -122,8 +124,12 @@
             this.Controls.Add(this.lblDescription);
             this.Controls.Add(this.lblNom);
             this.Controls.Add(this.lblNumero);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmEntree";
-            this.Text = "Sortie du stock";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Entrée en stock";
             this.ResumeLayout(false);
             this.PerformLayout();
 
