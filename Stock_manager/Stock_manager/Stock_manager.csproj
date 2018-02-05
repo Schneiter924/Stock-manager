@@ -46,16 +46,88 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmEntree.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEntree.Designer.cs">
+      <DependentUpon>frmEntree.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmInventaire.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInventaire.Designer.cs">
+      <DependentUpon>frmInventaire.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmReHis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReHis.Designer.cs">
+      <DependentUpon>frmReHis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmReHors.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReHors.Designer.cs">
+      <DependentUpon>frmReHors.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmReMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReMenu.Designer.cs">
+      <DependentUpon>frmReMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmReMot.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReMot.Designer.cs">
+      <DependentUpon>frmReMot.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSortie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSortie.Designer.cs">
+      <DependentUpon>frmSortie.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmEntree.resx">
+      <DependentUpon>frmEntree.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInventaire.resx">
+      <DependentUpon>frmInventaire.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReHis.resx">
+      <DependentUpon>frmReHis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReHors.resx">
+      <DependentUpon>frmReHors.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReMenu.resx">
+      <DependentUpon>frmReMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReMot.resx">
+      <DependentUpon>frmReMot.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSortie.resx">
+      <DependentUpon>frmSortie.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
