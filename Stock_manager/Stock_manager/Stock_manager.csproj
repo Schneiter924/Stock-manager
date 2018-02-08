@@ -33,6 +33,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MySql.Data">
+      <HintPath>..\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data.Entity">
+      <HintPath>..\MySql.Data.Entity.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Web">
+      <HintPath>..\MySql.Web.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -46,6 +55,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Connection_mySQL.cs" />
+    <Compile Include="Cryptage.cs" />
     <Compile Include="frmEntree.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,6 +80,12 @@
     </Compile>
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmNouveauMotPasse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNouveauMotPasse.Designer.cs">
+      <DependentUpon>frmNouveauMotPasse.cs</DependentUpon>
     </Compile>
     <Compile Include="frmReHis.cs">
       <SubType>Form</SubType>
@@ -113,6 +130,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNouveauMotPasse.resx">
+      <DependentUpon>frmNouveauMotPasse.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmReHis.resx">
       <DependentUpon>frmReHis.cs</DependentUpon>

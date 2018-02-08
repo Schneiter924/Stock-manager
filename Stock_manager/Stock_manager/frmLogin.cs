@@ -12,9 +12,12 @@ namespace Stock_manager
 {
     public partial class frmLogin : Form
     {
+        Cryptage cry;
         public frmLogin()
         {
             InitializeComponent();
+            cry = new Cryptage(AppDomain.CurrentDomain.BaseDirectory + "pwd.txt");
+            
         }
 
         private void cmdConnexion_Click(object sender, EventArgs e)
@@ -40,14 +43,7 @@ namespace Stock_manager
                 MessageBoxButtons bouton = MessageBoxButtons.OK;
                 MessageBox.Show(message, caption, bouton, MessageBoxIcon.Error);
             }
-            else if (txtPassword.Text != "Pa$$w0rd")
-            {
-                string message = "Mot de passe inconnu";
-                string caption = "Erreur";
-                MessageBoxButtons bouton = MessageBoxButtons.OK;
-                MessageBox.Show(message, caption, bouton, MessageBoxIcon.Error);
-            }
-            else
+            else if (cry.TestPassword(txtPassword.Text) ==  true)
             {
                 Form frmMenu = new frmMain();
                 frmMenu.Show();
@@ -64,6 +60,21 @@ namespace Stock_manager
         {
             txtLogin.Text = "";
             txtPassword.Text = "";
+        }
+
+        private void cmdMdPPerdu_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+            if (cry.TestFichier()==false)
+            {
+                Form frmMp = new frmNouveauMotPasse();
+                frmMp.Show();
+                this.Hide();
+            }
         }
     }
 }

@@ -35,6 +35,7 @@
             this.cmdReset = new System.Windows.Forms.Button();
             this.cmdAnnuler = new System.Windows.Forms.Button();
             this.cmdConnexion = new System.Windows.Forms.Button();
+            this.cmdMdPPerdu = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblLogin
@@ -100,11 +101,22 @@
             this.cmdConnexion.UseVisualStyleBackColor = true;
             this.cmdConnexion.Click += new System.EventHandler(this.cmdConnexion_Click);
             // 
+            // cmdMdPPerdu
+            // 
+            this.cmdMdPPerdu.Location = new System.Drawing.Point(174, 94);
+            this.cmdMdPPerdu.Name = "cmdMdPPerdu";
+            this.cmdMdPPerdu.Size = new System.Drawing.Size(162, 23);
+            this.cmdMdPPerdu.TabIndex = 7;
+            this.cmdMdPPerdu.Text = "mot de passe perdu";
+            this.cmdMdPPerdu.UseVisualStyleBackColor = true;
+            this.cmdMdPPerdu.Click += new System.EventHandler(this.cmdMdPPerdu_Click);
+            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(391, 158);
+            this.Controls.Add(this.cmdMdPPerdu);
             this.Controls.Add(this.cmdConnexion);
             this.Controls.Add(this.cmdAnnuler);
             this.Controls.Add(this.cmdReset);
@@ -118,6 +130,7 @@
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Connextion au serveur";
+            this.Load += new System.EventHandler(this.frmLogin_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -132,5 +145,6 @@
         private System.Windows.Forms.Button cmdReset;
         private System.Windows.Forms.Button cmdAnnuler;
         private System.Windows.Forms.Button cmdConnexion;
+        private System.Windows.Forms.Button cmdMdPPerdu;
     }
 }
