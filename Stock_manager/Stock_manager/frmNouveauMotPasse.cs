@@ -12,6 +12,17 @@ namespace Stock_manager
 {
     public partial class frmNouveauMotPasse : Form
     {
+
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams parms = base.CreateParams;
+                parms.ClassStyle |= 0x200;
+                return parms;
+            }
+        }
+
         Cryptage cry;
         public frmNouveauMotPasse()
         {
@@ -63,10 +74,16 @@ namespace Stock_manager
 
         private void frmNouveauMotPasse_Load(object sender, EventArgs e)
         {
-            string message = "aucun mot de passe définit";
-            string caption = "information";
-            MessageBoxButtons bouton = MessageBoxButtons.OK;
-            MessageBox.Show(message, caption, bouton, MessageBoxIcon.Information);
+            if (cry.TestFichier()==false)
+            {
+                string message = "aucun mot de passe définit";
+                string caption = "information";
+                MessageBoxButtons bouton = MessageBoxButtons.OK;
+                MessageBox.Show(message, caption, bouton, MessageBoxIcon.Information);
+            }
+            
         }
+
+        
     }
 }

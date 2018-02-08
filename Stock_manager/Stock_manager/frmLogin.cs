@@ -20,6 +20,16 @@ namespace Stock_manager
             
         }
 
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams parms = base.CreateParams;
+                parms.ClassStyle |= 0x200;
+                return parms;
+            }
+        }
+
         private void cmdConnexion_Click(object sender, EventArgs e)
         {
             if (txtLogin.Text == "")
@@ -53,7 +63,7 @@ namespace Stock_manager
 
         private void cmdAnnuler_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
 
         private void cmdReset_Click(object sender, EventArgs e)
@@ -64,7 +74,9 @@ namespace Stock_manager
 
         private void cmdMdPPerdu_Click(object sender, EventArgs e)
         {
-
+            Form frmMp = new frmNouveauMotPasse();
+            frmMp.Show();
+            this.Hide();
         }
 
         private void frmLogin_Load(object sender, EventArgs e)
@@ -72,7 +84,7 @@ namespace Stock_manager
             if (cry.TestFichier()==false)
             {
                 Form frmMp = new frmNouveauMotPasse();
-                frmMp.Show();
+                frmMp.ShowDialog();
                 this.Hide();
             }
         }

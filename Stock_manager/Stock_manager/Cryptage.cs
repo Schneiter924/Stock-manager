@@ -22,6 +22,7 @@ namespace Stock_manager
         public Cryptage(string chemin)
         {
             this.chemin = chemin;
+            md5Hash = MD5.Create();
         }
 
         /// <summary>
@@ -30,11 +31,13 @@ namespace Stock_manager
         /// <param name="pwd"></param>
         public void CrypterPassword(string pwd)
         {
-            md5Hash = MD5.Create();
+           
             string hash = GetMd5Hash(pwd);
 
             File.WriteAllText(chemin, hash);
-            
+            File.SetAttributes(chemin, FileAttributes.Hidden);
+
+
         }
 
         /// <summary>

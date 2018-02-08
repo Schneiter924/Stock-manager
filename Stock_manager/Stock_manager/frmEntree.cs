@@ -12,6 +12,16 @@ namespace Stock_manager
 {
     public partial class frmEntree : Form
     {
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams parms = base.CreateParams;
+                parms.ClassStyle |= 0x200;
+                return parms;
+            }
+        }
+
         public frmEntree()
         {
             InitializeComponent();

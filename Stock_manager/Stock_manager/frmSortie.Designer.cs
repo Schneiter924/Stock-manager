@@ -46,6 +46,7 @@
             this.cmdAjout.TabIndex = 15;
             this.cmdAjout.Text = "Ajouter";
             this.cmdAjout.UseVisualStyleBackColor = true;
+            this.cmdAjout.Click += new System.EventHandler(this.cmdAjout_Click);
             // 
             // cmdRetour
             // 
@@ -59,7 +60,6 @@
             // 
             // txtLoueur
             // 
-            this.txtLoueur.Enabled = false;
             this.txtLoueur.Location = new System.Drawing.Point(161, 104);
             this.txtLoueur.Name = "txtLoueur";
             this.txtLoueur.Size = new System.Drawing.Size(115, 20);
@@ -67,7 +67,6 @@
             // 
             // txtDuree
             // 
-            this.txtDuree.Enabled = false;
             this.txtDuree.Location = new System.Drawing.Point(161, 69);
             this.txtDuree.Name = "txtDuree";
             this.txtDuree.Size = new System.Drawing.Size(115, 20);
@@ -83,7 +82,6 @@
             // lblLoueur
             // 
             this.lblLoueur.AutoSize = true;
-            this.lblLoueur.Enabled = false;
             this.lblLoueur.Location = new System.Drawing.Point(18, 107);
             this.lblLoueur.Name = "lblLoueur";
             this.lblLoueur.Size = new System.Drawing.Size(76, 13);
@@ -94,7 +92,6 @@
             // lblDuree
             // 
             this.lblDuree.AutoSize = true;
-            this.lblDuree.Enabled = false;
             this.lblDuree.Location = new System.Drawing.Point(18, 72);
             this.lblDuree.Name = "lblDuree";
             this.lblDuree.Size = new System.Drawing.Size(102, 13);
