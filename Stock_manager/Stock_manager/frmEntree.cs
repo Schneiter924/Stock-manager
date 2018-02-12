@@ -38,5 +38,11 @@ namespace Stock_manager
         {
 
         }
+
+        private void txtNumero_Validated(object sender, EventArgs e)
+        {
+            Connection_mySQL smsql = new Connection_mySQL();
+            smsql.TestIDProduit(1);
+        }
     }
 }

@@ -55,7 +55,6 @@
             this.lblNom.Size = new System.Drawing.Size(84, 13);
             this.lblNom.TabIndex = 1;
             this.lblNom.Text = "Nom de la pièce";
-            this.lblNom.Visible = false;
             // 
             // lblDescription
             // 
@@ -66,7 +65,6 @@
             this.lblDescription.TabIndex = 2;
             this.lblDescription.Text = "Description de la pièce";
             this.lblDescription.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.lblDescription.Visible = false;
             // 
             // txtNumero
             // 
@@ -74,6 +72,7 @@
             this.txtNumero.Name = "txtNumero";
             this.txtNumero.Size = new System.Drawing.Size(115, 20);
             this.txtNumero.TabIndex = 3;
+            this.txtNumero.Validated += new System.EventHandler(this.txtNumero_Validated);
             // 
             // txtNom
             // 
@@ -81,7 +80,6 @@
             this.txtNom.Name = "txtNom";
             this.txtNom.Size = new System.Drawing.Size(115, 20);
             this.txtNom.TabIndex = 4;
-            this.txtNom.Visible = false;
             // 
             // txtDescription
             // 
@@ -89,8 +87,7 @@
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(115, 20);
             this.txtDescription.TabIndex = 5;
-            this.txtDescription.Visible = false;
-            // 
+           // 
             // cmdRetour
             // 
             this.cmdRetour.Location = new System.Drawing.Point(112, 161);

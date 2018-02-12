@@ -117,6 +117,9 @@
     <Compile Include="frmSortie.Designer.cs">
       <DependentUpon>frmSortie.cs</DependentUpon>
     </Compile>
+    <Compile Include="Location.cs" />
+    <Compile Include="Loueur.cs" />
+    <Compile Include="Produit.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmEntree.resx">

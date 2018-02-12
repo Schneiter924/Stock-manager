@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace Stock_manager
 {
-    class Connection_mySQL
+    public class Connection_mySQL
     {
         private MySqlConnection connection;
         private string server;
@@ -26,7 +26,7 @@ namespace Stock_manager
         private void Initialize()
         {
             server = "localhost";
-            database = "eleves";
+            database = "Stock_manager";
             uid = "root";
             password = "";
             string connectionString;
@@ -79,12 +79,30 @@ namespace Stock_manager
             }
         }
 
-        //Insert statement
-        public void Insert()
+        
+        /// <summary>
+        /// fonction qui test si le produit existe ou pas
+        /// </summary>
+        /// <param name="idProduit"></param>
+        /// <returns></returns>
+        public object TestIDProduit(int idProduit)
         {
+            connection.Open();
+
+            MySqlCommand cmd = this.connection.CreateCommand();
+
+            cmd.CommandText = "Select * from produit where idProduit =(@idProduit)";
+
+            cmd.Parameters.AddWithValue("@idProduit", idProduit);
+
+            object resultat = cmd.ExecuteScalar();
+
+            connection.Close();
+
+            return resultat;
         }
 
-        //Update statement
+        
         public void Update()
         {
         }
