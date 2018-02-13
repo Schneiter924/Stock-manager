@@ -42,7 +42,30 @@ namespace Stock_manager
         private void txtNumero_Validated(object sender, EventArgs e)
         {
             Connection_mySQL smsql = new Connection_mySQL();
-            smsql.TestIDProduit(1);
+            try
+            {
+                int ID = Int32.Parse(txtNumero.Text);
+                if (smsql.TestIDProduit(ID) != null)
+                {
+                    Produit produit = smsql.RetourtProduit(ID);
+                    txtNom.Text = produit.NomProduit;
+                    txtDescription.Text = produit.Description;
+                }
+                else
+                {
+                    txtNom.Text = "";
+                    txtDescription.Text = "";
+                }
+                
+            }
+            catch (FormatException ex)
+            {
+                string message = ex.Message;
+                string caption = "Erreur";
+                MessageBoxButtons bouton = MessageBoxButtons.OK;
+                MessageBox.Show(message, caption, bouton, MessageBoxIcon.Error);
+            }
+            
         }
     }
 }

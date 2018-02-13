@@ -91,7 +91,7 @@ namespace Stock_manager
 
             MySqlCommand cmd = this.connection.CreateCommand();
 
-            cmd.CommandText = "Select * from produit where idProduit =(@idProduit)";
+            cmd.CommandText = "Select idProduit, Nom, Description from produit where idProduit =(@idProduit)";
 
             cmd.Parameters.AddWithValue("@idProduit", idProduit);
 
@@ -102,7 +102,27 @@ namespace Stock_manager
             return resultat;
         }
 
-        
+        public Produit RetourtProduit(int idProduit)
+        {
+            connection.Open();
+
+            MySqlCommand cmd = this.connection.CreateCommand();
+
+            cmd.CommandText = "Select Nom, Description from produit where idProduit =(@idProduit)";
+
+            cmd.Parameters.AddWithValue("@idProduit", idProduit);
+
+            MySqlDataReader p = cmd.ExecuteReader();
+            Produit produit = new Produit();
+            while (p.Read())
+            {
+                produit.NomProduit = Convert.ToString(p[0]);
+                produit.Description = Convert.ToString(p[1]);
+            }
+            connection.Close();
+
+            return produit;
+        }
         public void Update()
         {
         }

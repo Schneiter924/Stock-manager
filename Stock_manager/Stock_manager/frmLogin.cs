@@ -12,11 +12,13 @@ namespace Stock_manager
 {
     public partial class frmLogin : Form
     {
-        Cryptage cry;
+        Cryptage cryPassword;
+        Cryptage cryLogin;
         public frmLogin()
         {
             InitializeComponent();
-            cry = new Cryptage(AppDomain.CurrentDomain.BaseDirectory + "pwd.txt");
+            cryPassword = new Cryptage(AppDomain.CurrentDomain.BaseDirectory + "pwd.txt");
+            cryLogin = new Cryptage(AppDomain.CurrentDomain.BaseDirectory + "login.txt");
             
         }
 
@@ -46,14 +48,14 @@ namespace Stock_manager
                 MessageBoxButtons bouton = MessageBoxButtons.OK;
                 MessageBox.Show(message, caption, bouton, MessageBoxIcon.Error);
             }
-            else if (txtLogin.Text != "vendeur")
+            else if (cryLogin.TestLogin(txtLogin.Text)== false)
             {
                 string message = "Nom d'utilisateur inconnu";
                 string caption = "Erreur";
                 MessageBoxButtons bouton = MessageBoxButtons.OK;
                 MessageBox.Show(message, caption, bouton, MessageBoxIcon.Error);
             }
-            else if (cry.TestPassword(txtPassword.Text) ==  true)
+            else if (cryPassword.TestPassword(txtPassword.Text) ==  true)
             {
                 Form frmMenu = new frmMain();
                 frmMenu.Show();
@@ -72,16 +74,17 @@ namespace Stock_manager
             txtPassword.Text = "";
         }
 
-        private void cmdMdPPerdu_Click(object sender, EventArgs e)
-        {
-            Form frmMp = new frmNouveauMotPasse();
-            frmMp.Show();
-            this.Hide();
-        }
+       
 
         private void frmLogin_Load(object sender, EventArgs e)
         {
-            if (cry.TestFichier()==false)
+            if (cryLogin.TestFichier()==false)
+            {
+                Form frmLo = new frmNouveauLogin();
+                frmLo.ShowDialog();
+                
+            }
+            if (cryPassword.TestFichier()==false)
             {
                 Form frmMp = new frmNouveauMotPasse();
                 frmMp.ShowDialog();

@@ -31,8 +31,20 @@ namespace Stock_manager
         /// <param name="pwd"></param>
         public void CrypterPassword(string pwd)
         {
-           
-            string hash = GetMd5Hash(pwd);
+           string hash = GetMd5Hash(pwd);
+
+            File.WriteAllText(chemin, hash);
+            File.SetAttributes(chemin, FileAttributes.Hidden);
+            
+        }
+
+        /// <summary>
+        /// fonction qui crypte le login
+        /// </summary>
+        /// <param name="login"></param>
+        public void CrypterLogin(string login)
+        {
+            string hash = GetMd5Hash(login);
 
             File.WriteAllText(chemin, hash);
             File.SetAttributes(chemin, FileAttributes.Hidden);
@@ -47,10 +59,30 @@ namespace Stock_manager
         /// <returns>même mot de passe = true</returns>
         public Boolean TestPassword(string pwd)
         {
-            string hashOfInput = GetMd5Hash(pwd);
+            string hashEntre = GetMd5Hash(pwd);
             string hashLect = LectureFichier();
             StringComparer comparer = StringComparer.OrdinalIgnoreCase;
-            if (0 == comparer.Compare(hashOfInput, hashLect))
+            if (0 == comparer.Compare(hashEntre, hashLect))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// fonction qui test le login avec le hash du fichier
+        /// </summary>
+        /// <param name="login"></param>
+        /// <returns></returns>
+        public Boolean TestLogin(string login)
+        {
+            string hashEntre = GetMd5Hash(login);
+            string hashLect = LectureFichier();
+            StringComparer comparer = StringComparer.OrdinalIgnoreCase;
+            if (0 == comparer.Compare(hashEntre, hashLect))
             {
                 return true;
             }

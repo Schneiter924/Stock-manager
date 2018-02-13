@@ -36,24 +36,6 @@ namespace Stock_manager
             txtPassword2.Text = "";
         }
 
-        private void cmdAnnuler_Click(object sender, EventArgs e)
-        {
-            if (cry.TestFichier() == true)
-            {
-                Form frmLog = new frmLogin();
-                frmLog.Show();
-                this.Dispose();
-            }
-            else
-            {
-                string message = "aucun mot de passe définit";
-                string caption = "Erreur";
-                MessageBoxButtons bouton = MessageBoxButtons.OK;
-                MessageBox.Show(message, caption, bouton, MessageBoxIcon.Error);
-            }
-            
-        }
-
         private void cmdOK_Click(object sender, EventArgs e)
         {
             if (txtPassword.Text==txtPassword2.Text)
@@ -84,6 +66,24 @@ namespace Stock_manager
             
         }
 
-        
+        private void txtPassword2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPassword_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblPassword2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblPassword_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

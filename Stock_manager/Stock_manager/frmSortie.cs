@@ -36,5 +36,12 @@ namespace Stock_manager
         {
 
         }
+
+        private void frmSortie_Load(object sender, EventArgs e)
+        {
+            DateTime Aujourdhui = DateTime.Today;
+            DateTime trenteJours = Aujourdhui.AddDays(30);
+            txtDateRetour.Text = trenteJours.ToString("dd-MM-yyyy");
+        }
     }
 }

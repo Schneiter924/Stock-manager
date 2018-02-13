@@ -36,11 +36,13 @@
             this.lblLoueur = new System.Windows.Forms.Label();
             this.lblDuree = new System.Windows.Forms.Label();
             this.lblNumero = new System.Windows.Forms.Label();
+            this.txtDateRetour = new System.Windows.Forms.TextBox();
+            this.lblDateRetour = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // cmdAjout
             // 
-            this.cmdAjout.Location = new System.Drawing.Point(197, 158);
+            this.cmdAjout.Location = new System.Drawing.Point(197, 183);
             this.cmdAjout.Name = "cmdAjout";
             this.cmdAjout.Size = new System.Drawing.Size(75, 23);
             this.cmdAjout.TabIndex = 15;
@@ -50,7 +52,7 @@
             // 
             // cmdRetour
             // 
-            this.cmdRetour.Location = new System.Drawing.Point(116, 158);
+            this.cmdRetour.Location = new System.Drawing.Point(116, 183);
             this.cmdRetour.Name = "cmdRetour";
             this.cmdRetour.Size = new System.Drawing.Size(75, 23);
             this.cmdRetour.TabIndex = 14;
@@ -60,7 +62,7 @@
             // 
             // txtLoueur
             // 
-            this.txtLoueur.Location = new System.Drawing.Point(161, 104);
+            this.txtLoueur.Location = new System.Drawing.Point(161, 142);
             this.txtLoueur.Name = "txtLoueur";
             this.txtLoueur.Size = new System.Drawing.Size(115, 20);
             this.txtLoueur.TabIndex = 13;
@@ -69,6 +71,7 @@
             // 
             this.txtDuree.Location = new System.Drawing.Point(161, 69);
             this.txtDuree.Name = "txtDuree";
+            this.txtDuree.ReadOnly = true;
             this.txtDuree.Size = new System.Drawing.Size(115, 20);
             this.txtDuree.TabIndex = 12;
             // 
@@ -82,7 +85,7 @@
             // lblLoueur
             // 
             this.lblLoueur.AutoSize = true;
-            this.lblLoueur.Location = new System.Drawing.Point(18, 107);
+            this.lblLoueur.Location = new System.Drawing.Point(18, 145);
             this.lblLoueur.Name = "lblLoueur";
             this.lblLoueur.Size = new System.Drawing.Size(76, 13);
             this.lblLoueur.TabIndex = 10;
@@ -107,11 +110,30 @@
             this.lblNumero.TabIndex = 8;
             this.lblNumero.Text = "Numéro de la pièce";
             // 
+            // txtDateRetour
+            // 
+            this.txtDateRetour.Location = new System.Drawing.Point(161, 106);
+            this.txtDateRetour.Name = "txtDateRetour";
+            this.txtDateRetour.ReadOnly = true;
+            this.txtDateRetour.Size = new System.Drawing.Size(115, 20);
+            this.txtDateRetour.TabIndex = 17;
+            // 
+            // lblDateRetour
+            // 
+            this.lblDateRetour.AutoSize = true;
+            this.lblDateRetour.Location = new System.Drawing.Point(18, 109);
+            this.lblDateRetour.Name = "lblDateRetour";
+            this.lblDateRetour.Size = new System.Drawing.Size(75, 13);
+            this.lblDateRetour.TabIndex = 16;
+            this.lblDateRetour.Text = "Date de retour";
+            // 
             // frmSortie
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 196);
+            this.ClientSize = new System.Drawing.Size(284, 228);
+            this.Controls.Add(this.txtDateRetour);
+            this.Controls.Add(this.lblDateRetour);
             this.Controls.Add(this.cmdAjout);
             this.Controls.Add(this.cmdRetour);
             this.Controls.Add(this.txtLoueur);
@@ -126,6 +148,7 @@
             this.Name = "frmSortie";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmSortie";
+            this.Load += new System.EventHandler(this.frmSortie_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -141,5 +164,7 @@
         private System.Windows.Forms.Label lblLoueur;
         private System.Windows.Forms.Label lblDuree;
         private System.Windows.Forms.Label lblNumero;
+        private System.Windows.Forms.TextBox txtDateRetour;
+        private System.Windows.Forms.Label lblDateRetour;
     }
 }

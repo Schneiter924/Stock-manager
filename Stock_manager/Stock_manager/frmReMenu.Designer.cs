@@ -28,21 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.cmdQuitter = new System.Windows.Forms.Button();
+            this.cmdRetour = new System.Windows.Forms.Button();
             this.cmdHors = new System.Windows.Forms.Button();
             this.cmdHistorique = new System.Windows.Forms.Button();
             this.cmdMot = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // cmdQuitter
+            // cmdRetour
             // 
-            this.cmdQuitter.Location = new System.Drawing.Point(12, 99);
-            this.cmdQuitter.Name = "cmdQuitter";
-            this.cmdQuitter.Size = new System.Drawing.Size(137, 23);
-            this.cmdQuitter.TabIndex = 8;
-            this.cmdQuitter.Text = "Quitter";
-            this.cmdQuitter.UseVisualStyleBackColor = true;
-            this.cmdQuitter.Click += new System.EventHandler(this.cmdQuitter_Click);
+            this.cmdRetour.Location = new System.Drawing.Point(12, 99);
+            this.cmdRetour.Name = "cmdRetour";
+            this.cmdRetour.Size = new System.Drawing.Size(137, 23);
+            this.cmdRetour.TabIndex = 8;
+            this.cmdRetour.Text = "Retour";
+            this.cmdRetour.UseVisualStyleBackColor = true;
+            this.cmdRetour.Click += new System.EventHandler(this.cmdQuitter_Click);
             // 
             // cmdHors
             // 
@@ -79,7 +79,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(232, 148);
-            this.Controls.Add(this.cmdQuitter);
+            this.Controls.Add(this.cmdRetour);
             this.Controls.Add(this.cmdHors);
             this.Controls.Add(this.cmdHistorique);
             this.Controls.Add(this.cmdMot);
@@ -96,7 +96,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button cmdQuitter;
+        private System.Windows.Forms.Button cmdRetour;
         private System.Windows.Forms.Button cmdHors;
         private System.Windows.Forms.Button cmdHistorique;
         private System.Windows.Forms.Button cmdMot;

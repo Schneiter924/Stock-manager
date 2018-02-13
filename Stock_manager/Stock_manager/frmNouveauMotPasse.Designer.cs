@@ -33,7 +33,6 @@
             this.lblPassword2 = new System.Windows.Forms.Label();
             this.lblPassword = new System.Windows.Forms.Label();
             this.cmdOK = new System.Windows.Forms.Button();
-            this.cmdAnnuler = new System.Windows.Forms.Button();
             this.cmdReset = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -44,6 +43,7 @@
             this.txtPassword2.PasswordChar = '*';
             this.txtPassword2.Size = new System.Drawing.Size(182, 20);
             this.txtPassword2.TabIndex = 7;
+            this.txtPassword2.TextChanged += new System.EventHandler(this.txtPassword2_TextChanged);
             // 
             // txtPassword
             // 
@@ -52,6 +52,7 @@
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(182, 20);
             this.txtPassword.TabIndex = 6;
+            this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
             // 
             // lblPassword2
             // 
@@ -61,6 +62,7 @@
             this.lblPassword2.Size = new System.Drawing.Size(122, 13);
             this.lblPassword2.TabIndex = 5;
             this.lblPassword2.Text = "Rentrée le mot de passe";
+            this.lblPassword2.Click += new System.EventHandler(this.lblPassword2_Click);
             // 
             // lblPassword
             // 
@@ -70,6 +72,7 @@
             this.lblPassword.Size = new System.Drawing.Size(71, 13);
             this.lblPassword.TabIndex = 4;
             this.lblPassword.Text = "Mot de passe";
+            this.lblPassword.Click += new System.EventHandler(this.lblPassword_Click);
             // 
             // cmdOK
             // 
@@ -80,16 +83,6 @@
             this.cmdOK.Text = "OK";
             this.cmdOK.UseVisualStyleBackColor = true;
             this.cmdOK.Click += new System.EventHandler(this.cmdOK_Click);
-            // 
-            // cmdAnnuler
-            // 
-            this.cmdAnnuler.Location = new System.Drawing.Point(208, 108);
-            this.cmdAnnuler.Name = "cmdAnnuler";
-            this.cmdAnnuler.Size = new System.Drawing.Size(75, 23);
-            this.cmdAnnuler.TabIndex = 9;
-            this.cmdAnnuler.Text = "Annuler";
-            this.cmdAnnuler.UseVisualStyleBackColor = true;
-            this.cmdAnnuler.Click += new System.EventHandler(this.cmdAnnuler_Click);
             // 
             // cmdReset
             // 
@@ -107,7 +100,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(392, 143);
             this.Controls.Add(this.cmdOK);
-            this.Controls.Add(this.cmdAnnuler);
             this.Controls.Add(this.cmdReset);
             this.Controls.Add(this.txtPassword2);
             this.Controls.Add(this.txtPassword);
@@ -131,7 +123,6 @@
         private System.Windows.Forms.Label lblPassword2;
         private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.Button cmdOK;
-        private System.Windows.Forms.Button cmdAnnuler;
         private System.Windows.Forms.Button cmdReset;
     }
 }

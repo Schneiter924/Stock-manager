@@ -33,7 +33,7 @@
             this.txtLogin = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.cmdReset = new System.Windows.Forms.Button();
-            this.cmdAnnuler = new System.Windows.Forms.Button();
+            this.cmdQuitter = new System.Windows.Forms.Button();
             this.cmdConnexion = new System.Windows.Forms.Button();
             this.cmdMdPPerdu = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -81,15 +81,15 @@
             this.cmdReset.UseVisualStyleBackColor = true;
             this.cmdReset.Click += new System.EventHandler(this.cmdReset_Click);
             // 
-            // cmdAnnuler
+            // cmdQuitter
             // 
-            this.cmdAnnuler.Location = new System.Drawing.Point(215, 123);
-            this.cmdAnnuler.Name = "cmdAnnuler";
-            this.cmdAnnuler.Size = new System.Drawing.Size(75, 23);
-            this.cmdAnnuler.TabIndex = 5;
-            this.cmdAnnuler.Text = "Annuler";
-            this.cmdAnnuler.UseVisualStyleBackColor = true;
-            this.cmdAnnuler.Click += new System.EventHandler(this.cmdAnnuler_Click);
+            this.cmdQuitter.Location = new System.Drawing.Point(215, 123);
+            this.cmdQuitter.Name = "cmdQuitter";
+            this.cmdQuitter.Size = new System.Drawing.Size(75, 23);
+            this.cmdQuitter.TabIndex = 5;
+            this.cmdQuitter.Text = "Quitter";
+            this.cmdQuitter.UseVisualStyleBackColor = true;
+            this.cmdQuitter.Click += new System.EventHandler(this.cmdAnnuler_Click);
             // 
             // cmdConnexion
             // 
@@ -103,22 +103,18 @@
             // 
             // cmdMdPPerdu
             // 
-            this.cmdMdPPerdu.Location = new System.Drawing.Point(174, 94);
+            this.cmdMdPPerdu.Location = new System.Drawing.Point(0, 0);
             this.cmdMdPPerdu.Name = "cmdMdPPerdu";
-            this.cmdMdPPerdu.Size = new System.Drawing.Size(162, 23);
-            this.cmdMdPPerdu.TabIndex = 7;
-            this.cmdMdPPerdu.Text = "mot de passe perdu";
-            this.cmdMdPPerdu.UseVisualStyleBackColor = true;
-            this.cmdMdPPerdu.Click += new System.EventHandler(this.cmdMdPPerdu_Click);
+            this.cmdMdPPerdu.Size = new System.Drawing.Size(75, 23);
+            this.cmdMdPPerdu.TabIndex = 0;
             // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(391, 158);
-            this.Controls.Add(this.cmdMdPPerdu);
             this.Controls.Add(this.cmdConnexion);
-            this.Controls.Add(this.cmdAnnuler);
+            this.Controls.Add(this.cmdQuitter);
             this.Controls.Add(this.cmdReset);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtLogin);
@@ -129,7 +125,7 @@
             this.MinimizeBox = false;
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Connextion au serveur";
+            this.Text = "Connexion à l\'application";
             this.Load += new System.EventHandler(this.frmLogin_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -143,7 +139,7 @@
         private System.Windows.Forms.TextBox txtLogin;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Button cmdReset;
-        private System.Windows.Forms.Button cmdAnnuler;
+        private System.Windows.Forms.Button cmdQuitter;
         private System.Windows.Forms.Button cmdConnexion;
         private System.Windows.Forms.Button cmdMdPPerdu;
     }
