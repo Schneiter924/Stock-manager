@@ -110,7 +110,6 @@
             this.Name = "frmNouveauMotPasse";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nouveau mot de passe";
-            this.Load += new System.EventHandler(this.frmNouveauMotPasse_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

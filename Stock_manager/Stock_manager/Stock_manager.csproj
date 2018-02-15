@@ -33,17 +33,22 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MySql.Data">
-      <HintPath>..\MySql.Data.dll</HintPath>
+    <Reference Include="BCrypt.Net, Version=0.1.5073.29922, Culture=neutral, PublicKeyToken=6bcd409ee6bc9292, processorArchitecture=MSIL">
+      <HintPath>..\packages\BCrypt-Official.0.1.109\lib\BCrypt.Net.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="MySql.Data.Entity">
-      <HintPath>..\MySql.Data.Entity.dll</HintPath>
-    </Reference>
-    <Reference Include="MySql.Web">
-      <HintPath>..\MySql.Web.dll</HintPath>
+    <Reference Include="MySql.Data, Version=6.9.11.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.6.9.11\lib\net45\MySql.Data.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -117,6 +122,12 @@
     <Compile Include="frmReMot.Designer.cs">
       <DependentUpon>frmReMot.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmRetourPiece.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRetourPiece.Designer.cs">
+      <DependentUpon>frmRetourPiece.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmSortie.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -158,6 +169,9 @@
     <EmbeddedResource Include="frmReMot.resx">
       <DependentUpon>frmReMot.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmRetourPiece.resx">
+      <DependentUpon>frmRetourPiece.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmSortie.resx">
       <DependentUpon>frmSortie.cs</DependentUpon>
     </EmbeddedResource>
@@ -170,6 +184,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -182,6 +197,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="LICENSE.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

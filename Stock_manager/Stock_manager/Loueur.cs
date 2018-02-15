@@ -8,26 +8,8 @@ namespace Stock_manager
 {
     public class Loueur
     {
-        private string nom;
+        private string nomLoueur;
         private int idLoueur;
-
-        public Loueur(string nom)
-        {
-            this.nom = nom;
-        }
-
-        public string Nom
-        {
-            get
-            {
-                return nom;
-            }
-
-            set
-            {
-                nom = value;
-            }
-        }
 
         public int IdLoueur
         {
@@ -40,6 +22,24 @@ namespace Stock_manager
             {
                 idLoueur = value;
             }
+        }
+
+        public string NomLoueur
+        {
+            get
+            {
+                return nomLoueur;
+            }
+
+            set
+            {
+                nomLoueur = value;
+            }
+        }
+
+        public string Description()
+        {
+            return nomLoueur;
         }
     }
 }

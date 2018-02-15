@@ -16,6 +16,9 @@ namespace Stock_manager
         {
             InitializeComponent();
         }
+
+        Connection_mySQL smsql = new Connection_mySQL();
+
         protected override CreateParams CreateParams
         {
             get
@@ -42,6 +45,23 @@ namespace Stock_manager
             DateTime Aujourdhui = DateTime.Today;
             DateTime trenteJours = Aujourdhui.AddDays(30);
             txtDateRetour.Text = trenteJours.ToString("dd-MM-yyyy");
+            List<Loueur> lstLoueur = smsql.chargeLoueur();
+            foreach (Loueur loueur in lstLoueur)
+            {
+                cboLoueur.Items.Add(loueur.Description());
+            }
+        }
+
+        private void cboLoueur_Validated(object sender, EventArgs e)
+        {
+            /*if (cboLoueur.Text != "")
+            {
+                if (smsql.TestNomLoueur(cboLoueur.Text) == null)
+                {
+                    smsql.AjoutLoueur(cboLoueur.Text);
+                }
+                
+            }*/
         }
     }
 }

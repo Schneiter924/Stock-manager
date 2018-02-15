@@ -26,12 +26,12 @@ namespace Stock_manager
         }
 
         /// <summary>
-        /// fonction qui crypte le mot de passe
+        /// fonction qui crypte le mot de passe en BCrypt et ajout le hash au fichier
         /// </summary>
         /// <param name="pwd"></param>
         public void CrypterPassword(string pwd)
         {
-           string hash = GetMd5Hash(pwd);
+           string hash = BCrypt.Net.BCrypt.HashPassword(pwd);
 
             File.WriteAllText(chemin, hash);
             File.SetAttributes(chemin, FileAttributes.Hidden);
@@ -39,12 +39,12 @@ namespace Stock_manager
         }
 
         /// <summary>
-        /// fonction qui crypte le login
+        /// fonction qui crypte le login en BCrypt et ajout le hash au fichier
         /// </summary>
         /// <param name="login"></param>
         public void CrypterLogin(string login)
         {
-            string hash = GetMd5Hash(login);
+            string hash = BCrypt.Net.BCrypt.HashString(login);
 
             File.WriteAllText(chemin, hash);
             File.SetAttributes(chemin, FileAttributes.Hidden);
@@ -59,17 +59,8 @@ namespace Stock_manager
         /// <returns>même mot de passe = true</returns>
         public Boolean TestPassword(string pwd)
         {
-            string hashEntre = GetMd5Hash(pwd);
             string hashLect = LectureFichier();
-            StringComparer comparer = StringComparer.OrdinalIgnoreCase;
-            if (0 == comparer.Compare(hashEntre, hashLect))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return BCrypt.Net.BCrypt.Verify(pwd, hashLect);
         }
 
         /// <summary>
@@ -79,17 +70,10 @@ namespace Stock_manager
         /// <returns></returns>
         public Boolean TestLogin(string login)
         {
-            string hashEntre = GetMd5Hash(login);
+            
             string hashLect = LectureFichier();
-            StringComparer comparer = StringComparer.OrdinalIgnoreCase;
-            if (0 == comparer.Compare(hashEntre, hashLect))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return BCrypt.Net.BCrypt.Verify(login, hashLect);
+            
         }
 
         /// <summary>
@@ -110,25 +94,6 @@ namespace Stock_manager
             return File.Exists(chemin);
         }
 
-        private string GetMd5Hash( string input)
-        {
-
-            // Convert the input string to a byte array and compute the hash.
-            byte[] data = md5Hash.ComputeHash(Encoding.UTF8.GetBytes(input));
-
-            // Create a new Stringbuilder to collect the bytes
-            // and create a string.
-            StringBuilder sBuilder = new StringBuilder();
-
-            // Loop through each byte of the hashed data 
-            // and format each one as a hexadecimal string.
-            for (int i = 0; i < data.Length; i++)
-            {
-                sBuilder.Append(data[i].ToString("x2"));
-            }
-
-            // Return the hexadecimal string.
-            return sBuilder.ToString();
-        }
+        
     }
 }

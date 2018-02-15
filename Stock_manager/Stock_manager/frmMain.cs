@@ -26,11 +26,10 @@ namespace Stock_manager
                 return parms;
             }
         }
+
         private void cmdQuitter_Click(object sender, EventArgs e)
         {
-            Form frmLog = new frmLogin();
-            frmLog.Show();
-            this.Dispose();
+            Application.Exit();
         }
 
         private void cmdInventaire_Click(object sender, EventArgs e)
@@ -40,12 +39,7 @@ namespace Stock_manager
             this.Dispose();
         }
 
-        private void cmdEntree_Click(object sender, EventArgs e)
-        {
-            Form frmEnt = new frmEntree();
-            frmEnt.Show();
-            this.Dispose();
-        }
+       
 
         private void cmdSortie_Click(object sender, EventArgs e)
         {
@@ -59,6 +53,20 @@ namespace Stock_manager
             Form frmRec = new frmReMenu();
             frmRec.Show();
             this.Dispose();
+        }
+
+        private void cmdNouvellePiece_Click(object sender, EventArgs e)
+        {
+            Form frmNP = new frmEntree();
+            frmNP.Show();
+            this.Hide();
+        }
+
+        private void cmdRetourPièce_Click(object sender, EventArgs e)
+        {
+            Form frmRP = new frmRetourPiece();
+            frmRP.Show();
+            this.Hide();
         }
     }
 }

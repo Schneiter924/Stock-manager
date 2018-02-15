@@ -39,13 +39,11 @@ namespace Stock_manager
             if (txtLogin.Text == txtLogin2.Text)
             {
                 cry.CrypterLogin(txtLogin.Text);
-                Form frmLog = new frmLogin();
-                frmLog.Show();
                 this.Dispose();
             }
             else
             {
-                string message = "aucun login définit";
+                string message = "login different";
                 string caption = "Erreur";
                 MessageBoxButtons bouton = MessageBoxButtons.OK;
                 MessageBox.Show(message, caption, bouton, MessageBoxIcon.Error);

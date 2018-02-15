@@ -55,7 +55,14 @@ namespace Stock_manager
                 MessageBoxButtons bouton = MessageBoxButtons.OK;
                 MessageBox.Show(message, caption, bouton, MessageBoxIcon.Error);
             }
-            else if (cryPassword.TestPassword(txtPassword.Text) ==  true)
+            else if (cryPassword.TestPassword(txtPassword.Text) == false)
+            {
+                string message = "Mot de passe inconnu";
+                string caption = "Erreur";
+                MessageBoxButtons bouton = MessageBoxButtons.OK;
+                MessageBox.Show(message, caption, bouton, MessageBoxIcon.Error);
+            }
+            else if (cryPassword.TestPassword(txtPassword.Text))
             {
                 Form frmMenu = new frmMain();
                 frmMenu.Show();
@@ -88,7 +95,6 @@ namespace Stock_manager
             {
                 Form frmMp = new frmNouveauMotPasse();
                 frmMp.ShowDialog();
-                this.Hide();
             }
         }
     }

@@ -30,14 +30,14 @@
         {
             this.cmdAjout = new System.Windows.Forms.Button();
             this.cmdRetour = new System.Windows.Forms.Button();
-            this.txtLoueur = new System.Windows.Forms.TextBox();
             this.txtDuree = new System.Windows.Forms.TextBox();
-            this.txtNumero = new System.Windows.Forms.TextBox();
             this.lblLoueur = new System.Windows.Forms.Label();
             this.lblDuree = new System.Windows.Forms.Label();
             this.lblNumero = new System.Windows.Forms.Label();
             this.txtDateRetour = new System.Windows.Forms.TextBox();
             this.lblDateRetour = new System.Windows.Forms.Label();
+            this.cboPiece = new System.Windows.Forms.ComboBox();
+            this.cboLoueur = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // cmdAjout
@@ -45,7 +45,7 @@
             this.cmdAjout.Location = new System.Drawing.Point(197, 183);
             this.cmdAjout.Name = "cmdAjout";
             this.cmdAjout.Size = new System.Drawing.Size(75, 23);
-            this.cmdAjout.TabIndex = 15;
+            this.cmdAjout.TabIndex = 4;
             this.cmdAjout.Text = "Ajouter";
             this.cmdAjout.UseVisualStyleBackColor = true;
             this.cmdAjout.Click += new System.EventHandler(this.cmdAjout_Click);
@@ -55,17 +55,10 @@
             this.cmdRetour.Location = new System.Drawing.Point(116, 183);
             this.cmdRetour.Name = "cmdRetour";
             this.cmdRetour.Size = new System.Drawing.Size(75, 23);
-            this.cmdRetour.TabIndex = 14;
+            this.cmdRetour.TabIndex = 3;
             this.cmdRetour.Text = "Retour";
             this.cmdRetour.UseVisualStyleBackColor = true;
             this.cmdRetour.Click += new System.EventHandler(this.cmdRetour_Click);
-            // 
-            // txtLoueur
-            // 
-            this.txtLoueur.Location = new System.Drawing.Point(161, 142);
-            this.txtLoueur.Name = "txtLoueur";
-            this.txtLoueur.Size = new System.Drawing.Size(115, 20);
-            this.txtLoueur.TabIndex = 13;
             // 
             // txtDuree
             // 
@@ -74,13 +67,6 @@
             this.txtDuree.ReadOnly = true;
             this.txtDuree.Size = new System.Drawing.Size(115, 20);
             this.txtDuree.TabIndex = 12;
-            // 
-            // txtNumero
-            // 
-            this.txtNumero.Location = new System.Drawing.Point(161, 32);
-            this.txtNumero.Name = "txtNumero";
-            this.txtNumero.Size = new System.Drawing.Size(115, 20);
-            this.txtNumero.TabIndex = 11;
             // 
             // lblLoueur
             // 
@@ -127,18 +113,38 @@
             this.lblDateRetour.TabIndex = 16;
             this.lblDateRetour.Text = "Date de retour";
             // 
+            // cboPiece
+            // 
+            this.cboPiece.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboPiece.FormattingEnabled = true;
+            this.cboPiece.Location = new System.Drawing.Point(161, 32);
+            this.cboPiece.Name = "cboPiece";
+            this.cboPiece.Size = new System.Drawing.Size(115, 21);
+            this.cboPiece.TabIndex = 1;
+            // 
+            // cboLoueur
+            // 
+            this.cboLoueur.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cboLoueur.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cboLoueur.FormattingEnabled = true;
+            this.cboLoueur.Location = new System.Drawing.Point(161, 145);
+            this.cboLoueur.Name = "cboLoueur";
+            this.cboLoueur.Size = new System.Drawing.Size(115, 21);
+            this.cboLoueur.TabIndex = 2;
+            this.cboLoueur.Validated += new System.EventHandler(this.cboLoueur_Validated);
+            // 
             // frmSortie
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 228);
+            this.Controls.Add(this.cboLoueur);
+            this.Controls.Add(this.cboPiece);
             this.Controls.Add(this.txtDateRetour);
             this.Controls.Add(this.lblDateRetour);
             this.Controls.Add(this.cmdAjout);
             this.Controls.Add(this.cmdRetour);
-            this.Controls.Add(this.txtLoueur);
             this.Controls.Add(this.txtDuree);
-            this.Controls.Add(this.txtNumero);
             this.Controls.Add(this.lblLoueur);
             this.Controls.Add(this.lblDuree);
             this.Controls.Add(this.lblNumero);
@@ -147,7 +153,7 @@
             this.MinimizeBox = false;
             this.Name = "frmSortie";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmSortie";
+            this.Text = "Sortie du stock";
             this.Load += new System.EventHandler(this.frmSortie_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -158,13 +164,13 @@
 
         private System.Windows.Forms.Button cmdAjout;
         private System.Windows.Forms.Button cmdRetour;
-        private System.Windows.Forms.TextBox txtLoueur;
         private System.Windows.Forms.TextBox txtDuree;
-        private System.Windows.Forms.TextBox txtNumero;
         private System.Windows.Forms.Label lblLoueur;
         private System.Windows.Forms.Label lblDuree;
         private System.Windows.Forms.Label lblNumero;
         private System.Windows.Forms.TextBox txtDateRetour;
         private System.Windows.Forms.Label lblDateRetour;
+        private System.Windows.Forms.ComboBox cboPiece;
+        private System.Windows.Forms.ComboBox cboLoueur;
     }
 }

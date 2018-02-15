@@ -41,8 +41,6 @@ namespace Stock_manager
             if (txtPassword.Text==txtPassword2.Text)
             {
                 cry.CrypterPassword(txtPassword.Text);
-                Form frmLog = new frmLogin();
-                frmLog.Show();
                 this.Dispose();
             }
             else
@@ -52,18 +50,6 @@ namespace Stock_manager
                 MessageBoxButtons bouton = MessageBoxButtons.OK;
                 MessageBox.Show(message, caption, bouton, MessageBoxIcon.Error);
             }
-        }
-
-        private void frmNouveauMotPasse_Load(object sender, EventArgs e)
-        {
-            if (cry.TestFichier()==false)
-            {
-                string message = "aucun mot de passe définit";
-                string caption = "information";
-                MessageBoxButtons bouton = MessageBoxButtons.OK;
-                MessageBox.Show(message, caption, bouton, MessageBoxIcon.Information);
-            }
-            
         }
 
         private void txtPassword2_TextChanged(object sender, EventArgs e)

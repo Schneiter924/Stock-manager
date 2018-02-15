@@ -22,6 +22,8 @@ namespace Stock_manager
             }
         }
 
+        Produit produit;
+
         public frmEntree()
         {
             InitializeComponent();
@@ -36,23 +38,26 @@ namespace Stock_manager
 
         private void cmdAjout_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void txtNumero_Validated(object sender, EventArgs e)
         {
+            
             Connection_mySQL smsql = new Connection_mySQL();
             try
             {
                 int ID = Int32.Parse(txtNumero.Text);
                 if (smsql.TestIDProduit(ID) != null)
                 {
-                    Produit produit = smsql.RetourtProduit(ID);
+                    produit = smsql.RetourtProduit(ID);
+                    txtNumero.ReadOnly = true;
                     txtNom.Text = produit.NomProduit;
                     txtDescription.Text = produit.Description;
                 }
                 else
                 {
+                    txtNumero.ReadOnly = true;
                     txtNom.Text = "";
                     txtDescription.Text = "";
                 }
