@@ -45,23 +45,42 @@ namespace Stock_manager
             DateTime Aujourdhui = DateTime.Today;
             DateTime trenteJours = Aujourdhui.AddDays(30);
             txtDateRetour.Text = trenteJours.ToString("dd-MM-yyyy");
-            List<Loueur> lstLoueur = smsql.chargeLoueur();
-            foreach (Loueur loueur in lstLoueur)
+            List<Loueur> lstLoueurs = smsql.chargeLoueur();
+            foreach (Loueur loueur in lstLoueurs)
             {
                 cboLoueur.Items.Add(loueur.Description());
             }
+            List<Produit> lstProduits = smsql.chargeProduit();
+            foreach (Produit produit in lstProduits)
+            {
+                cboPiece.Items.Add(produit.DescriptionID());
+            }
+            
         }
 
         private void cboLoueur_Validated(object sender, EventArgs e)
         {
-            /*if (cboLoueur.Text != "")
-            {
+            if (cboLoueur.Text != "")
+            {                
                 if (smsql.TestNomLoueur(cboLoueur.Text) == null)
                 {
-                    smsql.AjoutLoueur(cboLoueur.Text);
+                    string message = "login vide";
+                    string caption = "Erreur";
+                    MessageBoxButtons boutonYes = MessageBoxButtons.YesNo;
+                    MessageBoxIcon boutonIcon = MessageBoxIcon.Information;
+                    DialogResult dialogResult = MessageBox.Show(message, caption, boutonYes, boutonIcon);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        smsql.AjoutLoueur(cboLoueur.Text);
+                        List<Loueur> lstLoueurs = smsql.chargeLoueur();
+                        cboLoueur.Items.Clear();
+                        foreach (Loueur loueur in lstLoueurs)
+                        {
+                            cboLoueur.Items.Add(loueur.Description());
+                        }
+                    }
                 }
-                
-            }*/
+            }
         }
     }
 }

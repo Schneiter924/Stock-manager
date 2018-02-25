@@ -50,5 +50,15 @@ namespace Stock_manager
                 idProduit = value;
             }
         }
+
+        public string DescriptionID()
+        {
+            return idProduit.ToString();
+        }
+
+        public string DescriptionProduit()
+        {
+            return idProduit.ToString() + " " + nomProduit + " " + description;
+        }
     }
 }

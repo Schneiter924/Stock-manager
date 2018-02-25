@@ -85,16 +85,10 @@ namespace Stock_manager
 
         private void frmLogin_Load(object sender, EventArgs e)
         {
-            if (cryLogin.TestFichier()==false)
+            if ((cryLogin.TestFichier()==false) || (cryPassword.TestFichier()==false))
             {
                 Form frmLo = new frmNouveauLogin();
-                frmLo.ShowDialog();
-                
-            }
-            if (cryPassword.TestFichier()==false)
-            {
-                Form frmMp = new frmNouveauMotPasse();
-                frmMp.ShowDialog();
+                frmLo.ShowDialog();                
             }
         }
     }

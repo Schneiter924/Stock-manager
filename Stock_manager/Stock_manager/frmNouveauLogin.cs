@@ -12,11 +12,13 @@ namespace Stock_manager
 {
     public partial class frmNouveauLogin : Form
     {
-        Cryptage cry;
+        Cryptage cryLogin;
+        Cryptage cryPassword;
         public frmNouveauLogin()
         {
             InitializeComponent();
-            cry = new Cryptage(AppDomain.CurrentDomain.BaseDirectory + "login.txt");
+            cryPassword = new Cryptage(AppDomain.CurrentDomain.BaseDirectory + "pwd.txt");
+            cryLogin = new Cryptage(AppDomain.CurrentDomain.BaseDirectory + "login.txt");
         }
         protected override CreateParams CreateParams
         {
@@ -31,22 +33,45 @@ namespace Stock_manager
         private void cmdReset_Click(object sender, EventArgs e)
         {
             txtLogin.Text = "";
-            txtLogin2.Text = "";
+            txtPassword.Text = "";
+            txtPassword2.Text = "";
         }
 
         private void cmdOK_Click(object sender, EventArgs e)
         {
-            if (txtLogin.Text == txtLogin2.Text)
+            if (txtLogin.Text == "")
             {
-                cry.CrypterLogin(txtLogin.Text);
-                this.Dispose();
-            }
-            else
-            {
-                string message = "login different";
+                string message = "login vide";
                 string caption = "Erreur";
                 MessageBoxButtons bouton = MessageBoxButtons.OK;
                 MessageBox.Show(message, caption, bouton, MessageBoxIcon.Error);
+            }
+            else if(txtPassword.Text == "")
+            {
+                string message = "mot de passe vide";
+                string caption = "Erreur";
+                MessageBoxButtons bouton = MessageBoxButtons.OK;
+                MessageBox.Show(message, caption, bouton, MessageBoxIcon.Error);
+            }
+            else if (txtPassword2.Text == "")
+            {
+                string message = "mot de passe vide";
+                string caption = "Erreur";
+                MessageBoxButtons bouton = MessageBoxButtons.OK;
+                MessageBox.Show(message, caption, bouton, MessageBoxIcon.Error);
+            }
+            else if (txtPassword.Text != txtPassword2.Text)
+            {
+                string message = "mot de passe différent";
+                string caption = "Erreur";
+                MessageBoxButtons bouton = MessageBoxButtons.OK;
+                MessageBox.Show(message, caption, bouton, MessageBoxIcon.Error);
+            }
+            else
+            {
+                cryLogin.CrypterLogin(txtLogin.Text);
+                cryPassword.CrypterPassword(txtPassword.Text);
+                this.Dispose();
             }
         }
     }

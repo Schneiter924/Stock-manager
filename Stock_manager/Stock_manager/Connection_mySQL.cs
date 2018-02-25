@@ -219,7 +219,7 @@ namespace Stock_manager
 
             MySqlCommand cmd = this.connection.CreateCommand();
 
-            cmd.CommandText = "select * from produit order by nomLoueur";
+            cmd.CommandText = "select * from produit order by idProduit";
 
             MySqlDataReader p = cmd.ExecuteReader();
 

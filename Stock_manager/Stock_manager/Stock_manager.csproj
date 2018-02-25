@@ -92,12 +92,6 @@
     <Compile Include="frmNouveauLogin.Designer.cs">
       <DependentUpon>frmNouveauLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmNouveauMotPasse.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmNouveauMotPasse.Designer.cs">
-      <DependentUpon>frmNouveauMotPasse.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmReHis.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,9 +147,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmNouveauLogin.resx">
       <DependentUpon>frmNouveauLogin.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmNouveauMotPasse.resx">
-      <DependentUpon>frmNouveauMotPasse.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmReHis.resx">
       <DependentUpon>frmReHis.cs</DependentUpon>

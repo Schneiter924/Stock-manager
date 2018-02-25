@@ -30,54 +30,57 @@
         {
             this.cmdOK = new System.Windows.Forms.Button();
             this.cmdReset = new System.Windows.Forms.Button();
-            this.txtLogin2 = new System.Windows.Forms.TextBox();
+            this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtLogin = new System.Windows.Forms.TextBox();
-            this.lblLogin2 = new System.Windows.Forms.Label();
+            this.lblpassword = new System.Windows.Forms.Label();
             this.lblLogin = new System.Windows.Forms.Label();
+            this.txtPassword2 = new System.Windows.Forms.TextBox();
+            this.lblPassword2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // cmdOK
             // 
-            this.cmdOK.Location = new System.Drawing.Point(289, 112);
+            this.cmdOK.Location = new System.Drawing.Point(291, 128);
             this.cmdOK.Name = "cmdOK";
             this.cmdOK.Size = new System.Drawing.Size(75, 23);
-            this.cmdOK.TabIndex = 17;
+            this.cmdOK.TabIndex = 5;
             this.cmdOK.Text = "OK";
             this.cmdOK.UseVisualStyleBackColor = true;
             this.cmdOK.Click += new System.EventHandler(this.cmdOK_Click);
             // 
             // cmdReset
             // 
-            this.cmdReset.Location = new System.Drawing.Point(208, 112);
+            this.cmdReset.Location = new System.Drawing.Point(210, 128);
             this.cmdReset.Name = "cmdReset";
             this.cmdReset.Size = new System.Drawing.Size(75, 23);
-            this.cmdReset.TabIndex = 15;
+            this.cmdReset.TabIndex = 4;
             this.cmdReset.Text = "reset";
             this.cmdReset.UseVisualStyleBackColor = true;
             this.cmdReset.Click += new System.EventHandler(this.cmdReset_Click);
             // 
-            // txtLogin2
+            // txtPassword
             // 
-            this.txtLogin2.Location = new System.Drawing.Point(174, 66);
-            this.txtLogin2.Name = "txtLogin2";
-            this.txtLogin2.Size = new System.Drawing.Size(182, 20);
-            this.txtLogin2.TabIndex = 14;
+            this.txtPassword.Location = new System.Drawing.Point(174, 66);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
+            this.txtPassword.Size = new System.Drawing.Size(182, 20);
+            this.txtPassword.TabIndex = 2;
             // 
             // txtLogin
             // 
             this.txtLogin.Location = new System.Drawing.Point(174, 31);
             this.txtLogin.Name = "txtLogin";
             this.txtLogin.Size = new System.Drawing.Size(182, 20);
-            this.txtLogin.TabIndex = 13;
+            this.txtLogin.TabIndex = 1;
             // 
-            // lblLogin2
+            // lblpassword
             // 
-            this.lblLogin2.AutoSize = true;
-            this.lblLogin2.Location = new System.Drawing.Point(12, 69);
-            this.lblLogin2.Name = "lblLogin2";
-            this.lblLogin2.Size = new System.Drawing.Size(81, 13);
-            this.lblLogin2.TabIndex = 12;
-            this.lblLogin2.Text = "Rentrée le login";
+            this.lblpassword.AutoSize = true;
+            this.lblpassword.Location = new System.Drawing.Point(12, 69);
+            this.lblpassword.Name = "lblpassword";
+            this.lblpassword.Size = new System.Drawing.Size(71, 13);
+            this.lblpassword.TabIndex = 12;
+            this.lblpassword.Text = "Mot de passe";
             // 
             // lblLogin
             // 
@@ -88,16 +91,35 @@
             this.lblLogin.TabIndex = 11;
             this.lblLogin.Text = "login";
             // 
+            // txtPassword2
+            // 
+            this.txtPassword2.Location = new System.Drawing.Point(174, 102);
+            this.txtPassword2.Name = "txtPassword2";
+            this.txtPassword2.PasswordChar = '*';
+            this.txtPassword2.Size = new System.Drawing.Size(182, 20);
+            this.txtPassword2.TabIndex = 3;
+            // 
+            // lblPassword2
+            // 
+            this.lblPassword2.AutoSize = true;
+            this.lblPassword2.Location = new System.Drawing.Point(12, 105);
+            this.lblPassword2.Name = "lblPassword2";
+            this.lblPassword2.Size = new System.Drawing.Size(122, 13);
+            this.lblPassword2.TabIndex = 18;
+            this.lblPassword2.Text = "Rentrée le mot de passe";
+            // 
             // frmNouveauLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(378, 163);
+            this.Controls.Add(this.txtPassword2);
+            this.Controls.Add(this.lblPassword2);
             this.Controls.Add(this.cmdOK);
             this.Controls.Add(this.cmdReset);
-            this.Controls.Add(this.txtLogin2);
+            this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtLogin);
-            this.Controls.Add(this.lblLogin2);
+            this.Controls.Add(this.lblpassword);
             this.Controls.Add(this.lblLogin);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -113,9 +135,11 @@
 
         private System.Windows.Forms.Button cmdOK;
         private System.Windows.Forms.Button cmdReset;
-        private System.Windows.Forms.TextBox txtLogin2;
+        private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.TextBox txtLogin;
-        private System.Windows.Forms.Label lblLogin2;
+        private System.Windows.Forms.Label lblpassword;
         private System.Windows.Forms.Label lblLogin;
+        private System.Windows.Forms.TextBox txtPassword2;
+        private System.Windows.Forms.Label lblPassword2;
     }
 }

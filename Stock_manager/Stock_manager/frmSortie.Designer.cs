@@ -115,7 +115,8 @@
             // 
             // cboPiece
             // 
-            this.cboPiece.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboPiece.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cboPiece.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cboPiece.FormattingEnabled = true;
             this.cboPiece.Location = new System.Drawing.Point(161, 32);
             this.cboPiece.Name = "cboPiece";
