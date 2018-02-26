@@ -1,0 +1,10 @@
+insert into Produit (idProduit, nomProduit, description) values (1, 'Ram Van 1500', 'Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.');
+insert into Produit (idProduit, nomProduit, description) values (2, 'Skylark', '');
+insert into Produit (idProduit, nomProduit, description) values (3, 'Focus', 'Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat.');
+insert into Produit (idProduit, nomProduit, description) values (4, 'Precis', 'Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.');
+insert into Produit (idProduit, nomProduit, description) values (5, 'Flex', '');
+insert into Produit (idProduit, nomProduit, description) values (6, 'Jetta', '');
+insert into Produit (idProduit, nomProduit, description) values (7, 'Enclave', '');
+insert into Produit (idProduit, nomProduit, description) values (8, 'LTD', 'Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat.');
+insert into Produit (idProduit, nomProduit, description) values (9, 'Escape', '');
+insert into Produit (idProduit, nomProduit, description) values (10, 'F350', 'Fusce consequat. Nulla nisl. Nunc nisl.');

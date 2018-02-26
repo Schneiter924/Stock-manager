@@ -64,8 +64,8 @@ namespace Stock_manager
             {                
                 if (smsql.TestNomLoueur(cboLoueur.Text) == null)
                 {
-                    string message = "login vide";
-                    string caption = "Erreur";
+                    string message = "confirmation d'ajout du loueur";
+                    string caption = "Information";
                     MessageBoxButtons boutonYes = MessageBoxButtons.YesNo;
                     MessageBoxIcon boutonIcon = MessageBoxIcon.Information;
                     DialogResult dialogResult = MessageBox.Show(message, caption, boutonYes, boutonIcon);

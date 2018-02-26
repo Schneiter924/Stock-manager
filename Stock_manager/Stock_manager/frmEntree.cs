@@ -23,10 +23,16 @@ namespace Stock_manager
         }
 
         Produit produit;
+        Connection_mySQL smsql = new Connection_mySQL();
 
         public frmEntree()
         {
             InitializeComponent();
+            List<Produit> lstProduits = smsql.chargeProduit();
+            foreach (Produit produit in lstProduits)
+            {
+                cboIDPiece.Items.Add(produit.DescriptionID());
+            }
         }
 
         private void cmdRetour_Click(object sender, EventArgs e)
@@ -38,39 +44,68 @@ namespace Stock_manager
 
         private void cmdAjout_Click(object sender, EventArgs e)
         {
-            
-        }
+            int ID = Int32.Parse(cboIDPiece.Text);
+           
+            if (smsql.TestIDProduit(ID) != null)
+            {
+                produit.IdProduit = ID;
+                produit.NomProduit = txtNom.Text;
+                produit.Description = txtDescription.Text;
+                smsql.Modificationproduit(produit);
+            }
+            else
+            {
+                produit = new Produit();
+                produit.IdProduit = ID;
+                produit.NomProduit = txtNom.Text;
+                produit.Description = txtDescription.Text;
+                smsql.NouveauProduit(produit);
+            }
 
-        private void txtNumero_Validated(object sender, EventArgs e)
-        {
-            
-            Connection_mySQL smsql = new Connection_mySQL();
-            try
+            cboIDPiece.Text = "";
+            txtNom.Text = "";
+            txtDescription.Text = "";
+            cboIDPiece.Enabled = true;
+
+            cboIDPiece.Items.Clear();
+
+            List<Produit> lstProduits = smsql.chargeProduit();
+            foreach (Produit produit in lstProduits)
             {
-                int ID = Int32.Parse(txtNumero.Text);
-                if (smsql.TestIDProduit(ID) != null)
-                {
-                    produit = smsql.RetourtProduit(ID);
-                    txtNumero.ReadOnly = true;
-                    txtNom.Text = produit.NomProduit;
-                    txtDescription.Text = produit.Description;
-                }
-                else
-                {
-                    txtNumero.ReadOnly = true;
-                    txtNom.Text = "";
-                    txtDescription.Text = "";
-                }
+                cboIDPiece.Items.Add(produit.DescriptionID());
+            }
+        }
                 
-            }
-            catch (FormatException ex)
+        private void cboIDPiece_Validated(object sender, EventArgs e)
+        {
+            if (cboIDPiece.Text != "")
             {
-                string message = ex.Message;
-                string caption = "Erreur";
-                MessageBoxButtons bouton = MessageBoxButtons.OK;
-                MessageBox.Show(message, caption, bouton, MessageBoxIcon.Error);
+                try
+                {
+                    int ID = Int32.Parse(cboIDPiece.Text);
+                    if (smsql.TestIDProduit(ID) != null)
+                    {
+                        produit = smsql.RetourtProduit(ID);
+                        cboIDPiece.Enabled = false;
+                        txtNom.Text = produit.NomProduit;
+                        txtDescription.Text = produit.Description;
+                    }
+                    else
+                    {
+                        cboIDPiece.Enabled = false;
+                        txtNom.Text = "";
+                        txtDescription.Text = "";
+                    }
+
+                }
+                catch (FormatException ex)
+                {
+                    string message = ex.Message;
+                    string caption = "Erreur";
+                    MessageBoxButtons bouton = MessageBoxButtons.OK;
+                    MessageBox.Show(message, caption, bouton, MessageBoxIcon.Error);
+                }
             }
-            
         }
     }
 }

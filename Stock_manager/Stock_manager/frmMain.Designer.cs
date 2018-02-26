@@ -61,7 +61,7 @@
             this.cmdSortie.Location = new System.Drawing.Point(12, 99);
             this.cmdSortie.Name = "cmdSortie";
             this.cmdSortie.Size = new System.Drawing.Size(137, 23);
-            this.cmdSortie.TabIndex = 2;
+            this.cmdSortie.TabIndex = 4;
             this.cmdSortie.Text = "Sortie de la pièce";
             this.cmdSortie.UseVisualStyleBackColor = true;
             this.cmdSortie.Click += new System.EventHandler(this.cmdSortie_Click);
@@ -71,7 +71,7 @@
             this.cmdRecherche.Location = new System.Drawing.Point(12, 128);
             this.cmdRecherche.Name = "cmdRecherche";
             this.cmdRecherche.Size = new System.Drawing.Size(137, 23);
-            this.cmdRecherche.TabIndex = 3;
+            this.cmdRecherche.TabIndex = 5;
             this.cmdRecherche.Text = "Recherche de pièce";
             this.cmdRecherche.UseVisualStyleBackColor = true;
             this.cmdRecherche.Click += new System.EventHandler(this.cmdRecherche_Click);
@@ -81,7 +81,7 @@
             this.cmdQuitter.Location = new System.Drawing.Point(12, 157);
             this.cmdQuitter.Name = "cmdQuitter";
             this.cmdQuitter.Size = new System.Drawing.Size(137, 23);
-            this.cmdQuitter.TabIndex = 4;
+            this.cmdQuitter.TabIndex = 6;
             this.cmdQuitter.Text = "Quitter";
             this.cmdQuitter.UseVisualStyleBackColor = true;
             this.cmdQuitter.Click += new System.EventHandler(this.cmdQuitter_Click);
@@ -91,7 +91,7 @@
             this.cmdRetourPièce.Location = new System.Drawing.Point(12, 70);
             this.cmdRetourPièce.Name = "cmdRetourPièce";
             this.cmdRetourPièce.Size = new System.Drawing.Size(137, 23);
-            this.cmdRetourPièce.TabIndex = 5;
+            this.cmdRetourPièce.TabIndex = 3;
             this.cmdRetourPièce.Text = "Retour de la pièce";
             this.cmdRetourPièce.UseVisualStyleBackColor = true;
             this.cmdRetourPièce.Click += new System.EventHandler(this.cmdRetourPièce_Click);

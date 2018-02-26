@@ -114,7 +114,7 @@ namespace Stock_manager
 
             MySqlCommand cmd = this.connection.CreateCommand();
 
-            cmd.CommandText = "Select idProduit, nom, description from produit where idProduit =(@idProduit)";
+            cmd.CommandText = "Select idProduit, nomProduit, description from produit where idProduit =(@idProduit)";
 
             cmd.Parameters.AddWithValue("@idProduit", idProduit);
 
@@ -142,6 +142,29 @@ namespace Stock_manager
             MySqlCommand cmd = this.connection.CreateCommand();
 
             cmd.CommandText = "INSERT INTO Produit (idProduit, nomProduit, description) VALUES (@idProduit, @nomProduit, @description)";
+
+            cmd.Parameters.AddWithValue("@idProduit", produit.IdProduit);
+
+            cmd.Parameters.AddWithValue("@nomProduit", produit.NomProduit);
+
+            cmd.Parameters.AddWithValue("@description", produit.Description);
+
+            cmd.ExecuteNonQuery();
+
+            connection.Close();
+        }
+
+        /// <summary>
+        /// fonction qui modifier le produit dans la base de donnée
+        /// </summary>
+        /// <param name="produit"></param>
+        public void Modificationproduit (Produit produit)
+        {
+            connection.Open();
+
+            MySqlCommand cmd = this.connection.CreateCommand();
+
+            cmd.CommandText = "update produit set nomProduit=(@nomProduit), description=(@description) where idProduit = (@idProduit)";
 
             cmd.Parameters.AddWithValue("@idProduit", produit.IdProduit);
 

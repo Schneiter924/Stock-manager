@@ -31,11 +31,11 @@
             this.lblNumero = new System.Windows.Forms.Label();
             this.lblNom = new System.Windows.Forms.Label();
             this.lblDescription = new System.Windows.Forms.Label();
-            this.txtNumero = new System.Windows.Forms.TextBox();
             this.txtNom = new System.Windows.Forms.TextBox();
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.cmdRetour = new System.Windows.Forms.Button();
             this.cmdAjout = new System.Windows.Forms.Button();
+            this.cboIDPiece = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // lblNumero
@@ -59,38 +59,31 @@
             // lblDescription
             // 
             this.lblDescription.AutoSize = true;
-            this.lblDescription.Location = new System.Drawing.Point(14, 110);
+            this.lblDescription.Location = new System.Drawing.Point(14, 161);
             this.lblDescription.Name = "lblDescription";
             this.lblDescription.Size = new System.Drawing.Size(115, 13);
             this.lblDescription.TabIndex = 2;
             this.lblDescription.Text = "Description de la pièce";
             this.lblDescription.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // txtNumero
-            // 
-            this.txtNumero.Location = new System.Drawing.Point(157, 35);
-            this.txtNumero.Name = "txtNumero";
-            this.txtNumero.Size = new System.Drawing.Size(115, 20);
-            this.txtNumero.TabIndex = 3;
-            this.txtNumero.Validated += new System.EventHandler(this.txtNumero_Validated);
-            // 
             // txtNom
             // 
             this.txtNom.Location = new System.Drawing.Point(157, 72);
             this.txtNom.Name = "txtNom";
-            this.txtNom.Size = new System.Drawing.Size(115, 20);
+            this.txtNom.Size = new System.Drawing.Size(179, 20);
             this.txtNom.TabIndex = 4;
             // 
             // txtDescription
             // 
             this.txtDescription.Location = new System.Drawing.Point(157, 107);
+            this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(115, 20);
+            this.txtDescription.Size = new System.Drawing.Size(179, 136);
             this.txtDescription.TabIndex = 5;
-           // 
+            // 
             // cmdRetour
             // 
-            this.cmdRetour.Location = new System.Drawing.Point(112, 161);
+            this.cmdRetour.Location = new System.Drawing.Point(180, 266);
             this.cmdRetour.Name = "cmdRetour";
             this.cmdRetour.Size = new System.Drawing.Size(75, 23);
             this.cmdRetour.TabIndex = 6;
@@ -100,7 +93,7 @@
             // 
             // cmdAjout
             // 
-            this.cmdAjout.Location = new System.Drawing.Point(193, 161);
+            this.cmdAjout.Location = new System.Drawing.Point(261, 266);
             this.cmdAjout.Name = "cmdAjout";
             this.cmdAjout.Size = new System.Drawing.Size(75, 23);
             this.cmdAjout.TabIndex = 7;
@@ -108,16 +101,27 @@
             this.cmdAjout.UseVisualStyleBackColor = true;
             this.cmdAjout.Click += new System.EventHandler(this.cmdAjout_Click);
             // 
+            // cboIDPiece
+            // 
+            this.cboIDPiece.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cboIDPiece.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cboIDPiece.FormattingEnabled = true;
+            this.cboIDPiece.Location = new System.Drawing.Point(157, 38);
+            this.cboIDPiece.Name = "cboIDPiece";
+            this.cboIDPiece.Size = new System.Drawing.Size(179, 21);
+            this.cboIDPiece.TabIndex = 3;
+            this.cboIDPiece.Validated += new System.EventHandler(this.cboIDPiece_Validated);
+            // 
             // frmEntree
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 196);
+            this.ClientSize = new System.Drawing.Size(348, 301);
+            this.Controls.Add(this.cboIDPiece);
             this.Controls.Add(this.cmdAjout);
             this.Controls.Add(this.cmdRetour);
             this.Controls.Add(this.txtDescription);
             this.Controls.Add(this.txtNom);
-            this.Controls.Add(this.txtNumero);
             this.Controls.Add(this.lblDescription);
             this.Controls.Add(this.lblNom);
             this.Controls.Add(this.lblNumero);
@@ -137,10 +141,10 @@
         private System.Windows.Forms.Label lblNumero;
         private System.Windows.Forms.Label lblNom;
         private System.Windows.Forms.Label lblDescription;
-        private System.Windows.Forms.TextBox txtNumero;
         private System.Windows.Forms.TextBox txtNom;
         private System.Windows.Forms.TextBox txtDescription;
         private System.Windows.Forms.Button cmdRetour;
         private System.Windows.Forms.Button cmdAjout;
+        private System.Windows.Forms.ComboBox cboIDPiece;
     }
 }
