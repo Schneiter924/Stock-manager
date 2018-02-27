@@ -16,7 +16,7 @@ namespace Stock_manager
         {
             InitializeComponent();
         }
-
+        Connection_mySQL smsql = new Connection_mySQL();
         protected override CreateParams CreateParams
         {
             get
@@ -36,12 +36,23 @@ namespace Stock_manager
 
         private void cmdRetourPiece_Click(object sender, EventArgs e)
         {
+            if (cboPiece.Text != "")
+            {
+                int idPorduit = Convert.ToInt32(cboPiece.Text);
+            }
+            else
+            {
 
+            }
         }
 
         private void frmRetourPiece_Load(object sender, EventArgs e)
         {
-
+            List<Location> lstlocations = smsql.LocationEnCours();
+            foreach (Location location in lstlocations)
+            {
+                cboPiece.Items.Add(location.Produit.DescriptionID());
+            }
         }
     }
 }

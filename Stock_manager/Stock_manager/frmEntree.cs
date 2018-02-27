@@ -28,7 +28,7 @@ namespace Stock_manager
         public frmEntree()
         {
             InitializeComponent();
-            List<Produit> lstProduits = smsql.chargeProduit();
+            List<Produit> lstProduits = smsql.chargeProduitEnStock();
             foreach (Produit produit in lstProduits)
             {
                 cboIDPiece.Items.Add(produit.DescriptionID());
@@ -44,11 +44,11 @@ namespace Stock_manager
 
         private void cmdAjout_Click(object sender, EventArgs e)
         {
-            int ID = Int32.Parse(cboIDPiece.Text);
+            
            
-            if (smsql.TestIDProduit(ID) != null)
+            if (produit != null)
             {
-                produit.IdProduit = ID;
+                produit.IdProduit = produit.IdProduit;
                 produit.NomProduit = txtNom.Text;
                 produit.Description = txtDescription.Text;
                 smsql.Modificationproduit(produit);
@@ -56,7 +56,7 @@ namespace Stock_manager
             else
             {
                 produit = new Produit();
-                produit.IdProduit = ID;
+                produit.IdProduit = Convert.ToInt32(cboIDPiece.Text);
                 produit.NomProduit = txtNom.Text;
                 produit.Description = txtDescription.Text;
                 smsql.NouveauProduit(produit);
@@ -69,7 +69,7 @@ namespace Stock_manager
 
             cboIDPiece.Items.Clear();
 
-            List<Produit> lstProduits = smsql.chargeProduit();
+            List<Produit> lstProduits = smsql.chargeProduitEnStock();
             foreach (Produit produit in lstProduits)
             {
                 cboIDPiece.Items.Add(produit.DescriptionID());
@@ -89,6 +89,7 @@ namespace Stock_manager
                         cboIDPiece.Enabled = false;
                         txtNom.Text = produit.NomProduit;
                         txtDescription.Text = produit.Description;
+                        cmdAjout.Text = "Modification";
                     }
                     else
                     {

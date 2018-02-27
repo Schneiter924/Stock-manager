@@ -50,7 +50,7 @@ namespace Stock_manager
             {
                 cboLoueur.Items.Add(loueur.Description());
             }
-            List<Produit> lstProduits = smsql.chargeProduit();
+            List<Produit> lstProduits = smsql.chargeProduitEnStock();
             foreach (Produit produit in lstProduits)
             {
                 cboPiece.Items.Add(produit.DescriptionID());
