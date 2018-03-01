@@ -91,5 +91,15 @@ namespace Stock_manager
                 frmLo.ShowDialog();                
             }
         }
+
+        private void txtLogin_Enter(object sender, EventArgs e)
+        {
+            txtLogin.SelectAll();
+        }
+
+        private void txtPassword_Enter(object sender, EventArgs e)
+        {
+            txtPassword.SelectAll();
+        }
     }
 }

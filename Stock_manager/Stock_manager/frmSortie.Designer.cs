@@ -36,7 +36,7 @@
             this.lblNumero = new System.Windows.Forms.Label();
             this.txtDateRetour = new System.Windows.Forms.TextBox();
             this.lblDateRetour = new System.Windows.Forms.Label();
-            this.cboPiece = new System.Windows.Forms.ComboBox();
+            this.cboProduit = new System.Windows.Forms.ComboBox();
             this.cboLoueur = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
@@ -113,15 +113,15 @@
             this.lblDateRetour.TabIndex = 16;
             this.lblDateRetour.Text = "Date de retour";
             // 
-            // cboPiece
+            // cboProduit
             // 
-            this.cboPiece.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cboPiece.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cboPiece.FormattingEnabled = true;
-            this.cboPiece.Location = new System.Drawing.Point(161, 32);
-            this.cboPiece.Name = "cboPiece";
-            this.cboPiece.Size = new System.Drawing.Size(115, 21);
-            this.cboPiece.TabIndex = 1;
+            this.cboProduit.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cboProduit.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cboProduit.FormattingEnabled = true;
+            this.cboProduit.Location = new System.Drawing.Point(161, 32);
+            this.cboProduit.Name = "cboProduit";
+            this.cboProduit.Size = new System.Drawing.Size(115, 21);
+            this.cboProduit.TabIndex = 1;
             // 
             // cboLoueur
             // 
@@ -140,7 +140,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 228);
             this.Controls.Add(this.cboLoueur);
-            this.Controls.Add(this.cboPiece);
+            this.Controls.Add(this.cboProduit);
             this.Controls.Add(this.txtDateRetour);
             this.Controls.Add(this.lblDateRetour);
             this.Controls.Add(this.cmdAjout);
@@ -171,7 +171,7 @@
         private System.Windows.Forms.Label lblNumero;
         private System.Windows.Forms.TextBox txtDateRetour;
         private System.Windows.Forms.Label lblDateRetour;
-        private System.Windows.Forms.ComboBox cboPiece;
+        private System.Windows.Forms.ComboBox cboProduit;
         private System.Windows.Forms.ComboBox cboLoueur;
     }
 }

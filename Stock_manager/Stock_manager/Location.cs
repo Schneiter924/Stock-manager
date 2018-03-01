@@ -78,5 +78,10 @@ namespace Stock_manager
                 idLocation = value;
             }
         }
+
+        public string DescriptionLocation()
+        {
+            return Produit.DescriptionProduit() + " " + loueur.Description() + " la date de début d'empret est le " + startDate.ToString("dd-MM-yyyy");
+        }
     }
 }

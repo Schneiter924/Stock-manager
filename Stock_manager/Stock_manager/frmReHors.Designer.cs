@@ -34,7 +34,7 @@
             // 
             // cmdRetour
             // 
-            this.cmdRetour.Location = new System.Drawing.Point(293, 199);
+            this.cmdRetour.Location = new System.Drawing.Point(12, 599);
             this.cmdRetour.Name = "cmdRetour";
             this.cmdRetour.Size = new System.Drawing.Size(75, 23);
             this.cmdRetour.TabIndex = 11;
@@ -47,14 +47,14 @@
             this.lstRecherche.FormattingEnabled = true;
             this.lstRecherche.Location = new System.Drawing.Point(11, 12);
             this.lstRecherche.Name = "lstRecherche";
-            this.lstRecherche.Size = new System.Drawing.Size(261, 212);
+            this.lstRecherche.Size = new System.Drawing.Size(1017, 576);
             this.lstRecherche.TabIndex = 10;
             // 
             // frmReHors
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(370, 262);
+            this.ClientSize = new System.Drawing.Size(1040, 634);
             this.Controls.Add(this.cmdRetour);
             this.Controls.Add(this.lstRecherche);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -63,6 +63,7 @@
             this.Name = "frmReHors";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Rechercher hors-délai";
+            this.Load += new System.EventHandler(this.frmReHors_Load);
             this.ResumeLayout(false);
 
         }

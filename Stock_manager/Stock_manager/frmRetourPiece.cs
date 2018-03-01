@@ -38,15 +38,29 @@ namespace Stock_manager
         {
             if (cboPiece.Text != "")
             {
-                int idPorduit = Convert.ToInt32(cboPiece.Text);
+                int idProduit = Convert.ToInt32(cboPiece.Text);
+
+                Location location = smsql.LocationSelectionner(idProduit);
+
+                location.EndDate = DateTime.Today;
+
+                smsql.RetourLocation(location);
+                cboPiece.Items.Clear();
+                chargerProduit();
             }
             else
             {
 
             }
+            
         }
 
         private void frmRetourPiece_Load(object sender, EventArgs e)
+        {
+            chargerProduit();
+        }
+
+        private void chargerProduit()
         {
             List<Location> lstlocations = smsql.LocationEnCours();
             foreach (Location location in lstlocations)

@@ -74,5 +74,20 @@ namespace Stock_manager
                 this.Dispose();
             }
         }
+
+        private void txtLogin_Enter(object sender, EventArgs e)
+        {
+            txtLogin.SelectAll();
+        }
+
+        private void txtPassword_Enter(object sender, EventArgs e)
+        {
+            txtPassword.SelectAll();
+        }
+
+        private void txtPassword2_Enter(object sender, EventArgs e)
+        {
+            txtPassword2.SelectAll();
+        }
     }
 }

@@ -31,5 +31,17 @@ namespace Stock_manager
             frmMenu.Show();
             this.Dispose();
         }
+
+        private void frmReHors_Load(object sender, EventArgs e)
+        {
+            Connection_mySQL smsql = new Connection_mySQL();
+
+            List<Location> lstLocations = smsql.ProduitHorsDelais();
+
+            foreach (Location location in lstLocations)
+            {
+                lstRecherche.Items.Add(location.DescriptionLocation());
+            }
+        }
     }
 }

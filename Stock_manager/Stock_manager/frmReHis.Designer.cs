@@ -30,14 +30,14 @@
         {
             this.cmdRetour = new System.Windows.Forms.Button();
             this.cmdChercher = new System.Windows.Forms.Button();
-            this.txtRecherche = new System.Windows.Forms.TextBox();
             this.lblRecherche = new System.Windows.Forms.Label();
             this.lstRecherche = new System.Windows.Forms.ListBox();
+            this.cboProduit = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // cmdRetour
             // 
-            this.cmdRetour.Location = new System.Drawing.Point(294, 227);
+            this.cmdRetour.Location = new System.Drawing.Point(375, 4);
             this.cmdRetour.Name = "cmdRetour";
             this.cmdRetour.Size = new System.Drawing.Size(75, 23);
             this.cmdRetour.TabIndex = 9;
@@ -50,16 +50,10 @@
             this.cmdChercher.Location = new System.Drawing.Point(294, 4);
             this.cmdChercher.Name = "cmdChercher";
             this.cmdChercher.Size = new System.Drawing.Size(75, 23);
-            this.cmdChercher.TabIndex = 8;
+            this.cmdChercher.TabIndex = 5;
             this.cmdChercher.Text = "Chercher";
             this.cmdChercher.UseVisualStyleBackColor = true;
-            // 
-            // txtRecherche
-            // 
-            this.txtRecherche.Location = new System.Drawing.Point(122, 6);
-            this.txtRecherche.Name = "txtRecherche";
-            this.txtRecherche.Size = new System.Drawing.Size(151, 20);
-            this.txtRecherche.TabIndex = 7;
+            this.cmdChercher.Click += new System.EventHandler(this.cmdChercher_Click);
             // 
             // lblRecherche
             // 
@@ -75,17 +69,26 @@
             this.lstRecherche.FormattingEnabled = true;
             this.lstRecherche.Location = new System.Drawing.Point(12, 40);
             this.lstRecherche.Name = "lstRecherche";
-            this.lstRecherche.Size = new System.Drawing.Size(261, 212);
-            this.lstRecherche.TabIndex = 5;
+            this.lstRecherche.Size = new System.Drawing.Size(943, 524);
+            this.lstRecherche.TabIndex = 10;
+            // 
+            // cboProduit
+            // 
+            this.cboProduit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboProduit.FormattingEnabled = true;
+            this.cboProduit.Location = new System.Drawing.Point(128, 6);
+            this.cboProduit.Name = "cboProduit";
+            this.cboProduit.Size = new System.Drawing.Size(145, 21);
+            this.cboProduit.TabIndex = 4;
             // 
             // frmReHis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(389, 270);
+            this.ClientSize = new System.Drawing.Size(967, 572);
+            this.Controls.Add(this.cboProduit);
             this.Controls.Add(this.cmdRetour);
             this.Controls.Add(this.cmdChercher);
-            this.Controls.Add(this.txtRecherche);
             this.Controls.Add(this.lblRecherche);
             this.Controls.Add(this.lstRecherche);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -94,6 +97,7 @@
             this.Name = "frmReHis";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Recherche historique";
+            this.Load += new System.EventHandler(this.frmReHis_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -103,8 +107,8 @@
 
         private System.Windows.Forms.Button cmdRetour;
         private System.Windows.Forms.Button cmdChercher;
-        private System.Windows.Forms.TextBox txtRecherche;
         private System.Windows.Forms.Label lblRecherche;
         private System.Windows.Forms.ListBox lstRecherche;
+        private System.Windows.Forms.ComboBox cboProduit;
     }
 }

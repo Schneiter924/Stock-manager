@@ -33,5 +33,24 @@ namespace Stock_manager
             frmMenu.Show();
             this.Dispose();
         }
+
+        private void frmInventaire_Load(object sender, EventArgs e)
+        {
+            Connection_mySQL smsql = new Connection_mySQL();
+
+            List<Location> lstLocation = smsql.LocationEnCours();
+            lblListeLocationTotal.Text = "Nombre de location en cour " + lstLocation.Count();
+            foreach (Location location in lstLocation)
+            {
+                lstInventaireLoue.Items.Add(location.DescriptionLocation());
+            }
+            List<Produit> lstProduit = smsql.chargeProduitEnStock();
+            int nombreProduitEnStocke = smsql.CompteProduitEnStock();
+            lblProduitEnStockEtTotal.Text = "Nombre de produit en stock : " + nombreProduitEnStocke + " \\ nombre de produit total : " + lstProduit.Count();
+            foreach (Produit produit in lstProduit)
+            {
+                lstInventaireStock.Items.Add(produit.DescriptionProduitAvecID());
+            }
+        }
     }
 }

@@ -177,7 +177,6 @@ namespace Stock_manager
             connection.Close();
         }
 
-        
         /// <summary>
         /// fonction qui retourne toutes les locations en cours
         /// </summary>
@@ -215,7 +214,6 @@ namespace Stock_manager
             connection.Close();
 
             return lstlocations;
-
         }
 
         /// <summary>
@@ -232,7 +230,7 @@ namespace Stock_manager
             connection.Open();
             MySqlCommand cmd = this.connection.CreateCommand();
 
-            cmd.CommandText = " SELECT* FROM location INNER JOIN loueur ON idLoueur = fkLoueur INNER JOIN Produit ON idProduit = fkProduit WHERE endDate IS NULL and idProduit = @idProduit ORDER BY startDate";
+            cmd.CommandText = "SELECT* FROM location INNER JOIN loueur ON idLoueur = fkLoueur INNER JOIN Produit ON idProduit = fkProduit WHERE endDate IS NULL and idProduit = @idProduit ORDER BY startDate";
 
             cmd.Parameters.AddWithValue("@idProduit", idProduit);
 
@@ -240,8 +238,6 @@ namespace Stock_manager
 
             while (l.Read())
             {
-                
-
                 location.IdLocation = Convert.ToInt32(l["idLocation"]);
                 location.StartDate = Convert.ToDateTime(l["startDate"]);
                 produit.IdProduit = Convert.ToInt32(l["idProduit"]);
@@ -254,7 +250,6 @@ namespace Stock_manager
                 
             }
 
-
             connection.Close();
 
             return location;
@@ -266,19 +261,42 @@ namespace Stock_manager
         /// <param name="produit"></param>
         /// <param name="location"></param>
         /// <param name="loueur"></param>
-        public void NouvelleLocation(Produit produit, Location location, Loueur loueur)
+        public void NouvelleLocation(Location location)
         {
             connection.Open();
 
             MySqlCommand cmd = this.connection.CreateCommand();
 
-            cmd.CommandText = "INSERT INTO Location (startDate,fkLoueur,fkProduit) VALUES (@startDate, @fkLoueur, @fkProduit";
+            cmd.CommandText = "INSERT INTO Location (startDate, fkLoueur, fkProduit) VALUES (@startDate, @fkLoueur, @fkProduit)";
 
             cmd.Parameters.AddWithValue("@startDate", location.StartDate);
 
-            cmd.Parameters.AddWithValue("@fkLoueur", loueur.IdLoueur);
+            cmd.Parameters.AddWithValue("@fkLoueur", location.Loueur.IdLoueur);
 
-            cmd.Parameters.AddWithValue("@fkProduit", produit.IdProduit);
+            cmd.Parameters.AddWithValue("@fkProduit", location.Produit.IdProduit);
+
+            cmd.Prepare();
+
+            cmd.ExecuteNonQuery();
+
+            connection.Close();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="location"></param>
+        public void RetourLocation(Location location)
+        {
+            connection.Open();
+
+            MySqlCommand cmd = this.connection.CreateCommand();
+
+            cmd.CommandText = "update location set endDate = @endDate where fkProduit = @idProduit and endDate is null";
+
+            cmd.Parameters.AddWithValue("@endDate", location.EndDate.ToString("yyyy-MM-dd HH:mm:ss"));
+
+            cmd.Parameters.AddWithValue("@idProduit",location.Produit.IdProduit);
 
             cmd.ExecuteNonQuery();
 
@@ -326,10 +344,11 @@ namespace Stock_manager
             return resultat;
         }
 
+        
         /// <summary>
         /// 
         /// </summary>
-        /// <returns></returns>
+        /// <returns>lstProdui</returns>
         public List<Produit> chargeProduitEnStock()
         {
             List<Produit> lstProduit = new List<Produit>();
@@ -356,10 +375,95 @@ namespace Stock_manager
             return lstProduit;
         }
 
+        public int CompteProduitEnStock()
+        {
+            object resultat;
+            int nombre;
+
+            connection.Open();
+
+            MySqlCommand cmd = this.connection.CreateCommand();
+
+            cmd.CommandText = "SELECT count(*) FROM produit WHERE idProduit NOT IN (SELECT fkproduit FROM location WHERE enddate IS NULL) ORDER BY idproduit";
+
+            resultat = cmd.ExecuteScalar();
+
+            if (resultat != null)
+            {
+                nombre = Convert.ToInt32(resultat);
+            }
+            else
+            {
+                nombre = 0;
+            }
+
+            connection.Close();
+
+            return nombre;
+        }
+
+        public int TotalProduit()
+        {
+            object resultat;
+            int nombre;
+
+            connection.Open();
+
+            MySqlCommand cmd = this.connection.CreateCommand();
+
+            cmd.CommandText = "SELECT count(*) FROM produit";
+
+            resultat = cmd.ExecuteScalar();
+
+            if (resultat != null)
+            {
+                nombre = Convert.ToInt32(resultat);
+            }
+            else
+            {
+                nombre = 0;
+            }
+
+            connection.Close();
+
+            return nombre;
+        }
+
         /// <summary>
         /// 
         /// </summary>
-        /// <returns></returns>
+        /// <param name="nom"></param>
+        /// <returns>loueur</returns>
+        public Loueur LoueurSelectionner(string nom)
+        {
+            connection.Open();
+
+            Loueur loueur = new Loueur();
+
+            MySqlCommand cmd = this.connection.CreateCommand();
+
+            cmd.CommandText = "SELECT* FROM loueur WHERE nomLoueur like @nomLoueur";
+
+            cmd.Parameters.AddWithValue("@nomLoueur", nom);
+
+            MySqlDataReader l = cmd.ExecuteReader();
+
+            while (l.Read())
+            {
+                
+                loueur.IdLoueur = Convert.ToInt32(l["idLoueur"]);
+                loueur.NomLoueur = Convert.ToString(l["nomLoueur"]);
+            }
+
+            connection.Close();
+
+            return loueur;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>lstLoueur</returns>
         public List<Loueur> chargeLoueur()
         {
             List<Loueur> lstLoueur = new List<Loueur>();
@@ -384,5 +488,108 @@ namespace Stock_manager
 
             return lstLoueur;
         }
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public List<Location> ProduitHorsDelais()
+        {
+            List<Location> lstLocation = new List<Location>();
+
+            connection.Open();
+
+            MySqlCommand cmd = this.connection.CreateCommand();
+
+            cmd.CommandText = "SELECT * FROM location INNER JOIN loueur ON idLoueur = fkLoueur INNER JOIN Produit ON idProduit = fkProduit WHERE endDate IS NULL AND DATE_ADD(startDate, INTERVAL 30 DAY) < NOW()";
+
+            MySqlDataReader l = cmd.ExecuteReader();
+
+            while (l.Read())
+            {
+                Location location = new Location();
+                Produit produit = new Produit();
+                Loueur loueur = new Loueur();
+
+                produit.IdProduit = Convert.ToInt32(l["idProduit"]);
+                produit.NomProduit = Convert.ToString(l["nomProduit"]);
+                produit.Description = Convert.ToString(l["description"]);
+                loueur.IdLoueur = Convert.ToInt32(l["idLoueur"]);
+                loueur.NomLoueur = Convert.ToString(l["nomLoueur"]);
+                location.IdLocation = Convert.ToInt32(l["idLocation"]);
+                location.StartDate = Convert.ToDateTime(l["startDate"]);
+                location.Produit = produit;
+                location.Loueur = loueur;
+                lstLocation.Add(location);
+            }
+
+            connection.Close();
+
+            return lstLocation;
+        }
+
+        public List<Produit> ToutLesProduit()
+        {
+            List<Produit> lstProduits = new List<Produit>();
+
+            connection.Open();
+
+            MySqlCommand cmd = this.connection.CreateCommand();
+
+            cmd.CommandText = "SELECT * from Produit";
+
+            MySqlDataReader p = cmd.ExecuteReader();
+
+            while (p.Read())
+            {
+                Produit produit = new Produit();
+                produit.IdProduit = Convert.ToInt32(p["idProduit"]);
+                produit.NomProduit = Convert.ToString(p["nomProduit"]);
+                produit.Description = Convert.ToString(p["description"]);
+                lstProduits.Add(produit);
+            }
+
+            connection.Close();
+
+            return lstProduits;
+        }
+
+        public List<Location> Historique(int idProduit)
+        {
+            List<Location> lstLocation = new List<Location>();
+
+            connection.Open();
+
+            MySqlCommand cmd = this.connection.CreateCommand();
+
+            cmd.CommandText = "select * from location inner join loueur on idLoueur=fkLoueur inner join produit on idProduit=fkproduit where idProduit = @idProduit order by idlocation desc";
+
+            cmd.Parameters.AddWithValue("@idProduit", idProduit);
+
+            MySqlDataReader l = cmd.ExecuteReader();
+
+            while (l.Read())
+            {
+                Location location = new Location();
+                Produit produit = new Produit();
+                Loueur loueur = new Loueur();
+
+                produit.IdProduit = Convert.ToInt32(l["idProduit"]);
+                produit.NomProduit = Convert.ToString(l["nomProduit"]);
+                produit.Description = Convert.ToString(l["description"]);
+                loueur.IdLoueur = Convert.ToInt32(l["idLoueur"]);
+                loueur.NomLoueur = Convert.ToString(l["nomLoueur"]);
+                location.IdLocation = Convert.ToInt32(l["idLocation"]);
+                location.StartDate = Convert.ToDateTime(l["startDate"]);
+                location.Produit = produit;
+                location.Loueur = loueur;
+                lstLocation.Add(location);
+            }
+
+            connection.Close();
+
+            return lstLocation;
+        }
+
     }
 }

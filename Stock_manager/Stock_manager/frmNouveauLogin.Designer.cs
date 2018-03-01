@@ -65,6 +65,7 @@
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(182, 20);
             this.txtPassword.TabIndex = 2;
+            this.txtPassword.Enter += new System.EventHandler(this.txtPassword_Enter);
             // 
             // txtLogin
             // 
@@ -72,6 +73,7 @@
             this.txtLogin.Name = "txtLogin";
             this.txtLogin.Size = new System.Drawing.Size(182, 20);
             this.txtLogin.TabIndex = 1;
+            this.txtLogin.Enter += new System.EventHandler(this.txtLogin_Enter);
             // 
             // lblpassword
             // 
@@ -98,6 +100,7 @@
             this.txtPassword2.PasswordChar = '*';
             this.txtPassword2.Size = new System.Drawing.Size(182, 20);
             this.txtPassword2.TabIndex = 3;
+            this.txtPassword2.Enter += new System.EventHandler(this.txtPassword2_Enter);
             // 
             // lblPassword2
             // 
@@ -110,6 +113,7 @@
             // 
             // frmNouveauLogin
             // 
+            this.AcceptButton = this.cmdOK;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(378, 163);

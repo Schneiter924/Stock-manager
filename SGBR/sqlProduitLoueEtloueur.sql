@@ -7,5 +7,5 @@ FROM
         INNER JOIN
     Produit ON idProduit = fkProduit
 WHERE
-    endDate IS NULL
+    endDate IS NULL AND idProduit = 3
 ORDER BY startDate

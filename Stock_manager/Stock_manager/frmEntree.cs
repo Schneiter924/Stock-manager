@@ -28,11 +28,7 @@ namespace Stock_manager
         public frmEntree()
         {
             InitializeComponent();
-            List<Produit> lstProduits = smsql.chargeProduitEnStock();
-            foreach (Produit produit in lstProduits)
-            {
-                cboIDPiece.Items.Add(produit.DescriptionID());
-            }
+            chargerProduit();
         }
 
         private void cmdRetour_Click(object sender, EventArgs e)
@@ -44,32 +40,36 @@ namespace Stock_manager
 
         private void cmdAjout_Click(object sender, EventArgs e)
         {
-            
-           
-            if (produit != null)
-            {
-                produit.IdProduit = produit.IdProduit;
-                produit.NomProduit = txtNom.Text;
-                produit.Description = txtDescription.Text;
-                smsql.Modificationproduit(produit);
-            }
-            else
-            {
-                produit = new Produit();
-                produit.IdProduit = Convert.ToInt32(cboIDPiece.Text);
-                produit.NomProduit = txtNom.Text;
-                produit.Description = txtDescription.Text;
-                smsql.NouveauProduit(produit);
-            }
 
+            if (cboIDPiece.Text != "")
+            {
+                if (produit != null)
+                {
+                    produit.IdProduit = produit.IdProduit;
+                    produit.NomProduit = txtNom.Text;
+                    produit.Description = txtDescription.Text;
+                    smsql.Modificationproduit(produit);
+                }
+                else
+                {
+                    produit = new Produit();
+                    produit.IdProduit = Convert.ToInt32(cboIDPiece.Text);
+                    produit.NomProduit = txtNom.Text;
+                    produit.Description = txtDescription.Text;
+                    smsql.NouveauProduit(produit);
+                }
+            }
             cboIDPiece.Text = "";
             txtNom.Text = "";
             txtDescription.Text = "";
             cboIDPiece.Enabled = true;
+            chargerProduit();
+        }
 
-            cboIDPiece.Items.Clear();
-
+        public void chargerProduit()
+        {
             List<Produit> lstProduits = smsql.chargeProduitEnStock();
+            cboIDPiece.Items.Clear();
             foreach (Produit produit in lstProduits)
             {
                 cboIDPiece.Items.Add(produit.DescriptionID());
@@ -96,6 +96,7 @@ namespace Stock_manager
                         cboIDPiece.Enabled = false;
                         txtNom.Text = "";
                         txtDescription.Text = "";
+                        cmdAjout.Text = "Ajout";
                     }
 
                 }
@@ -106,6 +107,24 @@ namespace Stock_manager
                     MessageBoxButtons bouton = MessageBoxButtons.OK;
                     MessageBox.Show(message, caption, bouton, MessageBoxIcon.Error);
                 }
+            }
+        }
+
+        private void txtDescription_TextChanged(object sender, EventArgs e)
+        {
+            string descr = txtDescription.Text;
+            int nombreCaractereMax = 100;
+            int nombreCaractereActuelle = descr.Count();
+            
+            lblNombreCaractere.Text = "Nombre de caractère actuelle " + nombreCaractereActuelle + " / nombre max de caractère " + nombreCaractereMax;
+            if (nombreCaractereActuelle > nombreCaractereMax)
+            {
+                string message = "Dépassement du nombre de caratère autorise";
+                string caption = "Erreur";
+                MessageBoxButtons bouton = MessageBoxButtons.OK;
+                MessageBox.Show(message, caption, bouton, MessageBoxIcon.Error);
+                descr = descr.Substring(0, 100);
+                txtDescription.Text = descr;
             }
         }
     }

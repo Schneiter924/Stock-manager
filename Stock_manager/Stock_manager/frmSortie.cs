@@ -18,7 +18,7 @@ namespace Stock_manager
         }
 
         Connection_mySQL smsql = new Connection_mySQL();
-
+        DateTime Aujourdhui;
         protected override CreateParams CreateParams
         {
             get
@@ -37,25 +37,31 @@ namespace Stock_manager
 
         private void cmdAjout_Click(object sender, EventArgs e)
         {
+            if ((cboLoueur.Text != "") && (cboProduit.Text != ""))
+            {
+                Location location = new Location();
+                Loueur loueur = smsql.LoueurSelectionner(cboLoueur.Text);
+                Produit produit = smsql.RetourtProduit(Convert.ToInt32(cboProduit.Text));
+                location.StartDate = Aujourdhui;
+                location.Loueur = loueur;
+                location.Produit = produit;
+                smsql.NouvelleLocation(location);
+                chargerProduit();
+            }
+            else
+            {
 
+            }
         }
 
         private void frmSortie_Load(object sender, EventArgs e)
         {
-            DateTime Aujourdhui = DateTime.Today;
+            Aujourdhui = DateTime.Today;
+            txtDuree.Text = "30 jours";
             DateTime trenteJours = Aujourdhui.AddDays(30);
             txtDateRetour.Text = trenteJours.ToString("dd-MM-yyyy");
-            List<Loueur> lstLoueurs = smsql.chargeLoueur();
-            foreach (Loueur loueur in lstLoueurs)
-            {
-                cboLoueur.Items.Add(loueur.Description());
-            }
-            List<Produit> lstProduits = smsql.chargeProduitEnStock();
-            foreach (Produit produit in lstProduits)
-            {
-                cboPiece.Items.Add(produit.DescriptionID());
-            }
-            
+            chargerLoueur();
+            chargerProduit();            
         }
 
         private void cboLoueur_Validated(object sender, EventArgs e)
@@ -72,14 +78,29 @@ namespace Stock_manager
                     if (dialogResult == DialogResult.Yes)
                     {
                         smsql.AjoutLoueur(cboLoueur.Text);
-                        List<Loueur> lstLoueurs = smsql.chargeLoueur();
-                        cboLoueur.Items.Clear();
-                        foreach (Loueur loueur in lstLoueurs)
-                        {
-                            cboLoueur.Items.Add(loueur.Description());
-                        }
+                        chargerLoueur();
                     }
                 }
+            }
+        }
+
+        private void chargerProduit()
+        {
+            List<Produit> lstProduits = smsql.chargeProduitEnStock();
+            cboProduit.Items.Clear();
+            foreach (Produit produit in lstProduits)
+            {
+                cboProduit.Items.Add(produit.DescriptionID());
+            }
+        }
+
+        public void chargerLoueur()
+        {
+            List<Loueur> lstLoueurs = smsql.chargeLoueur();
+            cboLoueur.Items.Clear();
+            foreach (Loueur loueur in lstLoueurs)
+            {
+                cboLoueur.Items.Add(loueur.Description());
             }
         }
     }
