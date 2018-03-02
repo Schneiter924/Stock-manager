@@ -18,16 +18,9 @@ namespace Stock_manager
         }
 
         Connection_mySQL smsql = new Connection_mySQL();
+
         DateTime Aujourdhui;
-        protected override CreateParams CreateParams
-        {
-            get
-            {
-                CreateParams parms = base.CreateParams;
-                parms.ClassStyle |= 0x200;
-                return parms;
-            }
-        }
+        
         private void cmdRetour_Click(object sender, EventArgs e)
         {
             Form frmMenu = new frmMain();
@@ -50,7 +43,22 @@ namespace Stock_manager
             }
             else
             {
-
+                if (cboLoueur.Text == "")
+                {
+                    string message = "Pas de client sélectionne";
+                    string legende = "Erreur";
+                    MessageBoxButtons bouton = MessageBoxButtons.OK;
+                    MessageBoxIcon icon = MessageBoxIcon.Error;
+                    MessageBox.Show(message, legende, bouton, icon);
+                }
+                if (cboProduit.Text == "")
+                {
+                    string message = "Pas de Produit sélectionne";
+                    string legende = "Erreur";
+                    MessageBoxButtons bouton = MessageBoxButtons.OK;
+                    MessageBoxIcon icon = MessageBoxIcon.Error;
+                    MessageBox.Show(message, legende, bouton, icon);
+                }
             }
         }
 
@@ -71,10 +79,10 @@ namespace Stock_manager
                 if (smsql.TestNomLoueur(cboLoueur.Text) == null)
                 {
                     string message = "confirmation d'ajout du loueur";
-                    string caption = "Information";
+                    string legende = "Information";
                     MessageBoxButtons boutonYes = MessageBoxButtons.YesNo;
                     MessageBoxIcon boutonIcon = MessageBoxIcon.Information;
-                    DialogResult dialogResult = MessageBox.Show(message, caption, boutonYes, boutonIcon);
+                    DialogResult dialogResult = MessageBox.Show(message, legende, boutonYes, boutonIcon);
                     if (dialogResult == DialogResult.Yes)
                     {
                         smsql.AjoutLoueur(cboLoueur.Text);

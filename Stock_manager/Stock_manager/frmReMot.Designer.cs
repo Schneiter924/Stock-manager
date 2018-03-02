@@ -40,7 +40,7 @@
             this.lstRecherche.FormattingEnabled = true;
             this.lstRecherche.Location = new System.Drawing.Point(12, 40);
             this.lstRecherche.Name = "lstRecherche";
-            this.lstRecherche.Size = new System.Drawing.Size(261, 212);
+            this.lstRecherche.Size = new System.Drawing.Size(937, 537);
             this.lstRecherche.TabIndex = 0;
             // 
             // lblRecherche
@@ -67,10 +67,11 @@
             this.cmdChercher.TabIndex = 3;
             this.cmdChercher.Text = "Chercher";
             this.cmdChercher.UseVisualStyleBackColor = true;
+            this.cmdChercher.Click += new System.EventHandler(this.cmdChercher_Click);
             // 
             // cmdRetour
             // 
-            this.cmdRetour.Location = new System.Drawing.Point(294, 227);
+            this.cmdRetour.Location = new System.Drawing.Point(375, 4);
             this.cmdRetour.Name = "cmdRetour";
             this.cmdRetour.Size = new System.Drawing.Size(75, 23);
             this.cmdRetour.TabIndex = 4;
@@ -82,7 +83,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(393, 262);
+            this.ClientSize = new System.Drawing.Size(961, 591);
             this.Controls.Add(this.cmdRetour);
             this.Controls.Add(this.cmdChercher);
             this.Controls.Add(this.txtRecherche);

@@ -16,17 +16,7 @@ namespace Stock_manager
         {
             InitializeComponent();
         }
-
-        protected override CreateParams CreateParams
-        {
-            get
-            {
-                CreateParams parms = base.CreateParams;
-                parms.ClassStyle |= 0x200;
-                return parms;
-            }
-        }
-
+        
         private void cmdRetour_Click(object sender, EventArgs e)
         {
             Form frmMenu = new frmMain();
@@ -46,7 +36,8 @@ namespace Stock_manager
             }
             List<Produit> lstProduit = smsql.chargeProduitEnStock();
             int nombreProduitEnStocke = smsql.CompteProduitEnStock();
-            lblProduitEnStockEtTotal.Text = "Nombre de produit en stock : " + nombreProduitEnStocke + " \\ nombre de produit total : " + lstProduit.Count();
+            int nombreTotalProduit = smsql.CompteProduitTotal();
+            lblProduitEnStockEtTotal.Text = "Nombre de produit en stock : " + nombreProduitEnStocke + " \\ nombre de produit total : " + nombreTotalProduit;
             foreach (Produit produit in lstProduit)
             {
                 lstInventaireStock.Items.Add(produit.DescriptionProduitAvecID());

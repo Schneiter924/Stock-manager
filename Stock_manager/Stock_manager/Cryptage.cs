@@ -14,15 +14,13 @@ namespace Stock_manager
     public class Cryptage
     {
         private string chemin;
-        MD5 md5Hash;
-        /// <summary>
+         /// <summary>
         /// constructeur passe en paramètre le chemin du fichier + le fichier
         /// </summary>
         /// <param name="chemin"></param>
         public Cryptage(string chemin)
         {
             this.chemin = chemin;
-            md5Hash = MD5.Create();
         }
 
         /// <summary>

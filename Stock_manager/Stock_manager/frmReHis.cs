@@ -16,15 +16,7 @@ namespace Stock_manager
         {
             InitializeComponent();
         }
-        protected override CreateParams CreateParams
-        {
-            get
-            {
-                CreateParams parms = base.CreateParams;
-                parms.ClassStyle |= 0x200;
-                return parms;
-            }
-        }
+        
         Connection_mySQL smsql = new Connection_mySQL();
 
         private void cmdRetour_Click(object sender, EventArgs e)
@@ -55,7 +47,11 @@ namespace Stock_manager
             }
             else
             {
-
+                string message = "Pas de Produit sélectionne";
+                string legende = "Erreur";
+                MessageBoxButtons bouton = MessageBoxButtons.OK;
+                MessageBoxIcon icon = MessageBoxIcon.Error;
+                MessageBox.Show(message, legende, bouton, icon);
             }
         }
     }

@@ -12,16 +12,6 @@ namespace Stock_manager
 {
     public partial class frmEntree : Form
     {
-        protected override CreateParams CreateParams
-        {
-            get
-            {
-                CreateParams parms = base.CreateParams;
-                parms.ClassStyle |= 0x200;
-                return parms;
-            }
-        }
-
         Produit produit;
         Connection_mySQL smsql = new Connection_mySQL();
 
@@ -103,9 +93,9 @@ namespace Stock_manager
                 catch (FormatException ex)
                 {
                     string message = ex.Message;
-                    string caption = "Erreur";
+                    string legende = "Erreur";
                     MessageBoxButtons bouton = MessageBoxButtons.OK;
-                    MessageBox.Show(message, caption, bouton, MessageBoxIcon.Error);
+                    MessageBox.Show(message, legende, bouton, MessageBoxIcon.Error);
                 }
             }
         }
@@ -120,9 +110,9 @@ namespace Stock_manager
             if (nombreCaractereActuelle > nombreCaractereMax)
             {
                 string message = "Dépassement du nombre de caratère autorise";
-                string caption = "Erreur";
+                string legende = "Erreur";
                 MessageBoxButtons bouton = MessageBoxButtons.OK;
-                MessageBox.Show(message, caption, bouton, MessageBoxIcon.Error);
+                MessageBox.Show(message, legende, bouton, MessageBoxIcon.Error);
                 descr = descr.Substring(0, 100);
                 txtDescription.Text = descr;
             }

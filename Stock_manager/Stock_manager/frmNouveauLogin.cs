@@ -20,15 +20,6 @@ namespace Stock_manager
             cryPassword = new Cryptage(AppDomain.CurrentDomain.BaseDirectory + "pwd.txt");
             cryLogin = new Cryptage(AppDomain.CurrentDomain.BaseDirectory + "login.txt");
         }
-        protected override CreateParams CreateParams
-        {
-            get
-            {
-                CreateParams parms = base.CreateParams;
-                parms.ClassStyle |= 0x200;
-                return parms;
-            }
-        }
 
         private void cmdReset_Click(object sender, EventArgs e)
         {
@@ -42,30 +33,30 @@ namespace Stock_manager
             if (txtLogin.Text == "")
             {
                 string message = "login vide";
-                string caption = "Erreur";
+                string legende = "Erreur";
                 MessageBoxButtons bouton = MessageBoxButtons.OK;
-                MessageBox.Show(message, caption, bouton, MessageBoxIcon.Error);
+                MessageBox.Show(message, legende, bouton, MessageBoxIcon.Error);
             }
             else if(txtPassword.Text == "")
             {
                 string message = "mot de passe vide";
-                string caption = "Erreur";
+                string legende = "Erreur";
                 MessageBoxButtons bouton = MessageBoxButtons.OK;
-                MessageBox.Show(message, caption, bouton, MessageBoxIcon.Error);
+                MessageBox.Show(message, legende, bouton, MessageBoxIcon.Error);
             }
             else if (txtPassword2.Text == "")
             {
                 string message = "mot de passe vide";
-                string caption = "Erreur";
+                string legende = "Erreur";
                 MessageBoxButtons bouton = MessageBoxButtons.OK;
-                MessageBox.Show(message, caption, bouton, MessageBoxIcon.Error);
+                MessageBox.Show(message, legende, bouton, MessageBoxIcon.Error);
             }
             else if (txtPassword.Text != txtPassword2.Text)
             {
                 string message = "mot de passe différent";
-                string caption = "Erreur";
+                string legende = "Erreur";
                 MessageBoxButtons bouton = MessageBoxButtons.OK;
-                MessageBox.Show(message, caption, bouton, MessageBoxIcon.Error);
+                MessageBox.Show(message, legende, bouton, MessageBoxIcon.Error);
             }
             else
             {

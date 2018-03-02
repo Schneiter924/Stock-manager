@@ -180,7 +180,7 @@ namespace Stock_manager
         /// <summary>
         /// fonction qui retourne toutes les locations en cours
         /// </summary>
-        /// <returns></returns>
+        /// <returns>retoure une liste de location</returns>
         public List<Location> LocationEnCours()
         {
             List<Location> lstlocations = new List<Location>();
@@ -246,8 +246,7 @@ namespace Stock_manager
                 loueur.IdLoueur = Convert.ToInt32(l["idLoueur"]);
                 loueur.NomLoueur = Convert.ToString(l["nomLoueur"]);
                 location.Produit = produit;
-                location.Loueur = loueur;
-                
+                location.Loueur = loueur; 
             }
 
             connection.Close();
@@ -258,9 +257,7 @@ namespace Stock_manager
         /// <summary>
         /// fonction qui ajout une nouvelle location dans la base de donnée
         /// </summary>
-        /// <param name="produit"></param>
         /// <param name="location"></param>
-        /// <param name="loueur"></param>
         public void NouvelleLocation(Location location)
         {
             connection.Open();
@@ -283,7 +280,7 @@ namespace Stock_manager
         }
 
         /// <summary>
-        /// 
+        /// fonction qui fait la modification sur la location sélectionne pour mettre une date de retour
         /// </summary>
         /// <param name="location"></param>
         public void RetourLocation(Location location)
@@ -304,7 +301,7 @@ namespace Stock_manager
         }
 
         /// <summary>
-        /// 
+        /// fonction qui ajout un loueur dans la base de donnée
         /// </summary>
         /// <param name="nom"></param>
         public void AjoutLoueur (string nom)
@@ -323,10 +320,10 @@ namespace Stock_manager
         }
         
         /// <summary>
-        /// 
+        /// fonction qui test si le loueur existe dans la base de donnée
         /// </summary>
         /// <param name="nom"></param>
-        /// <returns></returns>
+        /// <returns>un object</returns>
         public object TestNomLoueur (string nom)
         {
             connection.Open();
@@ -346,12 +343,12 @@ namespace Stock_manager
 
         
         /// <summary>
-        /// 
+        /// fonction sélectionne les produits en stock
         /// </summary>
-        /// <returns>lstProdui</returns>
+        /// <returns>retourne une liste de produit</returns>
         public List<Produit> chargeProduitEnStock()
         {
-            List<Produit> lstProduit = new List<Produit>();
+            List<Produit> lstProduits = new List<Produit>();
 
             connection.Open();
 
@@ -367,14 +364,48 @@ namespace Stock_manager
                 produit.IdProduit = Convert.ToInt32(p[0]);
                 produit.NomProduit = Convert.ToString(p[1]);
                 produit.Description = Convert.ToString(p[2]);
-                lstProduit.Add(produit);
+                lstProduits.Add(produit);
             }
 
             connection.Close();
 
-            return lstProduit;
+            return lstProduits;
         }
 
+        /// <summary>
+        /// fonction qui compte le nombre total de produit dans la base de donnée
+        /// </summary>
+        /// <returns>retourne un int</returns>
+        public int CompteProduitTotal()
+        {
+            object resultat;
+            int nombre;
+
+            connection.Open();
+
+            MySqlCommand cmd = this.connection.CreateCommand();
+
+            cmd.CommandText = "Select count(*) from produit";
+
+            resultat = cmd.ExecuteScalar();
+
+            if (resultat != null)
+            {
+                nombre = Convert.ToInt32(resultat);
+            }
+            else
+            {
+                nombre = 0;
+            }
+            connection.Close();
+
+            return nombre;
+        }
+
+        /// <summary>
+        /// fonction qui compte le nombre de produit en stock
+        /// </summary>
+        /// <returns>retourne un int</returns>
         public int CompteProduitEnStock()
         {
             object resultat;
@@ -402,35 +433,8 @@ namespace Stock_manager
             return nombre;
         }
 
-        public int TotalProduit()
-        {
-            object resultat;
-            int nombre;
-
-            connection.Open();
-
-            MySqlCommand cmd = this.connection.CreateCommand();
-
-            cmd.CommandText = "SELECT count(*) FROM produit";
-
-            resultat = cmd.ExecuteScalar();
-
-            if (resultat != null)
-            {
-                nombre = Convert.ToInt32(resultat);
-            }
-            else
-            {
-                nombre = 0;
-            }
-
-            connection.Close();
-
-            return nombre;
-        }
-
         /// <summary>
-        /// 
+        /// fonction qui retourne l'id du loueur sélectionne
         /// </summary>
         /// <param name="nom"></param>
         /// <returns>loueur</returns>
@@ -461,12 +465,12 @@ namespace Stock_manager
         }
 
         /// <summary>
-        /// 
+        /// fonction qui sélectionne tous les loueurs
         /// </summary>
-        /// <returns>lstLoueur</returns>
+        /// <returns>retourne une liste de loueurs</returns>
         public List<Loueur> chargeLoueur()
         {
-            List<Loueur> lstLoueur = new List<Loueur>();
+            List<Loueur> lstLoueurs = new List<Loueur>();
 
             connection.Open();
 
@@ -481,21 +485,21 @@ namespace Stock_manager
                 Loueur loueur = new Loueur();
                 loueur.IdLoueur = Convert.ToInt32(l[0]);
                 loueur.NomLoueur = Convert.ToString(l[1]);
-                lstLoueur.Add(loueur);
+                lstLoueurs.Add(loueur);
             }
 
             connection.Close();
 
-            return lstLoueur;
+            return lstLoueurs;
         }
         
         /// <summary>
-        /// 
+        /// fonction qui recherche les produits qui sont hors du delais
         /// </summary>
-        /// <returns></returns>
+        /// <returns>retourne une liste de location</returns>
         public List<Location> ProduitHorsDelais()
         {
-            List<Location> lstLocation = new List<Location>();
+            List<Location> lstLocations = new List<Location>();
 
             connection.Open();
 
@@ -520,14 +524,18 @@ namespace Stock_manager
                 location.StartDate = Convert.ToDateTime(l["startDate"]);
                 location.Produit = produit;
                 location.Loueur = loueur;
-                lstLocation.Add(location);
+                lstLocations.Add(location);
             }
 
             connection.Close();
 
-            return lstLocation;
+            return lstLocations;
         }
 
+        /// <summary>
+        /// fonction qui sélectionne tous les produits dans la base de donnée
+        /// </summary>
+        /// <returns>retourne une liste de produit</returns>
         public List<Produit> ToutLesProduit()
         {
             List<Produit> lstProduits = new List<Produit>();
@@ -554,9 +562,14 @@ namespace Stock_manager
             return lstProduits;
         }
 
+        /// <summary>
+        /// fonction qui afficher l'historique d'un produit
+        /// </summary>
+        /// <param name="idProduit"></param>
+        /// <returns>retourne une liste de location</returns>
         public List<Location> Historique(int idProduit)
         {
-            List<Location> lstLocation = new List<Location>();
+            List<Location> lstLocations = new List<Location>();
 
             connection.Open();
 
@@ -583,13 +596,45 @@ namespace Stock_manager
                 location.StartDate = Convert.ToDateTime(l["startDate"]);
                 location.Produit = produit;
                 location.Loueur = loueur;
-                lstLocation.Add(location);
+                lstLocations.Add(location);
             }
 
             connection.Close();
 
-            return lstLocation;
+            return lstLocations;
         }
 
+        /// <summary>
+        /// fonction qui fait la recherche par mot-clés
+        /// </summary>
+        /// <param name="chercher"></param>
+        /// <returns>retourne une liste de produit</returns>
+        public List<Produit> RechercherMotCle(string chercher)
+        {
+            List<Produit> lstProduits = new List<Produit>();
+
+            connection.Open();
+
+            MySqlCommand cmd = this.connection.CreateCommand();
+
+            cmd.CommandText = "select * from produit where nomProduit like @chercher or description like @chercher or idProduit like @chercher order by idProduit";
+
+            cmd.Parameters.AddWithValue("@chercher", "%" + chercher + "%");
+
+            MySqlDataReader p = cmd.ExecuteReader();
+
+            while (p.Read())
+            {
+                Produit produit = new Produit();
+                produit.IdProduit = Convert.ToInt32(p["idProduit"]);
+                produit.NomProduit = Convert.ToString(p["nomProduit"]);
+                produit.Description = Convert.ToString(p["description"]);
+                lstProduits.Add(produit);
+            }
+
+            connection.Close();
+
+            return lstProduits;
+        }
     }
 }
