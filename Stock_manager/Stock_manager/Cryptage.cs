@@ -91,7 +91,5 @@ namespace Stock_manager
         {
             return File.Exists(chemin);
         }
-
-        
     }
 }

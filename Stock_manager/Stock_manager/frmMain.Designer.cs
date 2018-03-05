@@ -29,83 +29,95 @@
         private void InitializeComponent()
         {
             this.cmdInventaire = new System.Windows.Forms.Button();
-            this.cmdNouvellePiece = new System.Windows.Forms.Button();
-            this.cmdSortie = new System.Windows.Forms.Button();
-            this.cmdRecherche = new System.Windows.Forms.Button();
+            this.cmdAMProduit = new System.Windows.Forms.Button();
+            this.cmdLocation = new System.Windows.Forms.Button();
+            this.cmdMenuRecherche = new System.Windows.Forms.Button();
             this.cmdQuitter = new System.Windows.Forms.Button();
-            this.cmdRetourPièce = new System.Windows.Forms.Button();
+            this.cmdRetourPrduit = new System.Windows.Forms.Button();
+            this.cmdLoueur = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // cmdInventaire
             // 
             this.cmdInventaire.Location = new System.Drawing.Point(12, 12);
             this.cmdInventaire.Name = "cmdInventaire";
-            this.cmdInventaire.Size = new System.Drawing.Size(137, 23);
+            this.cmdInventaire.Size = new System.Drawing.Size(192, 23);
             this.cmdInventaire.TabIndex = 0;
             this.cmdInventaire.Text = "Voir l\'inventaire";
             this.cmdInventaire.UseVisualStyleBackColor = true;
             this.cmdInventaire.Click += new System.EventHandler(this.cmdInventaire_Click);
             // 
-            // cmdNouvellePiece
+            // cmdAMProduit
             // 
-            this.cmdNouvellePiece.Location = new System.Drawing.Point(12, 41);
-            this.cmdNouvellePiece.Name = "cmdNouvellePiece";
-            this.cmdNouvellePiece.Size = new System.Drawing.Size(137, 23);
-            this.cmdNouvellePiece.TabIndex = 1;
-            this.cmdNouvellePiece.Text = "Nouvelle pièce";
-            this.cmdNouvellePiece.UseVisualStyleBackColor = true;
-            this.cmdNouvellePiece.Click += new System.EventHandler(this.cmdNouvellePiece_Click);
+            this.cmdAMProduit.Location = new System.Drawing.Point(12, 41);
+            this.cmdAMProduit.Name = "cmdAMProduit";
+            this.cmdAMProduit.Size = new System.Drawing.Size(192, 23);
+            this.cmdAMProduit.TabIndex = 1;
+            this.cmdAMProduit.Text = "Ajout / modification produit";
+            this.cmdAMProduit.UseVisualStyleBackColor = true;
+            this.cmdAMProduit.Click += new System.EventHandler(this.cmdAMProduit_Click);
             // 
-            // cmdSortie
+            // cmdLocation
             // 
-            this.cmdSortie.Location = new System.Drawing.Point(12, 99);
-            this.cmdSortie.Name = "cmdSortie";
-            this.cmdSortie.Size = new System.Drawing.Size(137, 23);
-            this.cmdSortie.TabIndex = 4;
-            this.cmdSortie.Text = "Sortie de la pièce";
-            this.cmdSortie.UseVisualStyleBackColor = true;
-            this.cmdSortie.Click += new System.EventHandler(this.cmdSortie_Click);
+            this.cmdLocation.Location = new System.Drawing.Point(12, 128);
+            this.cmdLocation.Name = "cmdLocation";
+            this.cmdLocation.Size = new System.Drawing.Size(192, 23);
+            this.cmdLocation.TabIndex = 5;
+            this.cmdLocation.Text = "Location d\'un produit";
+            this.cmdLocation.UseVisualStyleBackColor = true;
+            this.cmdLocation.Click += new System.EventHandler(this.cmdLocation_Click);
             // 
-            // cmdRecherche
+            // cmdMenuRecherche
             // 
-            this.cmdRecherche.Location = new System.Drawing.Point(12, 128);
-            this.cmdRecherche.Name = "cmdRecherche";
-            this.cmdRecherche.Size = new System.Drawing.Size(137, 23);
-            this.cmdRecherche.TabIndex = 5;
-            this.cmdRecherche.Text = "Recherche de pièce";
-            this.cmdRecherche.UseVisualStyleBackColor = true;
-            this.cmdRecherche.Click += new System.EventHandler(this.cmdRecherche_Click);
+            this.cmdMenuRecherche.Location = new System.Drawing.Point(12, 157);
+            this.cmdMenuRecherche.Name = "cmdMenuRecherche";
+            this.cmdMenuRecherche.Size = new System.Drawing.Size(192, 23);
+            this.cmdMenuRecherche.TabIndex = 6;
+            this.cmdMenuRecherche.Text = "Affiche le menu pour la recheche";
+            this.cmdMenuRecherche.UseVisualStyleBackColor = true;
+            this.cmdMenuRecherche.Click += new System.EventHandler(this.cmdMenuRecherche_Click);
             // 
             // cmdQuitter
             // 
-            this.cmdQuitter.Location = new System.Drawing.Point(12, 157);
+            this.cmdQuitter.Location = new System.Drawing.Point(12, 186);
             this.cmdQuitter.Name = "cmdQuitter";
-            this.cmdQuitter.Size = new System.Drawing.Size(137, 23);
-            this.cmdQuitter.TabIndex = 6;
+            this.cmdQuitter.Size = new System.Drawing.Size(192, 23);
+            this.cmdQuitter.TabIndex = 7;
             this.cmdQuitter.Text = "Quitter";
             this.cmdQuitter.UseVisualStyleBackColor = true;
             this.cmdQuitter.Click += new System.EventHandler(this.cmdQuitter_Click);
             // 
-            // cmdRetourPièce
+            // cmdRetourPrduit
             // 
-            this.cmdRetourPièce.Location = new System.Drawing.Point(12, 70);
-            this.cmdRetourPièce.Name = "cmdRetourPièce";
-            this.cmdRetourPièce.Size = new System.Drawing.Size(137, 23);
-            this.cmdRetourPièce.TabIndex = 3;
-            this.cmdRetourPièce.Text = "Retour de la pièce";
-            this.cmdRetourPièce.UseVisualStyleBackColor = true;
-            this.cmdRetourPièce.Click += new System.EventHandler(this.cmdRetourPièce_Click);
+            this.cmdRetourPrduit.Location = new System.Drawing.Point(12, 70);
+            this.cmdRetourPrduit.Name = "cmdRetourPrduit";
+            this.cmdRetourPrduit.Size = new System.Drawing.Size(192, 23);
+            this.cmdRetourPrduit.TabIndex = 3;
+            this.cmdRetourPrduit.Text = "Retour d\'un produit";
+            this.cmdRetourPrduit.UseVisualStyleBackColor = true;
+            this.cmdRetourPrduit.Click += new System.EventHandler(this.cmdRetourPrduit_Click);
+            // 
+            // cmdLoueur
+            // 
+            this.cmdLoueur.Location = new System.Drawing.Point(12, 99);
+            this.cmdLoueur.Name = "cmdLoueur";
+            this.cmdLoueur.Size = new System.Drawing.Size(192, 23);
+            this.cmdLoueur.TabIndex = 4;
+            this.cmdLoueur.Text = "Ajout / modification Loueur";
+            this.cmdLoueur.UseVisualStyleBackColor = true;
+            this.cmdLoueur.Click += new System.EventHandler(this.cmdLoueur_Click);
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(230, 188);
-            this.Controls.Add(this.cmdRetourPièce);
+            this.ClientSize = new System.Drawing.Size(230, 225);
+            this.Controls.Add(this.cmdLoueur);
+            this.Controls.Add(this.cmdRetourPrduit);
             this.Controls.Add(this.cmdQuitter);
-            this.Controls.Add(this.cmdRecherche);
-            this.Controls.Add(this.cmdSortie);
-            this.Controls.Add(this.cmdNouvellePiece);
+            this.Controls.Add(this.cmdMenuRecherche);
+            this.Controls.Add(this.cmdLocation);
+            this.Controls.Add(this.cmdAMProduit);
             this.Controls.Add(this.cmdInventaire);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -113,6 +125,7 @@
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Stock manager";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmMain_FormClosed);
             this.ResumeLayout(false);
 
         }
@@ -120,10 +133,11 @@
         #endregion
 
         private System.Windows.Forms.Button cmdInventaire;
-        private System.Windows.Forms.Button cmdNouvellePiece;
-        private System.Windows.Forms.Button cmdSortie;
-        private System.Windows.Forms.Button cmdRecherche;
+        private System.Windows.Forms.Button cmdAMProduit;
+        private System.Windows.Forms.Button cmdLocation;
+        private System.Windows.Forms.Button cmdMenuRecherche;
         private System.Windows.Forms.Button cmdQuitter;
-        private System.Windows.Forms.Button cmdRetourPièce;
+        private System.Windows.Forms.Button cmdRetourPrduit;
+        private System.Windows.Forms.Button cmdLoueur;
     }
 }

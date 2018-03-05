@@ -95,6 +95,7 @@
             this.Name = "frmReMot";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Recherche mot-clé";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmReMot_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

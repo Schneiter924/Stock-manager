@@ -117,5 +117,12 @@ namespace Stock_manager
                 txtDescription.Text = descr;
             }
         }
+
+        private void frmEntree_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Form frmMenu = new frmMain();
+            frmMenu.Show();
+            this.Dispose();
+        }
     }
 }

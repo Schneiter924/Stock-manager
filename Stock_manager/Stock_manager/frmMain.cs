@@ -31,32 +31,44 @@ namespace Stock_manager
 
        
 
-        private void cmdSortie_Click(object sender, EventArgs e)
+        private void cmdLocation_Click(object sender, EventArgs e)
         {
             Form frmSor = new frmSortie();
             frmSor.Show();
             this.Dispose();
         }
 
-        private void cmdRecherche_Click(object sender, EventArgs e)
+        private void cmdMenuRecherche_Click(object sender, EventArgs e)
         {
             Form frmRec = new frmReMenu();
             frmRec.Show();
             this.Dispose();
         }
 
-        private void cmdNouvellePiece_Click(object sender, EventArgs e)
+        private void cmdAMProduit_Click(object sender, EventArgs e)
         {
             Form frmNP = new frmEntree();
             frmNP.Show();
             this.Hide();
         }
 
-        private void cmdRetourPièce_Click(object sender, EventArgs e)
+        private void cmdRetourPrduit_Click(object sender, EventArgs e)
         {
             Form frmRP = new frmRetourPiece();
             frmRP.Show();
             this.Hide();
+        }
+
+        private void cmdLoueur_Click(object sender, EventArgs e)
+        {
+            Form frmL = new frmLoueur();
+            frmL.Show();
+            this.Hide();
+        }
+
+        private void frmMain_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

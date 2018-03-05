@@ -63,6 +63,7 @@
             this.Name = "frmReHors";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Rechercher hors-délai";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmReHors_FormClosed);
             this.Load += new System.EventHandler(this.frmReHors_Load);
             this.ResumeLayout(false);
 

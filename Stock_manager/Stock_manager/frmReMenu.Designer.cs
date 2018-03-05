@@ -42,7 +42,7 @@
             this.cmdRetour.TabIndex = 8;
             this.cmdRetour.Text = "Retour";
             this.cmdRetour.UseVisualStyleBackColor = true;
-            this.cmdRetour.Click += new System.EventHandler(this.cmdQuitter_Click);
+            this.cmdRetour.Click += new System.EventHandler(this.cmdRetour_Click);
             // 
             // cmdHors
             // 
@@ -78,7 +78,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(232, 148);
+            this.ClientSize = new System.Drawing.Size(183, 141);
             this.Controls.Add(this.cmdRetour);
             this.Controls.Add(this.cmdHors);
             this.Controls.Add(this.cmdHistorique);
@@ -90,6 +90,7 @@
             this.Name = "frmReMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Recherche";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmReMenu_FormClosed);
             this.ResumeLayout(false);
 
         }

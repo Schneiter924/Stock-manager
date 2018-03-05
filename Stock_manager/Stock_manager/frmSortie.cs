@@ -33,7 +33,7 @@ namespace Stock_manager
             if ((cboLoueur.Text != "") && (cboProduit.Text != ""))
             {
                 Location location = new Location();
-                Loueur loueur = smsql.LoueurSelectionner(cboLoueur.Text);
+                Loueur loueur = smsql.LoueurSelectionnerNom(cboLoueur.Text);
                 Produit produit = smsql.RetourtProduit(Convert.ToInt32(cboProduit.Text));
                 location.StartDate = Aujourdhui;
                 location.Loueur = loueur;
@@ -78,16 +78,11 @@ namespace Stock_manager
             {                
                 if (smsql.TestNomLoueur(cboLoueur.Text) == null)
                 {
-                    string message = "confirmation d'ajout du loueur";
+                    string message = "Loueur non trouvé dans la base de donnée";
                     string legende = "Information";
                     MessageBoxButtons boutonYes = MessageBoxButtons.YesNo;
                     MessageBoxIcon boutonIcon = MessageBoxIcon.Information;
-                    DialogResult dialogResult = MessageBox.Show(message, legende, boutonYes, boutonIcon);
-                    if (dialogResult == DialogResult.Yes)
-                    {
-                        smsql.AjoutLoueur(cboLoueur.Text);
-                        chargerLoueur();
-                    }
+                    MessageBox.Show(message, legende, boutonYes, boutonIcon);
                 }
             }
         }
@@ -110,6 +105,13 @@ namespace Stock_manager
             {
                 cboLoueur.Items.Add(loueur.Description());
             }
+        }
+
+        private void frmSortie_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Form frmMenu = new frmMain();
+            frmMenu.Show();
+            this.Dispose();
         }
     }
 }

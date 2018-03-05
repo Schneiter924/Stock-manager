@@ -130,6 +130,7 @@
             this.Name = "frmNouveauLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nouveau login";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmNouveauLogin_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

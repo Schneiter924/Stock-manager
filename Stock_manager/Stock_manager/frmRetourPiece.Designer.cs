@@ -46,14 +46,14 @@
             // cboPiece
             // 
             this.cboPiece.FormattingEnabled = true;
-            this.cboPiece.Location = new System.Drawing.Point(253, 49);
+            this.cboPiece.Location = new System.Drawing.Point(145, 49);
             this.cboPiece.Name = "cboPiece";
             this.cboPiece.Size = new System.Drawing.Size(108, 21);
             this.cboPiece.TabIndex = 1;
             // 
             // cmdRetourPiece
             // 
-            this.cmdRetourPiece.Location = new System.Drawing.Point(253, 124);
+            this.cmdRetourPiece.Location = new System.Drawing.Point(145, 97);
             this.cmdRetourPiece.Name = "cmdRetourPiece";
             this.cmdRetourPiece.Size = new System.Drawing.Size(108, 23);
             this.cmdRetourPiece.TabIndex = 2;
@@ -63,7 +63,7 @@
             // 
             // cmdRetour
             // 
-            this.cmdRetour.Location = new System.Drawing.Point(172, 124);
+            this.cmdRetour.Location = new System.Drawing.Point(64, 97);
             this.cmdRetour.Name = "cmdRetour";
             this.cmdRetour.Size = new System.Drawing.Size(75, 23);
             this.cmdRetour.TabIndex = 3;
@@ -75,7 +75,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(377, 164);
+            this.ClientSize = new System.Drawing.Size(272, 132);
             this.Controls.Add(this.cmdRetour);
             this.Controls.Add(this.cmdRetourPiece);
             this.Controls.Add(this.cboPiece);
@@ -85,6 +85,7 @@
             this.Name = "frmRetourPiece";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Retour de la pièce";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmRetourPiece_FormClosed);
             this.Load += new System.EventHandler(this.frmRetourPiece_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

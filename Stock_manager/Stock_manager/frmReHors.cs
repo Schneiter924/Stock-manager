@@ -35,5 +35,12 @@ namespace Stock_manager
                 lstRecherche.Items.Add(location.DescriptionLocation());
             }
         }
+
+        private void frmReHors_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Form frmMenu = new frmReMenu();
+            frmMenu.Show();
+            this.Dispose();
+        }
     }
 }

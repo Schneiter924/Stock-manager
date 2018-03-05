@@ -155,6 +155,7 @@
             this.Name = "frmSortie";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sortie du stock";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmSortie_FormClosed);
             this.Load += new System.EventHandler(this.frmSortie_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

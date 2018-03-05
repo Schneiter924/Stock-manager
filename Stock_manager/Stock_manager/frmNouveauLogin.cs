@@ -80,5 +80,10 @@ namespace Stock_manager
         {
             txtPassword2.SelectAll();
         }
+
+        private void frmNouveauLogin_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

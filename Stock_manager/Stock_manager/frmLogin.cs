@@ -31,16 +31,16 @@ namespace Stock_manager
                 MessageBoxButtons bouton = MessageBoxButtons.OK;
                 MessageBox.Show(message, legende, bouton, MessageBoxIcon.Error);
             }
-            else if (txtPassword.Text == "")
+            else if (cryLogin.TestLogin(txtLogin.Text) == false)
             {
-                string message = "Mot de passe vide";
+                string message = "Nom d'utilisateur inconnu";
                 string legende = "Erreur";
                 MessageBoxButtons bouton = MessageBoxButtons.OK;
                 MessageBox.Show(message, legende, bouton, MessageBoxIcon.Error);
             }
-            else if (cryLogin.TestLogin(txtLogin.Text)== false)
+            else if (txtPassword.Text == "")
             {
-                string message = "Nom d'utilisateur inconnu";
+                string message = "Mot de passe vide";
                 string legende = "Erreur";
                 MessageBoxButtons bouton = MessageBoxButtons.OK;
                 MessageBox.Show(message, legende, bouton, MessageBoxIcon.Error);
@@ -90,6 +90,11 @@ namespace Stock_manager
         private void txtPassword_Enter(object sender, EventArgs e)
         {
             txtPassword.SelectAll();
+        }
+
+        private void frmLogin_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

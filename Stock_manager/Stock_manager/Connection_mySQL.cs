@@ -341,7 +341,27 @@ namespace Stock_manager
             return resultat;
         }
 
-        
+        /// <summary>
+        /// fonction qui modifier un loueur
+        /// </summary>
+        /// <param name="loueur"></param>
+        public void ModificationLoueur(Loueur loueur)
+        {
+            connection.Open();
+
+            MySqlCommand cmd = this.connection.CreateCommand();
+
+            cmd.CommandText = "update loueur set nomLoueur = @nomLoueur where idLoueur = @idLoueur";
+
+            cmd.Parameters.AddWithValue("@nomLoueur", loueur.NomLoueur);
+
+            cmd.Parameters.AddWithValue("@idLoueur", loueur.IdLoueur);
+
+            cmd.ExecuteNonQuery();
+
+            connection.Close();
+        }
+
         /// <summary>
         /// fonction sélectionne les produits en stock
         /// </summary>
@@ -438,7 +458,7 @@ namespace Stock_manager
         /// </summary>
         /// <param name="nom"></param>
         /// <returns>loueur</returns>
-        public Loueur LoueurSelectionner(string nom)
+        public Loueur LoueurSelectionnerNom(string nom)
         {
             connection.Open();
 
@@ -446,7 +466,7 @@ namespace Stock_manager
 
             MySqlCommand cmd = this.connection.CreateCommand();
 
-            cmd.CommandText = "SELECT* FROM loueur WHERE nomLoueur like @nomLoueur";
+            cmd.CommandText = "SELECT * FROM loueur WHERE nomLoueur like @nomLoueur";
 
             cmd.Parameters.AddWithValue("@nomLoueur", nom);
 
@@ -455,6 +475,37 @@ namespace Stock_manager
             while (l.Read())
             {
                 
+                loueur.IdLoueur = Convert.ToInt32(l["idLoueur"]);
+                loueur.NomLoueur = Convert.ToString(l["nomLoueur"]);
+            }
+
+            connection.Close();
+
+            return loueur;
+        }
+
+        /// <summary>
+        /// fonction qui retourne l'id du loueur sélectionne
+        /// </summary>
+        /// <param name="nom"></param>
+        /// <returns>loueur</returns>
+        public Loueur LoueurSelectionnerID(int idLoueur)
+        {
+            connection.Open();
+
+            Loueur loueur = new Loueur();
+
+            MySqlCommand cmd = this.connection.CreateCommand();
+
+            cmd.CommandText = "SELECT * FROM loueur WHERE idLoueur = @idLoueur";
+
+            cmd.Parameters.AddWithValue("@idLoueur", idLoueur);
+
+            MySqlDataReader l = cmd.ExecuteReader();
+
+            while (l.Read())
+            {
+
                 loueur.IdLoueur = Convert.ToInt32(l["idLoueur"]);
                 loueur.NomLoueur = Convert.ToString(l["nomLoueur"]);
             }

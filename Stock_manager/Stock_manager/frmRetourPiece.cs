@@ -62,5 +62,12 @@ namespace Stock_manager
                 cboPiece.Items.Add(location.Produit.DescriptionID());
             }
         }
+
+        private void frmRetourPiece_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Form frmM = new frmMain();
+            frmM.Show();
+            this.Dispose();
+        }
     }
 }

@@ -29,7 +29,7 @@ namespace Stock_manager
             Connection_mySQL smsql = new Connection_mySQL();
 
             List<Location> lstLocation = smsql.LocationEnCours();
-            lblListeLocationTotal.Text = "Nombre de location en cour " + lstLocation.Count();
+            lblListeLocationTotal.Text = "Nombre de location en cours " + lstLocation.Count();
             foreach (Location location in lstLocation)
             {
                 lstInventaireLoue.Items.Add(location.DescriptionLocation());
@@ -42,6 +42,13 @@ namespace Stock_manager
             {
                 lstInventaireStock.Items.Add(produit.DescriptionProduitAvecID());
             }
+        }
+
+        private void frmInventaire_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Form frmMenu = new frmMain();
+            frmMenu.Show();
+            this.Dispose();
         }
     }
 }

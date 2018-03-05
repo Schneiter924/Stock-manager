@@ -115,6 +115,7 @@
             this.Name = "frmInventaire";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inventaire";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmInventaire_FormClosed);
             this.Load += new System.EventHandler(this.frmInventaire_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

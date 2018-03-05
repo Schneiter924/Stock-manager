@@ -38,7 +38,14 @@ namespace Stock_manager
             this.Dispose();
         }
 
-        private void cmdQuitter_Click(object sender, EventArgs e)
+        private void cmdRetour_Click(object sender, EventArgs e)
+        {
+            Form frmMenu = new frmMain();
+            frmMenu.Show();
+            this.Dispose();
+        }
+
+        private void frmReMenu_FormClosed(object sender, FormClosedEventArgs e)
         {
             Form frmMenu = new frmMain();
             frmMenu.Show();

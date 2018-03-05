@@ -142,6 +142,7 @@
             this.Name = "frmEntree";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Entrée en stock";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmEntree_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 
