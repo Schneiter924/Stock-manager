@@ -117,6 +117,7 @@
             // 
             this.cboProduit.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cboProduit.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cboProduit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboProduit.FormattingEnabled = true;
             this.cboProduit.Location = new System.Drawing.Point(161, 32);
             this.cboProduit.Name = "cboProduit";
@@ -127,6 +128,7 @@
             // 
             this.cboLoueur.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cboLoueur.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cboLoueur.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboLoueur.FormattingEnabled = true;
             this.cboLoueur.Location = new System.Drawing.Point(161, 145);
             this.cboLoueur.Name = "cboLoueur";

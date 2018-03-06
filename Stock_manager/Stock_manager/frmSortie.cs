@@ -40,6 +40,7 @@ namespace Stock_manager
                 location.Produit = produit;
                 smsql.NouvelleLocation(location);
                 chargerProduit();
+                chargerLoueur();
             }
             else
             {

@@ -58,6 +58,7 @@
             this.txtRecherche.Name = "txtRecherche";
             this.txtRecherche.Size = new System.Drawing.Size(151, 20);
             this.txtRecherche.TabIndex = 2;
+            this.txtRecherche.Enter += new System.EventHandler(this.txtRecherche_Enter);
             // 
             // cmdChercher
             // 
@@ -81,6 +82,7 @@
             // 
             // frmReMot
             // 
+            this.AcceptButton = this.cmdChercher;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(961, 591);

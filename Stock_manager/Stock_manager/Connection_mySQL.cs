@@ -141,9 +141,7 @@ namespace Stock_manager
 
             MySqlCommand cmd = this.connection.CreateCommand();
 
-            cmd.CommandText = "INSERT INTO Produit (idProduit, nomProduit, description) VALUES (@idProduit, @nomProduit, @description)";
-
-            cmd.Parameters.AddWithValue("@idProduit", produit.IdProduit);
+            cmd.CommandText = "INSERT INTO Produit (nomProduit, description) VALUES (@nomProduit, @description)";
 
             cmd.Parameters.AddWithValue("@nomProduit", produit.NomProduit);
 
@@ -454,7 +452,7 @@ namespace Stock_manager
         }
 
         /// <summary>
-        /// fonction qui retourne l'id du loueur sélectionne
+        /// fonction qui retourne un loueur avec comme paramétre le nom
         /// </summary>
         /// <param name="nom"></param>
         /// <returns>loueur</returns>
@@ -473,8 +471,7 @@ namespace Stock_manager
             MySqlDataReader l = cmd.ExecuteReader();
 
             while (l.Read())
-            {
-                
+            {                
                 loueur.IdLoueur = Convert.ToInt32(l["idLoueur"]);
                 loueur.NomLoueur = Convert.ToString(l["nomLoueur"]);
             }
@@ -485,7 +482,7 @@ namespace Stock_manager
         }
 
         /// <summary>
-        /// fonction qui retourne l'id du loueur sélectionne
+        /// fonction qui retourne un loueur avec comme paramétre l'id
         /// </summary>
         /// <param name="nom"></param>
         /// <returns>loueur</returns>

@@ -36,7 +36,6 @@
             this.cmdRetour = new System.Windows.Forms.Button();
             this.cmdAjout = new System.Windows.Forms.Button();
             this.cboIDPiece = new System.Windows.Forms.ComboBox();
-            this.lblNombreCaractere = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblNumero
@@ -81,7 +80,6 @@
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(179, 67);
             this.txtDescription.TabIndex = 5;
-            this.txtDescription.TextChanged += new System.EventHandler(this.txtDescription_TextChanged);
             // 
             // cmdRetour
             // 
@@ -105,29 +103,21 @@
             // 
             // cboIDPiece
             // 
+            this.cboIDPiece.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cboIDPiece.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cboIDPiece.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboIDPiece.FormattingEnabled = true;
             this.cboIDPiece.Location = new System.Drawing.Point(157, 38);
             this.cboIDPiece.Name = "cboIDPiece";
             this.cboIDPiece.Size = new System.Drawing.Size(179, 21);
             this.cboIDPiece.TabIndex = 3;
-            this.cboIDPiece.Validated += new System.EventHandler(this.cboIDPiece_Validated);
-            // 
-            // lblNombreCaractere
-            // 
-            this.lblNombreCaractere.AutoSize = true;
-            this.lblNombreCaractere.Location = new System.Drawing.Point(28, 201);
-            this.lblNombreCaractere.Name = "lblNombreCaractere";
-            this.lblNombreCaractere.Size = new System.Drawing.Size(308, 13);
-            this.lblNombreCaractere.TabIndex = 8;
-            this.lblNombreCaractere.Text = "Nombre de caractère actuelle 0 / nombre de caractère max 100";
+            this.cboIDPiece.SelectedIndexChanged += new System.EventHandler(this.cboIDPiece_SelectedIndexChanged);
             // 
             // frmEntree
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(348, 301);
-            this.Controls.Add(this.lblNombreCaractere);
             this.Controls.Add(this.cboIDPiece);
             this.Controls.Add(this.cmdAjout);
             this.Controls.Add(this.cmdRetour);
@@ -141,7 +131,7 @@
             this.MinimizeBox = false;
             this.Name = "frmEntree";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Entrée en stock";
+            this.Text = "Ajout et modification de produit";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmEntree_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -158,6 +148,5 @@
         private System.Windows.Forms.Button cmdRetour;
         private System.Windows.Forms.Button cmdAjout;
         private System.Windows.Forms.ComboBox cboIDPiece;
-        private System.Windows.Forms.Label lblNombreCaractere;
     }
 }

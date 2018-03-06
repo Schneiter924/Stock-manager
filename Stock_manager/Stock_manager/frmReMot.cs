@@ -53,5 +53,10 @@ namespace Stock_manager
             frmMenu.Show();
             this.Dispose();
         }
+
+        private void txtRecherche_Enter(object sender, EventArgs e)
+        {
+            txtRecherche.SelectAll();
+        }
     }
 }

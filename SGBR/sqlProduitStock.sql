@@ -1,1 +1,0 @@
-SELECT * FROM produit WHERE idProduit NOT IN (SELECT fkproduit FROM location WHERE enddate IS NULL) ORDER BY idproduit

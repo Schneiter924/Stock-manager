@@ -43,7 +43,6 @@ namespace Stock_manager
                 else
                 {
                     produit = new Produit();
-                    produit.IdProduit = Convert.ToInt32(cboIDPiece.Text);
                     produit.NomProduit = txtNom.Text;
                     produit.Description = txtDescription.Text;
                     smsql.NouveauProduit(produit);
@@ -54,41 +53,40 @@ namespace Stock_manager
             txtDescription.Text = "";
             cboIDPiece.Enabled = true;
             chargerProduit();
+            produit = null;
         }
 
         public void chargerProduit()
         {
             List<Produit> lstProduits = smsql.chargeProduitEnStock();
             cboIDPiece.Items.Clear();
+            cboIDPiece.Items.Add("Ajouter un produit");
             foreach (Produit produit in lstProduits)
             {
                 cboIDPiece.Items.Add(produit.DescriptionID());
             }
         }
-                
-        private void cboIDPiece_Validated(object sender, EventArgs e)
+          
+        private void frmEntree_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if (cboIDPiece.Text != "")
+            Form frmMenu = new frmMain();
+            frmMenu.Show();
+            this.Dispose();
+        }
+
+        private void cboIDPiece_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cboIDPiece.SelectedIndex != 0)
             {
                 try
                 {
-                    int ID = Int32.Parse(cboIDPiece.Text);
-                    if (smsql.TestIDProduit(ID) != null)
+                    if (smsql.TestIDProduit(Convert.ToInt32(cboIDPiece.Text)) != null)
                     {
-                        produit = smsql.RetourtProduit(ID);
-                        cboIDPiece.Enabled = false;
+                        produit = smsql.RetourtProduit(Convert.ToInt32(cboIDPiece.Text));
                         txtNom.Text = produit.NomProduit;
                         txtDescription.Text = produit.Description;
                         cmdAjout.Text = "Modification";
                     }
-                    else
-                    {
-                        cboIDPiece.Enabled = false;
-                        txtNom.Text = "";
-                        txtDescription.Text = "";
-                        cmdAjout.Text = "Ajout";
-                    }
-
                 }
                 catch (FormatException ex)
                 {
@@ -98,31 +96,12 @@ namespace Stock_manager
                     MessageBox.Show(message, legende, bouton, MessageBoxIcon.Error);
                 }
             }
-        }
-
-        private void txtDescription_TextChanged(object sender, EventArgs e)
-        {
-            string descr = txtDescription.Text;
-            int nombreCaractereMax = 100;
-            int nombreCaractereActuelle = descr.Count();
-            
-            lblNombreCaractere.Text = "Nombre de caractère actuelle " + nombreCaractereActuelle + " / nombre max de caractère " + nombreCaractereMax;
-            if (nombreCaractereActuelle > nombreCaractereMax)
+            else
             {
-                string message = "Dépassement du nombre de caratère autorise";
-                string legende = "Erreur";
-                MessageBoxButtons bouton = MessageBoxButtons.OK;
-                MessageBox.Show(message, legende, bouton, MessageBoxIcon.Error);
-                descr = descr.Substring(0, 100);
-                txtDescription.Text = descr;
+                txtNom.Text = "";
+                txtDescription.Text = "";
+                cmdAjout.Text = "Ajouter";
             }
-        }
-
-        private void frmEntree_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Form frmMenu = new frmMain();
-            frmMenu.Show();
-            this.Dispose();
         }
     }
 }

@@ -29,11 +29,25 @@ namespace Stock_manager
         {
             if (txtNomLoueur.Text != "")
             {
-
+                if (cboNomLoueur.SelectedIndex == 0)
+                {
+                    smsql.AjoutLoueur(txtNomLoueur.Text);
+                    
+                }
+                else
+                {
+                    loueur.NomLoueur = txtNomLoueur.Text;
+                    smsql.ModificationLoueur(loueur);
+                }
+                chargerLoueur();
+                loueur = null;
             }
             else
             {
-
+                string message = "Pas de nom pour le loueur";
+                string legende = "Erreur";
+                MessageBoxButtons bouton = MessageBoxButtons.OK;
+                MessageBox.Show(message, legende, bouton, MessageBoxIcon.Error);
             }
         }
 
@@ -64,25 +78,32 @@ namespace Stock_manager
 
         private void frmLoueur_Load(object sender, EventArgs e)
         {
-            List<Loueur> lstLoueurs = smsql.chargeLoueur();
-
-            foreach (Loueur loueur in lstLoueurs)
-            {
-                cboIDLoueur.Items.Add(loueur.IdLoueur.ToString());
-            }
+            chargerLoueur();
         }
 
-        private void cboIDLoueur_Validated(object sender, EventArgs e)
+        private void cboNomLoueur_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cboIDLoueur.Text == "")
+            if (cboNomLoueur.SelectedIndex != 0)
             {
-                cmdAjoutModification.Text = "Ajouter";
+                loueur = smsql.LoueurSelectionnerNom(cboNomLoueur.Text);
+                txtNomLoueur.Text = loueur.NomLoueur;
+                cmdAjoutModification.Text = "Modifier";
             }
             else
             {
-                loueur = smsql.LoueurSelectionnerID(Convert.ToInt32(cboIDLoueur.Text));
-                cmdAjoutModification.Text = "Modification";
-                txtNomLoueur.Text = loueur.NomLoueur;
+                txtNomLoueur.Text = "";
+                cmdAjoutModification.Text = "Ajouter";
+            }
+        }
+
+        private void chargerLoueur()
+        {
+            List<Loueur> lstLoueurs = smsql.chargeLoueur();
+            cboNomLoueur.Items.Clear();
+            cboNomLoueur.Items.Add("Ajouter un Loueur");
+            foreach (Loueur loueur in lstLoueurs)
+            {
+                cboNomLoueur.Items.Add(loueur.NomLoueur);
             }
         }
     }

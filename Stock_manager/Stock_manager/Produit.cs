@@ -62,6 +62,10 @@ namespace Stock_manager
             if (description != "")
             {
                 descript += " - " + description;
+                if (descript.Count() > 50)
+                {
+                    descript = descript.Substring(0, 50);
+                }
             }
 
             return descript;

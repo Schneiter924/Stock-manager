@@ -34,7 +34,7 @@
             this.lblNombreCaractere = new System.Windows.Forms.Label();
             this.cmdAjoutModification = new System.Windows.Forms.Button();
             this.lblIDLoueur = new System.Windows.Forms.Label();
-            this.cboIDLoueur = new System.Windows.Forms.ComboBox();
+            this.cboNomLoueur = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // txtNomLoueur
@@ -92,28 +92,34 @@
             this.lblIDLoueur.TabIndex = 10;
             this.lblIDLoueur.Text = "Nom du loueur";
             // 
-            // cboIDLoueur
+            // cboNomLoueur
             // 
-            this.cboIDLoueur.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboIDLoueur.FormattingEnabled = true;
-            this.cboIDLoueur.Location = new System.Drawing.Point(117, 29);
-            this.cboIDLoueur.Name = "cboIDLoueur";
-            this.cboIDLoueur.Size = new System.Drawing.Size(206, 21);
-            this.cboIDLoueur.TabIndex = 1;
+            this.cboNomLoueur.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cboNomLoueur.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cboNomLoueur.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboNomLoueur.FormattingEnabled = true;
+            this.cboNomLoueur.Location = new System.Drawing.Point(117, 29);
+            this.cboNomLoueur.Name = "cboNomLoueur";
+            this.cboNomLoueur.Size = new System.Drawing.Size(206, 21);
+            this.cboNomLoueur.TabIndex = 1;
+            this.cboNomLoueur.SelectedIndexChanged += new System.EventHandler(this.cboNomLoueur_SelectedIndexChanged);
             // 
             // frmLoueur
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(337, 145);
-            this.Controls.Add(this.cboIDLoueur);
+            this.Controls.Add(this.cboNomLoueur);
             this.Controls.Add(this.lblIDLoueur);
             this.Controls.Add(this.cmdAjoutModification);
             this.Controls.Add(this.lblNombreCaractere);
             this.Controls.Add(this.cmdRetour);
             this.Controls.Add(this.lblNomLoueur);
             this.Controls.Add(this.txtNomLoueur);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmLoueur";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ajoute / modification loueur";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmLoueur_FormClosed);
             this.Load += new System.EventHandler(this.frmLoueur_Load);
@@ -130,6 +136,6 @@
         private System.Windows.Forms.Label lblNombreCaractere;
         private System.Windows.Forms.Button cmdAjoutModification;
         private System.Windows.Forms.Label lblIDLoueur;
-        private System.Windows.Forms.ComboBox cboIDLoueur;
+        private System.Windows.Forms.ComboBox cboNomLoueur;
     }
 }
