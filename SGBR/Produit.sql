@@ -1,3 +1,4 @@
+use stock_manager;
 insert into Produit (nomProduit, description) values ('L300', '');
 insert into Produit (nomProduit, description) values ('XC90', 'Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.');
 insert into Produit (nomProduit, description) values ('Aerio', 'Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.');

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Stock_manager
 {
-    public partial class frmSortie : Form
+    public partial class frmLocation : Form
     {
-        public frmSortie()
+        public frmLocation()
         {
             InitializeComponent();
         }
@@ -20,7 +20,8 @@ namespace Stock_manager
         Connection_mySQL smsql = new Connection_mySQL();
 
         DateTime Aujourdhui;
-        
+
+        int duree;
         private void cmdRetour_Click(object sender, EventArgs e)
         {
             Form frmMenu = new frmMain();
@@ -34,8 +35,9 @@ namespace Stock_manager
             {
                 Location location = new Location();
                 Loueur loueur = smsql.LoueurSelectionnerNom(cboLoueur.Text);
-                Produit produit = smsql.RetourtProduit(Convert.ToInt32(cboProduit.Text));
+                Produit produit = smsql.RetourProduit(Convert.ToInt32(cboProduit.Text));
                 location.StartDate = Aujourdhui;
+                location.Duree = duree;
                 location.Loueur = loueur;
                 location.Produit = produit;
                 smsql.NouvelleLocation(location);
@@ -66,26 +68,7 @@ namespace Stock_manager
         private void frmSortie_Load(object sender, EventArgs e)
         {
             Aujourdhui = DateTime.Today;
-            txtDuree.Text = "30 jours";
-            DateTime trenteJours = Aujourdhui.AddDays(30);
-            txtDateRetour.Text = trenteJours.ToString("dd-MM-yyyy");
-            chargerLoueur();
-            chargerProduit();            
-        }
-
-        private void cboLoueur_Validated(object sender, EventArgs e)
-        {
-            if (cboLoueur.Text != "")
-            {                
-                if (smsql.TestNomLoueur(cboLoueur.Text) == null)
-                {
-                    string message = "Loueur non trouvé dans la base de donnée";
-                    string legende = "Information";
-                    MessageBoxButtons boutonYes = MessageBoxButtons.YesNo;
-                    MessageBoxIcon boutonIcon = MessageBoxIcon.Information;
-                    MessageBox.Show(message, legende, boutonYes, boutonIcon);
-                }
-            }
+                     
         }
 
         private void chargerProduit()
@@ -113,6 +96,31 @@ namespace Stock_manager
             Form frmMenu = new frmMain();
             frmMenu.Show();
             this.Dispose();
+        }
+
+        private void txtDuree_Validated(object sender, EventArgs e)
+        {
+            if (txtDuree.Text!="")
+            {
+                try
+                {
+                    duree = int.Parse(txtDuree.Text);
+                    
+                    DateTime dureeDate = Aujourdhui.AddDays(duree);
+
+                    txtDateRetour.Text = dureeDate.ToString("dd-MM-yyyy");
+                }
+                catch (FormatException ex)
+                {
+
+                    string message = ex.Message;
+                    string legende = "Erreur";
+                    MessageBoxButtons bouton = MessageBoxButtons.OK;
+                    MessageBoxIcon icon = MessageBoxIcon.Error;
+                    MessageBox.Show(message, legende, bouton, icon);
+                }
+            }
+            
         }
     }
 }

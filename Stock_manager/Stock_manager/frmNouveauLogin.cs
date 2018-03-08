@@ -35,28 +35,32 @@ namespace Stock_manager
                 string message = "login vide";
                 string legende = "Erreur";
                 MessageBoxButtons bouton = MessageBoxButtons.OK;
-                MessageBox.Show(message, legende, bouton, MessageBoxIcon.Error);
+                MessageBoxIcon icon = MessageBoxIcon.Error;
+                MessageBox.Show(message, legende, bouton, icon);
             }
             else if(txtPassword.Text == "")
             {
                 string message = "mot de passe vide";
                 string legende = "Erreur";
                 MessageBoxButtons bouton = MessageBoxButtons.OK;
-                MessageBox.Show(message, legende, bouton, MessageBoxIcon.Error);
+                MessageBoxIcon icon = MessageBoxIcon.Error;
+                MessageBox.Show(message, legende, bouton, icon);
             }
             else if (txtPassword2.Text == "")
             {
                 string message = "mot de passe vide";
                 string legende = "Erreur";
                 MessageBoxButtons bouton = MessageBoxButtons.OK;
-                MessageBox.Show(message, legende, bouton, MessageBoxIcon.Error);
+                MessageBoxIcon icon = MessageBoxIcon.Error;
+                MessageBox.Show(message, legende, bouton, icon);
             }
             else if (txtPassword.Text != txtPassword2.Text)
             {
                 string message = "mot de passe différent";
                 string legende = "Erreur";
                 MessageBoxButtons bouton = MessageBoxButtons.OK;
-                MessageBox.Show(message, legende, bouton, MessageBoxIcon.Error);
+                MessageBoxIcon icon = MessageBoxIcon.Error;
+                MessageBox.Show(message, legende, bouton, icon);
             }
             else
             {
@@ -79,11 +83,6 @@ namespace Stock_manager
         private void txtPassword2_Enter(object sender, EventArgs e)
         {
             txtPassword2.SelectAll();
-        }
-
-        private void frmNouveauLogin_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Application.Exit();
         }
     }
 }

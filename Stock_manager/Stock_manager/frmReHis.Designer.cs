@@ -74,6 +74,8 @@
             // 
             // cboProduit
             // 
+            this.cboProduit.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cboProduit.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cboProduit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboProduit.FormattingEnabled = true;
             this.cboProduit.Location = new System.Drawing.Point(128, 6);

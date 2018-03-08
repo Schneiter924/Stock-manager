@@ -15,7 +15,7 @@ namespace Stock_manager.Tests
         public void TestPasswordTest()
         {
             Boolean attendu = true;
-            Cryptage cry = new Cryptage(AppDomain.CurrentDomain.BaseDirectory + "pwd.txt");
+            Cryptage cry = new Cryptage(Environment.GetEnvironmentVariable("ProgramFiles(x86)") + "\\pwd.txt");
 
             cry.CrypterPassword("Pa$$w0rd");
             Boolean calcule = cry.TestPassword("Pa$$w0rd");

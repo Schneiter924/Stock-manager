@@ -12,6 +12,7 @@ namespace Stock_manager
         private DateTime endDate;
         private Loueur loueur;
         private Produit produit;
+        private int duree;
         private int idLocation;
 
         public DateTime StartDate
@@ -79,9 +80,22 @@ namespace Stock_manager
             }
         }
 
+        public int Duree
+        {
+            get
+            {
+                return duree;
+            }
+
+            set
+            {
+                duree = value;
+            }
+        }
+
         public string DescriptionLocation()
         {
-            return Produit.DescriptionProduit() + " " + loueur.Description() + " la date de début d'empret est le " + startDate.ToString("dd-MM-yyyy");
+            return Produit.DescriptionProduit() + " - " + loueur.Description() + " - la date de début d'empret est le " + startDate.ToString("dd-MM-yyyy");
         }
     }
 }

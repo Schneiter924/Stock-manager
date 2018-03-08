@@ -1,3 +1,4 @@
+use stock_manager;
 insert into Loueur (nomLoueur) values ('Diem');
 insert into Loueur (nomLoueur) values ('Townson');
 insert into Loueur (nomLoueur) values ('Skellington');

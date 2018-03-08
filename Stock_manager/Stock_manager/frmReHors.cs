@@ -28,12 +28,14 @@ namespace Stock_manager
         {
             Connection_mySQL smsql = new Connection_mySQL();
 
-            List<Location> lstLocations = smsql.ProduitHorsDelais();
+            List<Location> lstLocations = smsql.LocationEnCours();
 
             foreach (Location location in lstLocations)
             {
-                lstRecherche.Items.Add(location.DescriptionLocation());
+                Location loca= smsql.ProduitHorsDelais(location);
+                lstRecherche.Items.Add(loca.DescriptionLocation());
             }
+            
         }
 
         private void frmReHors_FormClosed(object sender, FormClosedEventArgs e)

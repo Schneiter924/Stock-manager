@@ -33,7 +33,7 @@ namespace Stock_manager
 
         private void cmdLocation_Click(object sender, EventArgs e)
         {
-            Form frmSor = new frmSortie();
+            Form frmSor = new frmLocation();
             frmSor.Show();
             this.Dispose();
         }
@@ -47,14 +47,14 @@ namespace Stock_manager
 
         private void cmdAMProduit_Click(object sender, EventArgs e)
         {
-            Form frmNP = new frmEntree();
+            Form frmNP = new frmAjoutModifProduit();
             frmNP.Show();
             this.Hide();
         }
 
         private void cmdRetourPrduit_Click(object sender, EventArgs e)
         {
-            Form frmRP = new frmRetourPiece();
+            Form frmRP = new frmRetourLocation();
             frmRP.Show();
             this.Hide();
         }

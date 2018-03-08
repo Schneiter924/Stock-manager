@@ -1,6 +1,6 @@
 ﻿namespace Stock_manager
 {
-    partial class frmSortie
+    partial class frmLocation
     {
         /// <summary>
         /// Required designer variable.
@@ -64,14 +64,14 @@
             // 
             this.txtDuree.Location = new System.Drawing.Point(161, 69);
             this.txtDuree.Name = "txtDuree";
-            this.txtDuree.ReadOnly = true;
             this.txtDuree.Size = new System.Drawing.Size(115, 20);
             this.txtDuree.TabIndex = 12;
+            this.txtDuree.Validated += new System.EventHandler(this.txtDuree_Validated);
             // 
             // lblLoueur
             // 
             this.lblLoueur.AutoSize = true;
-            this.lblLoueur.Location = new System.Drawing.Point(18, 145);
+            this.lblLoueur.Location = new System.Drawing.Point(18, 148);
             this.lblLoueur.Name = "lblLoueur";
             this.lblLoueur.Size = new System.Drawing.Size(76, 13);
             this.lblLoueur.TabIndex = 10;
@@ -134,9 +134,8 @@
             this.cboLoueur.Name = "cboLoueur";
             this.cboLoueur.Size = new System.Drawing.Size(115, 21);
             this.cboLoueur.TabIndex = 2;
-            this.cboLoueur.Validated += new System.EventHandler(this.cboLoueur_Validated);
             // 
-            // frmSortie
+            // frmLocation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -154,9 +153,9 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "frmSortie";
+            this.Name = "frmLocation";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Sortie du stock";
+            this.Text = "Créée une nouvelle location";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmSortie_FormClosed);
             this.Load += new System.EventHandler(this.frmSortie_Load);
             this.ResumeLayout(false);

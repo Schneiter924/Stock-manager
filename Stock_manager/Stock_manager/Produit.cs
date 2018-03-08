@@ -58,28 +58,37 @@ namespace Stock_manager
 
         public string DescriptionProduitAvecID()
         {
-            string descript = idProduit.ToString() + " - " + nomProduit;
+            string idPlusNom= idProduit.ToString() + " - " + nomProduit;
+            string descript;
             if (description != "")
-            {
-                descript += " - " + description;
+            {                
+                descript = " - " + description;
                 if (descript.Count() > 50)
                 {
                     descript = descript.Substring(0, 50);
                 }
+                idPlusNom += descript;
             }
 
-            return descript;
+            return idPlusNom;
         }
 
         public string DescriptionProduit()
         {
-            string descript = nomProduit;
-            if (description != null)
+            string nom = nomProduit;
+            
+            if (description != "")
             {
-                descript += " - " + description;
+                string descript;
+                descript = " - " + description;
+                if (descript.Count() > 50)
+                {
+                    descript = descript.Substring(0, 50);
+                }
+                nom += descript;
             }
 
-            return descript;
+            return nom;
         }
     }
 }

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Stock_manager
 {
-    public partial class frmRetourPiece : Form
+    public partial class frmRetourLocation : Form
     {
-        public frmRetourPiece()
+        public frmRetourLocation()
         {
             InitializeComponent();
         }
@@ -27,21 +27,20 @@ namespace Stock_manager
 
         private void cmdRetourPiece_Click(object sender, EventArgs e)
         {
-            if (cboPiece.Text != "")
+            if (cboProduit.Text != "")
             {
-                int idProduit = Convert.ToInt32(cboPiece.Text);
+                int idProduit = Convert.ToInt32(cboProduit.Text);
 
                 Location location = smsql.LocationSelectionner(idProduit);
 
                 location.EndDate = DateTime.Today;
 
                 smsql.RetourLocation(location);
-                cboPiece.Items.Clear();
                 chargerProduit();
             }
             else
             {
-                string message = "Pas de Produit sélectionne";
+                string message = "Pas de produit sélectionne";
                 string legende = "Erreur";
                 MessageBoxButtons bouton = MessageBoxButtons.OK;
                 MessageBoxIcon icon = MessageBoxIcon.Error;
@@ -57,9 +56,10 @@ namespace Stock_manager
         private void chargerProduit()
         {
             List<Location> lstlocations = smsql.LocationEnCours();
+            cboProduit.Items.Clear();
             foreach (Location location in lstlocations)
             {
-                cboPiece.Items.Add(location.Produit.DescriptionID());
+                cboProduit.Items.Add(location.Produit.DescriptionID());
             }
         }
 

@@ -79,6 +79,14 @@ namespace Stock_manager
         private void frmLoueur_Load(object sender, EventArgs e)
         {
             chargerLoueur();
+            cboNomLoueur.TabIndex = 1;
+            txtNomLoueur.TabIndex = 2;
+            cmdRetour.TabIndex = 3;
+            cmdRetour.Location = new Point(169, 110);
+            cmdAjoutModification.TabIndex = 4;
+            cmdSupprimer.Visible = false;
+            cmdSupprimer.Enabled = false;
+
         }
 
         private void cboNomLoueur_SelectedIndexChanged(object sender, EventArgs e)
@@ -88,11 +96,22 @@ namespace Stock_manager
                 loueur = smsql.LoueurSelectionnerNom(cboNomLoueur.Text);
                 txtNomLoueur.Text = loueur.NomLoueur;
                 cmdAjoutModification.Text = "Modifier";
+                cmdRetour.TabIndex = 3;
+                cmdRetour.Location = new Point(88, 110);
+                cmdSupprimer.Visible = true;
+                cmdSupprimer.Enabled = true;
+                cmdSupprimer.TabIndex = 4;
+                cmdAjoutModification.TabIndex = 5;                
             }
             else
             {
                 txtNomLoueur.Text = "";
                 cmdAjoutModification.Text = "Ajouter";
+                cmdRetour.TabIndex = 3;
+                cmdRetour.Location = new Point(169, 110);
+                cmdAjoutModification.TabIndex = 4;
+                cmdSupprimer.Visible = false;
+                cmdSupprimer.Enabled = false;
             }
         }
 
@@ -104,6 +123,19 @@ namespace Stock_manager
             foreach (Loueur loueur in lstLoueurs)
             {
                 cboNomLoueur.Items.Add(loueur.NomLoueur);
+            }
+        }
+
+        private void cmdSupprimer_Click(object sender, EventArgs e)
+        {
+            string message = "Confirmation de la suppresion du loueur : " + loueur.NomLoueur;
+            string legende = "Information";
+            MessageBoxButtons bouton = MessageBoxButtons.YesNo;
+            MessageBoxIcon icon = MessageBoxIcon.Information;
+            DialogResult dialogResult = MessageBox.Show(message,legende,bouton,icon);
+            if (dialogResult == DialogResult.Yes)
+            {
+                smsql.SupprimerLoueur(loueur);
             }
         }
     }

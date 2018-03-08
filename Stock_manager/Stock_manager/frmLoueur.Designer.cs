@@ -35,11 +35,12 @@
             this.cmdAjoutModification = new System.Windows.Forms.Button();
             this.lblIDLoueur = new System.Windows.Forms.Label();
             this.cboNomLoueur = new System.Windows.Forms.ComboBox();
+            this.cmdSupprimer = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtNomLoueur
             // 
-            this.txtNomLoueur.Location = new System.Drawing.Point(117, 62);
+            this.txtNomLoueur.Location = new System.Drawing.Point(117, 52);
             this.txtNomLoueur.Name = "txtNomLoueur";
             this.txtNomLoueur.Size = new System.Drawing.Size(206, 20);
             this.txtNomLoueur.TabIndex = 2;
@@ -48,7 +49,7 @@
             // lblNomLoueur
             // 
             this.lblNomLoueur.AutoSize = true;
-            this.lblNomLoueur.Location = new System.Drawing.Point(23, 65);
+            this.lblNomLoueur.Location = new System.Drawing.Point(23, 55);
             this.lblNomLoueur.Name = "lblNomLoueur";
             this.lblNomLoueur.Size = new System.Drawing.Size(76, 13);
             this.lblNomLoueur.TabIndex = 1;
@@ -56,7 +57,7 @@
             // 
             // cmdRetour
             // 
-            this.cmdRetour.Location = new System.Drawing.Point(169, 110);
+            this.cmdRetour.Location = new System.Drawing.Point(88, 110);
             this.cmdRetour.Name = "cmdRetour";
             this.cmdRetour.Size = new System.Drawing.Size(75, 23);
             this.cmdRetour.TabIndex = 3;
@@ -67,7 +68,7 @@
             // lblNombreCaractere
             // 
             this.lblNombreCaractere.AutoSize = true;
-            this.lblNombreCaractere.Location = new System.Drawing.Point(21, 94);
+            this.lblNombreCaractere.Location = new System.Drawing.Point(23, 85);
             this.lblNombreCaractere.Name = "lblNombreCaractere";
             this.lblNombreCaractere.Size = new System.Drawing.Size(302, 13);
             this.lblNombreCaractere.TabIndex = 9;
@@ -86,7 +87,7 @@
             // lblIDLoueur
             // 
             this.lblIDLoueur.AutoSize = true;
-            this.lblIDLoueur.Location = new System.Drawing.Point(23, 32);
+            this.lblIDLoueur.Location = new System.Drawing.Point(23, 15);
             this.lblIDLoueur.Name = "lblIDLoueur";
             this.lblIDLoueur.Size = new System.Drawing.Size(76, 13);
             this.lblIDLoueur.TabIndex = 10;
@@ -98,17 +99,28 @@
             this.cboNomLoueur.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cboNomLoueur.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboNomLoueur.FormattingEnabled = true;
-            this.cboNomLoueur.Location = new System.Drawing.Point(117, 29);
+            this.cboNomLoueur.Location = new System.Drawing.Point(117, 12);
             this.cboNomLoueur.Name = "cboNomLoueur";
             this.cboNomLoueur.Size = new System.Drawing.Size(206, 21);
             this.cboNomLoueur.TabIndex = 1;
             this.cboNomLoueur.SelectedIndexChanged += new System.EventHandler(this.cboNomLoueur_SelectedIndexChanged);
+            // 
+            // cmdSupprimer
+            // 
+            this.cmdSupprimer.Location = new System.Drawing.Point(169, 110);
+            this.cmdSupprimer.Name = "cmdSupprimer";
+            this.cmdSupprimer.Size = new System.Drawing.Size(75, 23);
+            this.cmdSupprimer.TabIndex = 11;
+            this.cmdSupprimer.Text = "Supprimer";
+            this.cmdSupprimer.UseVisualStyleBackColor = true;
+            this.cmdSupprimer.Click += new System.EventHandler(this.cmdSupprimer_Click);
             // 
             // frmLoueur
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(337, 145);
+            this.Controls.Add(this.cmdSupprimer);
             this.Controls.Add(this.cboNomLoueur);
             this.Controls.Add(this.lblIDLoueur);
             this.Controls.Add(this.cmdAjoutModification);
@@ -137,5 +149,6 @@
         private System.Windows.Forms.Button cmdAjoutModification;
         private System.Windows.Forms.Label lblIDLoueur;
         private System.Windows.Forms.ComboBox cboNomLoueur;
+        private System.Windows.Forms.Button cmdSupprimer;
     }
 }

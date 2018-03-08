@@ -29,28 +29,32 @@ namespace Stock_manager
                 string message = "Nom d'utilisateur vide";
                 string legende = "Erreur";
                 MessageBoxButtons bouton = MessageBoxButtons.OK;
-                MessageBox.Show(message, legende, bouton, MessageBoxIcon.Error);
+                MessageBoxIcon icon = MessageBoxIcon.Error;
+                MessageBox.Show(message, legende, bouton, icon);
             }
             else if (cryLogin.TestLogin(txtLogin.Text) == false)
             {
                 string message = "Nom d'utilisateur inconnu";
                 string legende = "Erreur";
                 MessageBoxButtons bouton = MessageBoxButtons.OK;
-                MessageBox.Show(message, legende, bouton, MessageBoxIcon.Error);
+                MessageBoxIcon icon = MessageBoxIcon.Error;
+                MessageBox.Show(message, legende, bouton, icon);
             }
             else if (txtPassword.Text == "")
             {
                 string message = "Mot de passe vide";
                 string legende = "Erreur";
                 MessageBoxButtons bouton = MessageBoxButtons.OK;
-                MessageBox.Show(message, legende, bouton, MessageBoxIcon.Error);
+                MessageBoxIcon icon = MessageBoxIcon.Error;
+                MessageBox.Show(message, legende, bouton, icon);
             }
             else if (cryPassword.TestPassword(txtPassword.Text) == false)
             {
                 string message = "Mot de passe inconnu";
                 string legende = "Erreur";
                 MessageBoxButtons bouton = MessageBoxButtons.OK;
-                MessageBox.Show(message, legende, bouton, MessageBoxIcon.Error);
+                MessageBoxIcon icon = MessageBoxIcon.Error;
+                MessageBox.Show(message, legende, bouton, icon);
             }
             else if (cryPassword.TestPassword(txtPassword.Text))
             {
@@ -70,9 +74,7 @@ namespace Stock_manager
             txtLogin.Text = "";
             txtPassword.Text = "";
         }
-
-       
-
+        
         private void frmLogin_Load(object sender, EventArgs e)
         {
             if ((cryLogin.TestFichier()==false) || (cryPassword.TestFichier()==false))
