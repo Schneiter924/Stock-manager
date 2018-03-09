@@ -35,11 +35,13 @@
             this.lblLocation = new System.Windows.Forms.Label();
             this.lblProduitEnStockEtTotal = new System.Windows.Forms.Label();
             this.lblListeLocationTotal = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.cmdChercher = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // cmdRetour
             // 
-            this.cmdRetour.Location = new System.Drawing.Point(12, 554);
+            this.cmdRetour.Location = new System.Drawing.Point(12, 559);
             this.cmdRetour.Name = "cmdRetour";
             this.cmdRetour.Size = new System.Drawing.Size(75, 23);
             this.cmdRetour.TabIndex = 7;
@@ -50,23 +52,23 @@
             // lstInventaireStock
             // 
             this.lstInventaireStock.FormattingEnabled = true;
-            this.lstInventaireStock.Location = new System.Drawing.Point(12, 27);
+            this.lstInventaireStock.Location = new System.Drawing.Point(12, 32);
             this.lstInventaireStock.Name = "lstInventaireStock";
-            this.lstInventaireStock.Size = new System.Drawing.Size(594, 251);
+            this.lstInventaireStock.Size = new System.Drawing.Size(781, 251);
             this.lstInventaireStock.TabIndex = 8;
             // 
             // lstInventaireLoue
             // 
             this.lstInventaireLoue.FormattingEnabled = true;
-            this.lstInventaireLoue.Location = new System.Drawing.Point(12, 297);
+            this.lstInventaireLoue.Location = new System.Drawing.Point(12, 302);
             this.lstInventaireLoue.Name = "lstInventaireLoue";
-            this.lstInventaireLoue.Size = new System.Drawing.Size(594, 251);
+            this.lstInventaireLoue.Size = new System.Drawing.Size(781, 251);
             this.lstInventaireLoue.TabIndex = 9;
             // 
             // lblStock
             // 
             this.lblStock.AutoSize = true;
-            this.lblStock.Location = new System.Drawing.Point(12, 9);
+            this.lblStock.Location = new System.Drawing.Point(12, 14);
             this.lblStock.Name = "lblStock";
             this.lblStock.Size = new System.Drawing.Size(84, 13);
             this.lblStock.TabIndex = 10;
@@ -75,7 +77,7 @@
             // lblLocation
             // 
             this.lblLocation.AutoSize = true;
-            this.lblLocation.Location = new System.Drawing.Point(12, 281);
+            this.lblLocation.Location = new System.Drawing.Point(12, 286);
             this.lblLocation.Name = "lblLocation";
             this.lblLocation.Size = new System.Drawing.Size(95, 13);
             this.lblLocation.TabIndex = 11;
@@ -84,7 +86,7 @@
             // lblProduitEnStockEtTotal
             // 
             this.lblProduitEnStockEtTotal.AutoSize = true;
-            this.lblProduitEnStockEtTotal.Location = new System.Drawing.Point(128, 9);
+            this.lblProduitEnStockEtTotal.Location = new System.Drawing.Point(128, 14);
             this.lblProduitEnStockEtTotal.Name = "lblProduitEnStockEtTotal";
             this.lblProduitEnStockEtTotal.Size = new System.Drawing.Size(0, 13);
             this.lblProduitEnStockEtTotal.TabIndex = 12;
@@ -92,16 +94,34 @@
             // lblListeLocationTotal
             // 
             this.lblListeLocationTotal.AutoSize = true;
-            this.lblListeLocationTotal.Location = new System.Drawing.Point(128, 281);
+            this.lblListeLocationTotal.Location = new System.Drawing.Point(128, 286);
             this.lblListeLocationTotal.Name = "lblListeLocationTotal";
             this.lblListeLocationTotal.Size = new System.Drawing.Size(0, 13);
             this.lblListeLocationTotal.TabIndex = 13;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(549, 5);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(163, 20);
+            this.textBox1.TabIndex = 14;
+            // 
+            // cmdChercher
+            // 
+            this.cmdChercher.Location = new System.Drawing.Point(718, 3);
+            this.cmdChercher.Name = "cmdChercher";
+            this.cmdChercher.Size = new System.Drawing.Size(75, 23);
+            this.cmdChercher.TabIndex = 15;
+            this.cmdChercher.Text = "Chercher";
+            this.cmdChercher.UseVisualStyleBackColor = true;
             // 
             // frmInventaire
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(618, 583);
+            this.ClientSize = new System.Drawing.Size(805, 590);
+            this.Controls.Add(this.cmdChercher);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.lblListeLocationTotal);
             this.Controls.Add(this.lblProduitEnStockEtTotal);
             this.Controls.Add(this.lblLocation);
@@ -131,5 +151,7 @@
         private System.Windows.Forms.Label lblLocation;
         private System.Windows.Forms.Label lblProduitEnStockEtTotal;
         private System.Windows.Forms.Label lblListeLocationTotal;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button cmdChercher;
     }
 }
