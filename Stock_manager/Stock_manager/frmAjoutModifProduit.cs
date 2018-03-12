@@ -17,8 +17,7 @@ namespace Stock_manager
 
         public frmAjoutModifProduit()
         {
-            InitializeComponent();
-            
+            InitializeComponent();            
         }
 
         private void cmdRetour_Click(object sender, EventArgs e)

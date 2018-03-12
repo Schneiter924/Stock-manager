@@ -14,6 +14,8 @@ namespace Stock_manager
     {
         Cryptage cryPassword;
         Cryptage cryLogin;
+        XML xml = new XML();
+
         public frmLogin()
         {
             InitializeComponent();
@@ -77,6 +79,13 @@ namespace Stock_manager
         
         private void frmLogin_Load(object sender, EventArgs e)
         {
+            if (xml.TestFichierXML() == false)
+            {
+                
+                xml.EcritureXMLDefaut();
+
+            }
+            xml.LectureXML();
             if ((cryLogin.TestFichier()==false) || (cryPassword.TestFichier()==false))
             {
                 Form frmLo = new frmNouveauLogin();

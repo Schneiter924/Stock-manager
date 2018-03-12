@@ -79,6 +79,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Config.cs" />
     <Compile Include="Connection_mySQL.cs" />
     <Compile Include="Cryptage.cs" />
     <Compile Include="frmAjoutModifProduit.cs">
@@ -158,6 +159,7 @@
     <Compile Include="Produit.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="XML.cs" />
     <EmbeddedResource Include="frmAjoutModifProduit.resx">
       <DependentUpon>frmAjoutModifProduit.cs</DependentUpon>
     </EmbeddedResource>
