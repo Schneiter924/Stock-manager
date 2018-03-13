@@ -70,8 +70,8 @@ CREATE TABLE IF NOT EXISTS `Stock_manager`.`Location` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-CREATE USER 'vendeur'@'localhost' IDENTIFIED BY 'Pa$$w0rd';
-GRANT select, insert, update, delete, execute ON stock_manager . * TO 'vendeur'@'localhost';
+CREATE USER 'vendeur'@'%' IDENTIFIED BY 'Pa$$w0rd';
+GRANT select, insert, update, delete, execute ON stock_manager . * TO 'vendeur'@'%';
 FLUSH PRIVILEGES;
 
 SET SQL_MODE=@OLD_SQL_MODE;

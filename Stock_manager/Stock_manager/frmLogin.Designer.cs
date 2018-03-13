@@ -36,6 +36,7 @@
             this.cmdQuitter = new System.Windows.Forms.Button();
             this.cmdConnexion = new System.Windows.Forms.Button();
             this.cmdMdPPerdu = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblLogin
@@ -61,7 +62,7 @@
             this.txtLogin.Location = new System.Drawing.Point(174, 35);
             this.txtLogin.Name = "txtLogin";
             this.txtLogin.Size = new System.Drawing.Size(182, 20);
-            this.txtLogin.TabIndex = 2;
+            this.txtLogin.TabIndex = 1;
             this.txtLogin.Enter += new System.EventHandler(this.txtLogin_Enter);
             // 
             // txtPassword
@@ -70,12 +71,12 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(182, 20);
-            this.txtPassword.TabIndex = 3;
+            this.txtPassword.TabIndex = 2;
             this.txtPassword.Enter += new System.EventHandler(this.txtPassword_Enter);
             // 
             // cmdReset
             // 
-            this.cmdReset.Location = new System.Drawing.Point(134, 123);
+            this.cmdReset.Location = new System.Drawing.Point(155, 123);
             this.cmdReset.Name = "cmdReset";
             this.cmdReset.Size = new System.Drawing.Size(75, 23);
             this.cmdReset.TabIndex = 4;
@@ -85,7 +86,7 @@
             // 
             // cmdQuitter
             // 
-            this.cmdQuitter.Location = new System.Drawing.Point(215, 123);
+            this.cmdQuitter.Location = new System.Drawing.Point(236, 123);
             this.cmdQuitter.Name = "cmdQuitter";
             this.cmdQuitter.Size = new System.Drawing.Size(75, 23);
             this.cmdQuitter.TabIndex = 5;
@@ -95,7 +96,7 @@
             // 
             // cmdConnexion
             // 
-            this.cmdConnexion.Location = new System.Drawing.Point(296, 123);
+            this.cmdConnexion.Location = new System.Drawing.Point(317, 123);
             this.cmdConnexion.Name = "cmdConnexion";
             this.cmdConnexion.Size = new System.Drawing.Size(75, 23);
             this.cmdConnexion.TabIndex = 6;
@@ -110,12 +111,23 @@
             this.cmdMdPPerdu.Size = new System.Drawing.Size(75, 23);
             this.cmdMdPPerdu.TabIndex = 0;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(15, 123);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(134, 23);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Option de connextion";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // frmLogin
             // 
             this.AcceptButton = this.cmdConnexion;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(391, 158);
+            this.ClientSize = new System.Drawing.Size(413, 158);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.cmdConnexion);
             this.Controls.Add(this.cmdQuitter);
             this.Controls.Add(this.cmdReset);
@@ -146,5 +158,6 @@
         private System.Windows.Forms.Button cmdQuitter;
         private System.Windows.Forms.Button cmdConnexion;
         private System.Windows.Forms.Button cmdMdPPerdu;
+        private System.Windows.Forms.Button button1;
     }
 }
