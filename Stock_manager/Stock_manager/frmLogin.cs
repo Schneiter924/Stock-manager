@@ -83,8 +83,11 @@ namespace Stock_manager
         {
             if (xml.TestFichierXML() == false)
             {
+                
                 xml.EcritureXMLDefaut();
+
             }
+            xml.LectureXML();
             if ((cryLogin.TestFichier()==false) || (cryPassword.TestFichier()==false))
             {
                 Form frmLo = new frmNouveauLogin();
@@ -105,12 +108,6 @@ namespace Stock_manager
         private void frmLogin_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Form frmCo = new frmConfig();
-            frmCo.ShowDialog();
         }
     }
 }

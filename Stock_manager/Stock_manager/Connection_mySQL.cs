@@ -27,6 +27,7 @@ namespace Stock_manager
         //Initialize values
         private void Initialize()
         {
+<<<<<<< HEAD
             config = xml.LectureXML();
             /*
             serveur = config.Serveur;
@@ -37,6 +38,12 @@ namespace Stock_manager
             baseDonnee = "stock_manager";
             utilisateur = "root";
             motPasse = "root";
+=======
+            serveur = "localhost";
+            baseDonnee = "Stock_manager";
+            utilisateur = "vendeur";
+            motPasse = "Pa$$w0rd";
+>>>>>>> parent of 79ce981... 13.03.2018
             string connectionString;
             connectionString = "SERVER=" + serveur + ";" + "DATABASE=" +
             baseDonnee + ";" + "UID=" + utilisateur + ";" + "PASSWORD=" + motPasse + ";";
@@ -114,7 +121,7 @@ namespace Stock_manager
             
             MySqlCommand cmd = this.connection.CreateCommand();
 
-            cmd.CommandText = "Select * from Produit where idProduit =(@idProduit)";
+            cmd.CommandText = "Select * from produit where idProduit =(@idProduit)";
 
             cmd.Parameters.AddWithValue("@idProduit", idProduit);
 
@@ -137,7 +144,7 @@ namespace Stock_manager
 
             MySqlCommand cmd = this.connection.CreateCommand();
 
-            cmd.CommandText = "Select idProduit, nomProduit, description from Produit where idProduit =(@idProduit)";
+            cmd.CommandText = "Select idProduit, nomProduit, description from produit where idProduit =(@idProduit)";
 
             cmd.Parameters.AddWithValue("@idProduit", idProduit);
 
@@ -210,7 +217,7 @@ namespace Stock_manager
 
             MySqlCommand cmd = this.connection.CreateCommand();
 
-            cmd.CommandText = "SELECT * FROM Location INNER JOIN Loueur ON idLoueur = fkLoueur INNER JOIN Produit ON idProduit = fkProduit WHERE endDate IS NULL ORDER BY startDate";
+            cmd.CommandText = "SELECT * FROM location INNER JOIN loueur ON idLoueur = fkLoueur INNER JOIN Produit ON idProduit = fkProduit WHERE endDate IS NULL ORDER BY startDate";
 
             MySqlDataReader l = cmd.ExecuteReader();
 
@@ -251,7 +258,7 @@ namespace Stock_manager
             connection.Open();
             MySqlCommand cmd = this.connection.CreateCommand();
 
-            cmd.CommandText = "SELECT* FROM Location INNER JOIN Loueur ON idLoueur = fkLoueur INNER JOIN Produit ON idProduit = fkProduit WHERE endDate IS NULL and idProduit = @idProduit ORDER BY startDate";
+            cmd.CommandText = "SELECT* FROM location INNER JOIN loueur ON idLoueur = fkLoueur INNER JOIN Produit ON idProduit = fkProduit WHERE endDate IS NULL and idProduit = @idProduit ORDER BY startDate";
 
             cmd.Parameters.AddWithValue("@idProduit", idProduit);
 
@@ -344,7 +351,7 @@ namespace Stock_manager
 
             MySqlCommand cmd = this.connection.CreateCommand();
 
-            cmd.CommandText = "UPDATE Location set endDate = @endDate where fkProduit = @idProduit and endDate is null";
+            cmd.CommandText = "update location set endDate = @endDate where fkProduit = @idProduit and endDate is null";
 
             cmd.Parameters.AddWithValue("@endDate", location.EndDate.ToString("yyyy-MM-dd HH:mm:ss"));
 
@@ -406,7 +413,7 @@ namespace Stock_manager
 
             MySqlCommand cmd = this.connection.CreateCommand();
 
-            cmd.CommandText = "UPDATE Loueur set nomLoueur = @nomLoueur where idLoueur = @idLoueur";
+            cmd.CommandText = "update loueur set nomLoueur = @nomLoueur where idLoueur = @idLoueur";
 
             cmd.Parameters.AddWithValue("@nomLoueur", loueur.NomLoueur);
 
@@ -429,7 +436,7 @@ namespace Stock_manager
 
             MySqlCommand cmd = this.connection.CreateCommand();
 
-            cmd.CommandText = "SELECT * from Produit WHERE idProduit NOT IN (SELECT fkproduit FROM Location WHERE enddate IS NULL) ORDER BY idproduit";
+            cmd.CommandText = "SELECT * FROM produit WHERE idProduit NOT IN (SELECT fkproduit FROM location WHERE enddate IS NULL) ORDER BY idproduit";
 
             MySqlDataReader p = cmd.ExecuteReader();
 
@@ -460,7 +467,7 @@ namespace Stock_manager
 
             MySqlCommand cmd = this.connection.CreateCommand();
 
-            cmd.CommandText = "Select count(*) FROM Produit";
+            cmd.CommandText = "Select count(*) from produit";
 
             resultat = cmd.ExecuteScalar();
 
@@ -490,7 +497,7 @@ namespace Stock_manager
 
             MySqlCommand cmd = this.connection.CreateCommand();
 
-            cmd.CommandText = "SELECT count(*) FROM Produit WHERE idProduit NOT IN (SELECT fkproduit FROM Location WHERE enddate IS NULL) ORDER BY idproduit";
+            cmd.CommandText = "SELECT count(*) FROM produit WHERE idProduit NOT IN (SELECT fkproduit FROM location WHERE enddate IS NULL) ORDER BY idproduit";
 
             resultat = cmd.ExecuteScalar();
 
@@ -521,7 +528,7 @@ namespace Stock_manager
 
             MySqlCommand cmd = this.connection.CreateCommand();
 
-            cmd.CommandText = "SELECT * FROM Loueur WHERE nomLoueur like @nomLoueur";
+            cmd.CommandText = "SELECT * FROM loueur WHERE nomLoueur like @nomLoueur";
 
             cmd.Parameters.AddWithValue("@nomLoueur", nom);
 
@@ -550,7 +557,7 @@ namespace Stock_manager
 
             MySqlCommand cmd = this.connection.CreateCommand();
 
-            cmd.CommandText = "select * FROM Loueur order by nomLoueur";
+            cmd.CommandText = "select * from loueur order by nomLoueur";
 
             MySqlDataReader l = cmd.ExecuteReader();
             
@@ -577,7 +584,7 @@ namespace Stock_manager
 
             MySqlCommand cmd = this.connection.CreateCommand();
 
-            cmd.CommandText = "SELECT * FROM Location INNER JOIN Loueur ON idLoueur = fkLoueur INNER JOIN Produit ON idProduit = fkProduit WHERE endDate IS NULL AND DATE_ADD(startDate, INTERVAL @duree DAY) < NOW() AND idProduit=@idproduit";
+            cmd.CommandText = "SELECT * FROM location INNER JOIN loueur ON idLoueur = fkLoueur INNER JOIN Produit ON idProduit = fkProduit WHERE endDate IS NULL AND DATE_ADD(startDate, INTERVAL @duree DAY) < NOW() AND idProduit=@idproduit";
 
             cmd.Parameters.AddWithValue("@duree", location.Duree);
             cmd.Parameters.AddWithValue("@idProduit", location.Produit.IdProduit);
@@ -620,7 +627,7 @@ namespace Stock_manager
 
             MySqlCommand cmd = this.connection.CreateCommand();
 
-            cmd.CommandText = "SELECT * FROM Produit";
+            cmd.CommandText = "SELECT * from Produit";
 
             MySqlDataReader p = cmd.ExecuteReader();
 
@@ -651,7 +658,7 @@ namespace Stock_manager
 
             MySqlCommand cmd = this.connection.CreateCommand();
 
-            cmd.CommandText = "select * FROM Location INNER JOIN Loueur on idLoueur=fkLoueur INNER JOIN Produit on idProduit=fkproduit where idProduit = @idProduit order by idLocation desc";
+            cmd.CommandText = "select * from location inner join loueur on idLoueur=fkLoueur inner join produit on idProduit=fkproduit where idProduit = @idProduit order by idlocation desc";
 
             cmd.Parameters.AddWithValue("@idProduit", idProduit);
 
@@ -693,7 +700,7 @@ namespace Stock_manager
 
             MySqlCommand cmd = this.connection.CreateCommand();
 
-            cmd.CommandText = "select * FROM Produit where nomProduit like @chercher or description like @chercher or idProduit like @chercher order by idProduit";
+            cmd.CommandText = "select * from produit where nomProduit like @chercher or description like @chercher or idProduit like @chercher order by idProduit";
 
             cmd.Parameters.AddWithValue("@chercher", "%" + chercher + "%");
 
