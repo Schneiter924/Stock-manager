@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace Stock_manager
 {
@@ -15,7 +16,7 @@ namespace Stock_manager
         Cryptage cryPassword;
         Cryptage cryLogin;
         XML xml = new XML();
-
+        Connection_mySQL smsql = new Connection_mySQL();
         public frmLogin()
         {
             InitializeComponent();
@@ -60,6 +61,7 @@ namespace Stock_manager
             }
             else if (cryPassword.TestPassword(txtPassword.Text))
             {
+
                 Form frmMenu = new frmMain();
                 frmMenu.Show();
                 this.Hide();

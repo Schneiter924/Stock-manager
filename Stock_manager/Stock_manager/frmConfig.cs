@@ -29,11 +29,6 @@ namespace Stock_manager
             config.BaseDonnee = txtBaseDonnee.Text;
             config.Utilisateur = txtUtilisateur.Text;
             config.MotPasse = txtMotPasse.Text;
-            Properties.Settings.Default.serveur = config.Serveur;
-            Properties.Settings.Default.baseDonnee = config.BaseDonnee;
-            Properties.Settings.Default.utilisateur = config.Utilisateur;
-            Properties.Settings.Default.motPasse = config.MotPasse;
-            Properties.Settings.Default.Save();
             xml.EcritureXML(config);
 
         }
@@ -45,11 +40,6 @@ namespace Stock_manager
             txtBaseDonnee.Text = config.BaseDonnee;
             txtUtilisateur.Text = config.Utilisateur;
             txtMotPasse.Text = config.MotPasse;
-            Properties.Settings.Default.serveur = config.Serveur;
-            Properties.Settings.Default.baseDonnee = config.BaseDonnee;
-            Properties.Settings.Default.utilisateur = config.Utilisateur;
-            Properties.Settings.Default.motPasse = config.MotPasse;
-            Properties.Settings.Default.Save();
         }
 
         private void frmConfig_Load(object sender, EventArgs e)
@@ -59,11 +49,6 @@ namespace Stock_manager
             txtBaseDonnee.Text = config.BaseDonnee;
             txtUtilisateur.Text = config.Utilisateur;
             txtMotPasse.Text = config.MotPasse;
-            Properties.Settings.Default.serveur = config.Serveur;
-            Properties.Settings.Default.baseDonnee = config.BaseDonnee;
-            Properties.Settings.Default.utilisateur = config.Utilisateur;
-            Properties.Settings.Default.motPasse = config.MotPasse;
-            Properties.Settings.Default.Save();
         }
 
         private void frmConfig_FormClosed(object sender, FormClosedEventArgs e)

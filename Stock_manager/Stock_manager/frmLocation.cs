@@ -18,6 +18,7 @@ namespace Stock_manager
         }
 
         Connection_mySQL smsql = new Connection_mySQL();
+        
 
         DateTime Aujourdhui;
 

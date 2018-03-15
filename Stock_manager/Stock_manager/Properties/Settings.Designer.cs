@@ -22,53 +22,5 @@ namespace Stock_manager.Properties {
                 return defaultInstance;
             }
         }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string serveur {
-            get {
-                return ((string)(this["serveur"]));
-            }
-            set {
-                this["serveur"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string baseDonnee {
-            get {
-                return ((string)(this["baseDonnee"]));
-            }
-            set {
-                this["baseDonnee"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string utilisateur {
-            get {
-                return ((string)(this["utilisateur"]));
-            }
-            set {
-                this["utilisateur"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string motPasse {
-            get {
-                return ((string)(this["motPasse"]));
-            }
-            set {
-                this["motPasse"] = value;
-            }
-        }
     }
 }

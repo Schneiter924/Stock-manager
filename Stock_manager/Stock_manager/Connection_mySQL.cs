@@ -15,6 +15,8 @@ namespace Stock_manager
         private string baseDonnee;
         private string utilisateur;
         private string motPasse;
+        XML xml = new XML();
+        Config config;
 
         //Constructor
         public Connection_mySQL()
@@ -25,10 +27,16 @@ namespace Stock_manager
         //Initialize values
         private void Initialize()
         {
-            serveur = Properties.Settings.Default.serveur;
-            baseDonnee = Properties.Settings.Default.baseDonnee;
-            utilisateur = Properties.Settings.Default.utilisateur;
-            motPasse = Properties.Settings.Default.motPasse;
+            config = xml.LectureXML();
+            /*
+            serveur = config.Serveur;
+            baseDonnee = config.BaseDonnee;
+            utilisateur = config.Utilisateur;
+            motPasse = config.MotPasse;*/
+            serveur = "localhost";
+            baseDonnee = "stock_manager";
+            utilisateur = "root";
+            motPasse = "root";
             string connectionString;
             connectionString = "SERVER=" + serveur + ";" + "DATABASE=" +
             baseDonnee + ";" + "UID=" + utilisateur + ";" + "PASSWORD=" + motPasse + ";";
@@ -78,7 +86,23 @@ namespace Stock_manager
                 return false;
             }
         }
-        
+
+        public bool TestConnection()
+        {
+            try
+            {
+                connection.Open();
+                return true;
+            }
+            catch (MySqlException ex)
+            {
+
+                
+                return false;
+            }
+            
+        }
+
         /// <summary>
         /// fonction qui test si le produit existe ou pas
         /// </summary>
@@ -87,7 +111,7 @@ namespace Stock_manager
         public object TestIDProduit(int idProduit)
         {
             connection.Open();
-
+            
             MySqlCommand cmd = this.connection.CreateCommand();
 
             cmd.CommandText = "Select * from Produit where idProduit =(@idProduit)";
