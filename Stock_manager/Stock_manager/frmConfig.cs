@@ -18,6 +18,16 @@ namespace Stock_manager
         }
         Config config;
         XML xml = new XML();
+
+        private void cmdParDefaut_Click(object sender, EventArgs e)
+        {
+            config = xml.LectureXML();
+            txtServeur.Text = config.Serveur;
+            txtBaseDonnee.Text = config.BaseDonnee;
+            txtUtilisateur.Text = config.Utilisateur;
+            txtMotPasse.Text = config.MotPasse;
+        }
+
         private void cmdRetour_Click(object sender, EventArgs e)
         {
             this.Dispose();
@@ -30,16 +40,6 @@ namespace Stock_manager
             config.Utilisateur = txtUtilisateur.Text;
             config.MotPasse = txtMotPasse.Text;
             xml.EcritureXML(config);
-
-        }
-
-        private void cmdParDefaut_Click(object sender, EventArgs e)
-        {
-            config = xml.LectureXML();
-            txtServeur.Text = config.Serveur;
-            txtBaseDonnee.Text = config.BaseDonnee;
-            txtUtilisateur.Text = config.Utilisateur;
-            txtMotPasse.Text = config.MotPasse;
         }
 
         private void frmConfig_Load(object sender, EventArgs e)

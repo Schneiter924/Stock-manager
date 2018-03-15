@@ -36,6 +36,7 @@
             this.cmdQuitter = new System.Windows.Forms.Button();
             this.cmdConnexion = new System.Windows.Forms.Button();
             this.cmdMdPPerdu = new System.Windows.Forms.Button();
+            this.cmdOption = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblLogin
@@ -61,7 +62,7 @@
             this.txtLogin.Location = new System.Drawing.Point(174, 35);
             this.txtLogin.Name = "txtLogin";
             this.txtLogin.Size = new System.Drawing.Size(182, 20);
-            this.txtLogin.TabIndex = 2;
+            this.txtLogin.TabIndex = 1;
             this.txtLogin.Enter += new System.EventHandler(this.txtLogin_Enter);
             // 
             // txtPassword
@@ -70,7 +71,7 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(182, 20);
-            this.txtPassword.TabIndex = 3;
+            this.txtPassword.TabIndex = 2;
             this.txtPassword.Enter += new System.EventHandler(this.txtPassword_Enter);
             // 
             // cmdReset
@@ -110,12 +111,23 @@
             this.cmdMdPPerdu.Size = new System.Drawing.Size(75, 23);
             this.cmdMdPPerdu.TabIndex = 0;
             // 
+            // cmdOption
+            // 
+            this.cmdOption.Location = new System.Drawing.Point(6, 123);
+            this.cmdOption.Name = "cmdOption";
+            this.cmdOption.Size = new System.Drawing.Size(122, 23);
+            this.cmdOption.TabIndex = 3;
+            this.cmdOption.Text = "Option de connextion";
+            this.cmdOption.UseVisualStyleBackColor = true;
+            this.cmdOption.Click += new System.EventHandler(this.cmdOption_Click);
+            // 
             // frmLogin
             // 
             this.AcceptButton = this.cmdConnexion;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(391, 158);
+            this.Controls.Add(this.cmdOption);
             this.Controls.Add(this.cmdConnexion);
             this.Controls.Add(this.cmdQuitter);
             this.Controls.Add(this.cmdReset);
@@ -146,5 +158,6 @@
         private System.Windows.Forms.Button cmdQuitter;
         private System.Windows.Forms.Button cmdConnexion;
         private System.Windows.Forms.Button cmdMdPPerdu;
+        private System.Windows.Forms.Button cmdOption;
     }
 }

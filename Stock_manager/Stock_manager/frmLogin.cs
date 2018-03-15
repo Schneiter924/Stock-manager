@@ -61,10 +61,20 @@ namespace Stock_manager
             }
             else if (cryPassword.TestPassword(txtPassword.Text))
             {
-
-                Form frmMenu = new frmMain();
-                frmMenu.Show();
-                this.Hide();
+                if (smsql.TestConnexion() == true)
+                {
+                    Form frmMenu = new frmMain();
+                    frmMenu.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    string message = "Erreur dans la configuration des paramètres de connexion au serveur";
+                    string legende = "Erreur";
+                    MessageBoxButtons bouton = MessageBoxButtons.OK;
+                    MessageBoxIcon icon = MessageBoxIcon.Error;
+                    MessageBox.Show(message, legende, bouton, icon);
+                }                
             }
         }
 
@@ -83,11 +93,8 @@ namespace Stock_manager
         {
             if (xml.TestFichierXML() == false)
             {
-                
                 xml.EcritureXMLDefaut();
-
             }
-            xml.LectureXML();
             if ((cryLogin.TestFichier()==false) || (cryPassword.TestFichier()==false))
             {
                 Form frmLo = new frmNouveauLogin();
@@ -108,6 +115,12 @@ namespace Stock_manager
         private void frmLogin_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void cmdOption_Click(object sender, EventArgs e)
+        {
+            Form frmCo = new frmConfig();
+            frmCo.ShowDialog();
         }
     }
 }
