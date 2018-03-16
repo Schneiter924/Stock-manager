@@ -15,7 +15,7 @@ namespace Stock_manager
         private string baseDonnee;
         private string utilisateur;
         private string motPasse;
-        XML xml = new XML();
+        XML xml = new XML(Environment.GetEnvironmentVariable("APPDATA") + "\\stock_manager\\config.xml");
         Config config;
 
         //Constructor
@@ -729,6 +729,7 @@ namespace Stock_manager
                     loueur.NomLoueur = Convert.ToString(l["nomLoueur"]);
                     location.IdLocation = Convert.ToInt32(l["idLocation"]);
                     location.StartDate = Convert.ToDateTime(l["startDate"]);
+                    location.EndDate = Convert.ToDateTime(l["endDate"]);
                     location.Produit = produit;
                     location.Loueur = loueur;
                     lstLocations.Add(location);

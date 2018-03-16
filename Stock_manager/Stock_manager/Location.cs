@@ -95,7 +95,12 @@ namespace Stock_manager
 
         public string DescriptionLocation()
         {
-            return Produit.DescriptionProduit() + " - " + loueur.Description() + " - la date de début d'empret est le " + startDate.ToString("dd-MM-yyyy");
+            string message = Produit.DescriptionProduit() + " - " + loueur.Description() + " - la date de début de la location est le " + startDate.ToString("dd-MM-yyyy");
+            if (endDate.ToString("dd-MM-yyyy") != "01-01-0001")
+            {
+                message += " - la date rendu est le " + endDate.ToString("dd-MM-yyyy");
+            }
+            return message;
         }
     }
 }

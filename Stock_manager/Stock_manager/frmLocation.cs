@@ -18,7 +18,6 @@ namespace Stock_manager
         }
 
         Connection_mySQL smsql = new Connection_mySQL();
-        
 
         DateTime Aujourdhui;
 
@@ -42,6 +41,8 @@ namespace Stock_manager
                 location.Loueur = loueur;
                 location.Produit = produit;
                 smsql.NouvelleLocation(location);
+                txtDuree.Text = "";
+                txtDateRetour.Text = "";
                 chargerProduit();
                 chargerLoueur();
             }
@@ -69,6 +70,8 @@ namespace Stock_manager
         private void frmSortie_Load(object sender, EventArgs e)
         {
             Aujourdhui = DateTime.Today;
+            chargerLoueur();
+            chargerProduit();
                      
         }
 

@@ -15,13 +15,13 @@ namespace Stock_manager
     {
         Cryptage cryPassword;
         Cryptage cryLogin;
-        XML xml = new XML();
-        Connection_mySQL smsql = new Connection_mySQL();
+        XML xml = new XML(Environment.GetEnvironmentVariable("APPDATA") + "\\stock_manager\\config.xml");
+
         public frmLogin()
         {
             InitializeComponent();
-            cryPassword = new Cryptage(AppDomain.CurrentDomain.BaseDirectory + "pwd.txt");
-            cryLogin = new Cryptage(AppDomain.CurrentDomain.BaseDirectory + "login.txt");
+            cryPassword = new Cryptage(Environment.GetEnvironmentVariable("APPDATA") + "\\stock_manager\\pwd.txt");
+            cryLogin = new Cryptage(Environment.GetEnvironmentVariable("APPDATA") + "\\stock_manager\\login.txt");
             
         }
 
@@ -61,6 +61,7 @@ namespace Stock_manager
             }
             else if (cryPassword.TestPassword(txtPassword.Text))
             {
+                Connection_mySQL smsql = new Connection_mySQL();
                 if (smsql.TestConnexion() == true)
                 {
                     Form frmMenu = new frmMain();

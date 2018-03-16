@@ -45,7 +45,7 @@
             this.cmdAjout.Location = new System.Drawing.Point(197, 183);
             this.cmdAjout.Name = "cmdAjout";
             this.cmdAjout.Size = new System.Drawing.Size(75, 23);
-            this.cmdAjout.TabIndex = 4;
+            this.cmdAjout.TabIndex = 5;
             this.cmdAjout.Text = "Ajouter";
             this.cmdAjout.UseVisualStyleBackColor = true;
             this.cmdAjout.Click += new System.EventHandler(this.cmdAjout_Click);
@@ -55,7 +55,7 @@
             this.cmdRetour.Location = new System.Drawing.Point(116, 183);
             this.cmdRetour.Name = "cmdRetour";
             this.cmdRetour.Size = new System.Drawing.Size(75, 23);
-            this.cmdRetour.TabIndex = 3;
+            this.cmdRetour.TabIndex = 4;
             this.cmdRetour.Text = "Retour";
             this.cmdRetour.UseVisualStyleBackColor = true;
             this.cmdRetour.Click += new System.EventHandler(this.cmdRetour_Click);
@@ -65,7 +65,7 @@
             this.txtDuree.Location = new System.Drawing.Point(161, 69);
             this.txtDuree.Name = "txtDuree";
             this.txtDuree.Size = new System.Drawing.Size(115, 20);
-            this.txtDuree.TabIndex = 12;
+            this.txtDuree.TabIndex = 2;
             this.txtDuree.Validated += new System.EventHandler(this.txtDuree_Validated);
             // 
             // lblLoueur
@@ -83,9 +83,9 @@
             this.lblDuree.AutoSize = true;
             this.lblDuree.Location = new System.Drawing.Point(18, 72);
             this.lblDuree.Name = "lblDuree";
-            this.lblDuree.Size = new System.Drawing.Size(102, 13);
+            this.lblDuree.Size = new System.Drawing.Size(137, 13);
             this.lblDuree.TabIndex = 9;
-            this.lblDuree.Text = "Durée de la location";
+            this.lblDuree.Text = "Durée de la location en jour";
             // 
             // lblNumero
             // 
@@ -102,7 +102,7 @@
             this.txtDateRetour.Name = "txtDateRetour";
             this.txtDateRetour.ReadOnly = true;
             this.txtDateRetour.Size = new System.Drawing.Size(115, 20);
-            this.txtDateRetour.TabIndex = 17;
+            this.txtDateRetour.TabIndex = 3;
             // 
             // lblDateRetour
             // 
@@ -119,6 +119,7 @@
             this.cboProduit.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cboProduit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboProduit.FormattingEnabled = true;
+            this.cboProduit.ItemHeight = 13;
             this.cboProduit.Location = new System.Drawing.Point(161, 32);
             this.cboProduit.Name = "cboProduit";
             this.cboProduit.Size = new System.Drawing.Size(115, 21);
@@ -130,10 +131,11 @@
             this.cboLoueur.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cboLoueur.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboLoueur.FormattingEnabled = true;
+            this.cboLoueur.ItemHeight = 13;
             this.cboLoueur.Location = new System.Drawing.Point(161, 145);
             this.cboLoueur.Name = "cboLoueur";
             this.cboLoueur.Size = new System.Drawing.Size(115, 21);
-            this.cboLoueur.TabIndex = 2;
+            this.cboLoueur.TabIndex = 4;
             // 
             // frmLocation
             // 

@@ -30,29 +30,39 @@ namespace Stock_manager
         private void cmdAjout_Click(object sender, EventArgs e)
         {
 
-            if (cboIDProduit.Text != "")
+            if (produit != null)
             {
-                if (produit != null)
-                {
-                    produit.IdProduit = produit.IdProduit;
-                    produit.NomProduit = txtNomProduit.Text;
-                    produit.Description = txtDescription.Text;
-                    smsql.ModificationProduit(produit);
-                }
-                else
+                produit.IdProduit = produit.IdProduit;
+                produit.NomProduit = txtNomProduit.Text;
+                produit.Description = txtDescription.Text;
+                smsql.ModificationProduit(produit);
+                cboIDProduit.Text = "";
+                txtNomProduit.Text = "";
+                txtDescription.Text = "";
+                cboIDProduit.Enabled = true;
+                chargerProduit();
+                produit = null;
+            }
+            else
+            {
+                if (txtNomProduit.Text != "")
                 {
                     produit = new Produit();
                     produit.NomProduit = txtNomProduit.Text;
                     produit.Description = txtDescription.Text;
                     smsql.NouveauProduit(produit);
+                    cboIDProduit.Text = "";
+                    txtNomProduit.Text = "";
+                    txtDescription.Text = "";
+                    cboIDProduit.Enabled = true;
+                    chargerProduit();
+                    produit = null;
+                }
+                else
+                {
+
                 }
             }
-            cboIDProduit.Text = "";
-            txtNomProduit.Text = "";
-            txtDescription.Text = "";
-            cboIDProduit.Enabled = true;
-            chargerProduit();
-            produit = null;
         }
 
         public void chargerProduit()

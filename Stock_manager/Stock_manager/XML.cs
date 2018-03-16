@@ -10,11 +10,17 @@ namespace Stock_manager
 {
     public class XML
     {
+        string chemin;
+
+        public XML(string chemin)
+        {
+            this.chemin = chemin;
+        }
         public Config LectureXML()
         {
             Config config = new Config(); ;
             List<Config> lstConfig;
-            lstConfig = (from e in XDocument.Load(AppDomain.CurrentDomain.BaseDirectory + "config.xml").Root.Elements("Config1")
+            lstConfig = (from e in XDocument.Load(chemin).Root.Elements("Config1")
                          select new Config
                          {
                              Serveur = (string)e.Element("Serveur"),
@@ -37,7 +43,7 @@ namespace Stock_manager
                                                     new XElement("BaseDonnee", config.BaseDonnee),
                                                     new XElement("Utilisateur", config.Utilisateur),
                                                     new XElement("MotPasse", config.MotPasse))));
-            doc.Save(AppDomain.CurrentDomain.BaseDirectory + "config.xml");
+            doc.Save(chemin);
         }
 
         public void EcritureXMLDefaut()
@@ -48,12 +54,21 @@ namespace Stock_manager
                                                    new XElement("BaseDonnee", "Stock_manager"),
                                                    new XElement("Utilisateur", "vendeur"),
                                                    new XElement("MotPasse", "Pa$$w0rd"))));
-            doc.Save(AppDomain.CurrentDomain.BaseDirectory + "config.xml");
+            doc.Save(chemin);
+        }
+
+        private void TestDossier()
+        {
+            if (Directory.Exists(Environment.GetEnvironmentVariable("APPDATA") + "\\stock_manager") != true)
+            {
+                Directory.CreateDirectory(chemin);
+            }
         }
 
         public bool TestFichierXML()
         {
-            return File.Exists(AppDomain.CurrentDomain.BaseDirectory+"config.xml");
+            TestDossier();
+            return File.Exists(chemin);
         }
     }
 }

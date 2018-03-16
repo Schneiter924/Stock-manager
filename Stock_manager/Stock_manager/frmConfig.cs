@@ -17,7 +17,7 @@ namespace Stock_manager
             InitializeComponent();
         }
         Config config;
-        XML xml = new XML();
+        XML xml = new XML(Environment.GetEnvironmentVariable("APPDATA") + "\\stock_manager\\config.xml");
 
         private void cmdParDefaut_Click(object sender, EventArgs e)
         {
