@@ -49,7 +49,21 @@ namespace Stock_manager
             }
             catch (MySqlException ex)
             {
-                MessageBox.Show(ex.Message);
+                //When handling errors, you can your application's response based 
+                //on the error number.
+                //The two most common error numbers when connecting are as follows:
+                //0: Cannot connect to server.
+                //1045: Invalid user name and/or password.
+                switch (ex.Number)
+                {
+                    case 0:
+                        MessageBox.Show("Cannot connect to server.  Contact administrator");
+                        break;
+
+                    case 1045:
+                        MessageBox.Show("Invalid username/password, please try again");
+                        break;
+                }
                 return false;
             }
         }
@@ -217,6 +231,7 @@ namespace Stock_manager
 
                     location.IdLocation = Convert.ToInt32(l["idLocation"]);
                     location.StartDate = Convert.ToDateTime(l["startDate"]);
+                    location.Duree = Convert.ToInt32(l["Duree"]);
                     produit.IdProduit = Convert.ToInt32(l["idProduit"]);
                     produit.NomProduit = Convert.ToString(l["nomProduit"]);
                     produit.Description = Convert.ToString(l["description"]);
@@ -251,7 +266,7 @@ namespace Stock_manager
             {
                 MySqlCommand cmd = connection.CreateCommand();
 
-                cmd.CommandText = "SELECT* FROM Location INNER JOIN Loueur ON idLoueur = fkLoueur INNER JOIN Produit ON idProduit = fkProduit WHERE endDate IS NULL and idProduit = @idProduit ORDER BY startDate";
+                cmd.CommandText = "SELECT* FROM Location INNER JOIN Loueur ON idLoueur = fkLoueur INNER JOIN Produit ON idProduit = fkProduit WHERE endDate IS NULL and idProduit = @idProduit";
 
                 cmd.Parameters.AddWithValue("@idProduit", idProduit);
 
@@ -261,6 +276,7 @@ namespace Stock_manager
                 {
                     location.IdLocation = Convert.ToInt32(l["idLocation"]);
                     location.StartDate = Convert.ToDateTime(l["startDate"]);
+                    location.Duree = Convert.ToInt32(l["Duree"]);
                     produit.IdProduit = Convert.ToInt32(l["idProduit"]);
                     produit.NomProduit = Convert.ToString(l["nomProduit"]);
                     produit.Description = Convert.ToString(l["description"]);
@@ -649,6 +665,7 @@ namespace Stock_manager
                     loueur.NomLoueur = Convert.ToString(l["nomLoueur"]);
                     locationRec.IdLocation = Convert.ToInt32(l["idLocation"]);
                     locationRec.StartDate = Convert.ToDateTime(l["startDate"]);
+                    location.Duree = Convert.ToInt32(l["Duree"]);
                     locationRec.Produit = produit;
                     locationRec.Loueur = loueur;
                 }
@@ -729,6 +746,7 @@ namespace Stock_manager
                     loueur.NomLoueur = Convert.ToString(l["nomLoueur"]);
                     location.IdLocation = Convert.ToInt32(l["idLocation"]);
                     location.StartDate = Convert.ToDateTime(l["startDate"]);
+                    location.Duree = Convert.ToInt32(l["Duree"]);
                     location.EndDate = Convert.ToDateTime(l["endDate"]);
                     location.Produit = produit;
                     location.Loueur = loueur;
@@ -742,7 +760,7 @@ namespace Stock_manager
         }
 
         /// <summary>
-        /// fonction qui fait la recherche par mot-clés
+        /// fonction qui fait la recherche par mot-clés sur tous les produit
         /// </summary>
         /// <param name="chercher"></param>
         /// <returns>retourne une liste de produit</returns>
@@ -776,6 +794,84 @@ namespace Stock_manager
             CloseConnection();
 
             return lstProduits;
+        }
+
+        public List<Produit> RechercherMotCleStock(string chercher)
+        {
+            List<Produit> lstProduits = new List<Produit>();
+            if (connection.State != System.Data.ConnectionState.Closed)
+            {
+                CloseConnection();
+            }
+            if (OpenConnection() == true)
+            {
+                MySqlCommand cmd = connection.CreateCommand();
+
+                cmd.CommandText = "SELECT * FROM Produit WHERE (nomProduit like @chercher or description like @chercher or idProduit like @chercher) and idProduit NOT IN (SELECT fkproduit FROM Location WHERE enddate IS NULL) ORDER BY idproduit";
+
+                cmd.Parameters.AddWithValue("@chercher", "%" + chercher + "%");
+
+                MySqlDataReader p = cmd.ExecuteReader();
+
+                while (p.Read())
+                {
+                    Produit produit = new Produit();
+                    produit.IdProduit = Convert.ToInt32(p[0]);
+                    produit.NomProduit = Convert.ToString(p[1]);
+                    produit.Description = Convert.ToString(p[2]);
+                    lstProduits.Add(produit);
+                }
+            }
+
+            CloseConnection();
+
+            return lstProduits;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="chercher"></param>
+        /// <returns></returns>
+        public List<Location> RechercherMotCleLocation(string chercher)
+        {
+            List<Location> lstLocations = new List<Location>();
+            if (connection.State != System.Data.ConnectionState.Closed)
+            {
+                CloseConnection();
+            }
+            if (OpenConnection() == true)
+            {
+                MySqlCommand cmd = connection.CreateCommand();
+
+                cmd.CommandText = "SELECT * FROM Location INNER JOIN Produit on idProduit=fkProduit INNER JOIN Loueur on idLoueur=fkLoueur where (nomProduit like @chercher or description like @chercher or idProduit like @chercher or idLocation like @chercher or nomLoueur like @chercher) and endDate is null order by idProduit";
+
+                cmd.Parameters.AddWithValue("@chercher", "%" + chercher + "%");
+
+                MySqlDataReader l = cmd.ExecuteReader();
+
+                while (l.Read())
+                {
+                    Produit produit = new Produit();
+                    Location location = new Location();
+                    Loueur loueur = new Loueur();
+                    produit.IdProduit = Convert.ToInt32(l["idProduit"]);
+                    produit.NomProduit = Convert.ToString(l["nomProduit"]);
+                    produit.Description = Convert.ToString(l["description"]);
+                    loueur.IdLoueur = Convert.ToInt32(l["idLoueur"]);
+                    loueur.NomLoueur = Convert.ToString(l["nomLoueur"]);
+                    location.IdLocation = Convert.ToInt32(l["idLocation"]);
+                    location.StartDate = Convert.ToDateTime(l["startDate"]);
+                    location.Duree = Convert.ToInt32(l["Duree"]);
+                    location.Produit = produit;
+                    location.Loueur = loueur;
+                    lstLocations.Add(location);
+                }
+            }
+
+            CloseConnection();
+
+            return lstLocations;
         }
     }
 }

@@ -39,6 +39,7 @@
             // 
             // cmdInventaire
             // 
+            this.cmdInventaire.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cmdInventaire.Location = new System.Drawing.Point(12, 12);
             this.cmdInventaire.Name = "cmdInventaire";
             this.cmdInventaire.Size = new System.Drawing.Size(192, 23);
@@ -49,6 +50,7 @@
             // 
             // cmdAMProduit
             // 
+            this.cmdAMProduit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cmdAMProduit.Location = new System.Drawing.Point(12, 41);
             this.cmdAMProduit.Name = "cmdAMProduit";
             this.cmdAMProduit.Size = new System.Drawing.Size(192, 23);
@@ -59,6 +61,7 @@
             // 
             // cmdLocation
             // 
+            this.cmdLocation.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cmdLocation.Location = new System.Drawing.Point(12, 128);
             this.cmdLocation.Name = "cmdLocation";
             this.cmdLocation.Size = new System.Drawing.Size(192, 23);
@@ -79,6 +82,7 @@
             // 
             // cmdQuitter
             // 
+            this.cmdQuitter.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cmdQuitter.Location = new System.Drawing.Point(12, 186);
             this.cmdQuitter.Name = "cmdQuitter";
             this.cmdQuitter.Size = new System.Drawing.Size(192, 23);
@@ -111,6 +115,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.cmdQuitter;
             this.ClientSize = new System.Drawing.Size(230, 225);
             this.Controls.Add(this.cmdLoueur);
             this.Controls.Add(this.cmdRetourPrduit);

@@ -108,6 +108,7 @@
             // 
             // cmdParDefaut
             // 
+            this.cmdParDefaut.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cmdParDefaut.Location = new System.Drawing.Point(233, 155);
             this.cmdParDefaut.Name = "cmdParDefaut";
             this.cmdParDefaut.Size = new System.Drawing.Size(75, 23);
@@ -118,6 +119,7 @@
             // 
             // cmdRetour
             // 
+            this.cmdRetour.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cmdRetour.Location = new System.Drawing.Point(314, 155);
             this.cmdRetour.Name = "cmdRetour";
             this.cmdRetour.Size = new System.Drawing.Size(75, 23);
@@ -128,6 +130,7 @@
             // 
             // cmdModifier
             // 
+            this.cmdModifier.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cmdModifier.Location = new System.Drawing.Point(395, 155);
             this.cmdModifier.Name = "cmdModifier";
             this.cmdModifier.Size = new System.Drawing.Size(75, 23);
@@ -138,8 +141,10 @@
             // 
             // frmConfig
             // 
+            this.AcceptButton = this.cmdModifier;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.cmdRetour;
             this.ClientSize = new System.Drawing.Size(482, 190);
             this.Controls.Add(this.cmdModifier);
             this.Controls.Add(this.cmdRetour);

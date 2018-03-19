@@ -70,6 +70,7 @@ namespace Stock_manager
         private void frmSortie_Load(object sender, EventArgs e)
         {
             Aujourdhui = DateTime.Today;
+            DateTime.
             chargerLoueur();
             chargerProduit();
                      

@@ -86,6 +86,7 @@
             // 
             // cmdQuitter
             // 
+            this.cmdQuitter.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cmdQuitter.Location = new System.Drawing.Point(215, 123);
             this.cmdQuitter.Name = "cmdQuitter";
             this.cmdQuitter.Size = new System.Drawing.Size(75, 23);
@@ -126,6 +127,7 @@
             this.AcceptButton = this.cmdConnexion;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.cmdQuitter;
             this.ClientSize = new System.Drawing.Size(391, 158);
             this.Controls.Add(this.cmdOption);
             this.Controls.Add(this.cmdConnexion);

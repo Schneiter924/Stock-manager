@@ -67,6 +67,7 @@
             // 
             // cmdRetour
             // 
+            this.cmdRetour.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cmdRetour.Location = new System.Drawing.Point(80, 60);
             this.cmdRetour.Name = "cmdRetour";
             this.cmdRetour.Size = new System.Drawing.Size(75, 23);
@@ -77,8 +78,10 @@
             // 
             // frmRetourLocation
             // 
+            this.AcceptButton = this.cmdRetourProduit;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.cmdRetour;
             this.ClientSize = new System.Drawing.Size(272, 102);
             this.Controls.Add(this.cmdRetour);
             this.Controls.Add(this.cmdRetourProduit);

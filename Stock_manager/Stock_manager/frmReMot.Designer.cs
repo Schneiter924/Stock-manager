@@ -62,6 +62,7 @@
             // 
             // cmdChercher
             // 
+            this.cmdChercher.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cmdChercher.Location = new System.Drawing.Point(294, 4);
             this.cmdChercher.Name = "cmdChercher";
             this.cmdChercher.Size = new System.Drawing.Size(75, 23);
@@ -72,6 +73,7 @@
             // 
             // cmdRetour
             // 
+            this.cmdRetour.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cmdRetour.Location = new System.Drawing.Point(375, 4);
             this.cmdRetour.Name = "cmdRetour";
             this.cmdRetour.Size = new System.Drawing.Size(75, 23);
@@ -85,6 +87,7 @@
             this.AcceptButton = this.cmdChercher;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.cmdRetour;
             this.ClientSize = new System.Drawing.Size(961, 591);
             this.Controls.Add(this.cmdRetour);
             this.Controls.Add(this.cmdChercher);
