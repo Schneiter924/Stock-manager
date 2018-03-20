@@ -98,7 +98,7 @@ namespace Stock_manager
             }
             if ((cryLogin.TestFichier()==false) || (cryPassword.TestFichier()==false))
             {
-                Form frmLo = new frmNouveauLogin();
+                Form frmLo = new frmPremierLogin();
                 frmLo.ShowDialog();                
             }
         }

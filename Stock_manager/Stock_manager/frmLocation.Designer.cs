@@ -83,18 +83,18 @@
             this.lblDuree.AutoSize = true;
             this.lblDuree.Location = new System.Drawing.Point(18, 72);
             this.lblDuree.Name = "lblDuree";
-            this.lblDuree.Size = new System.Drawing.Size(137, 13);
+            this.lblDuree.Size = new System.Drawing.Size(143, 13);
             this.lblDuree.TabIndex = 9;
-            this.lblDuree.Text = "Durée de la location en jour";
+            this.lblDuree.Text = "Durée de la location (en jour)";
             // 
             // lblNumero
             // 
             this.lblNumero.AutoSize = true;
             this.lblNumero.Location = new System.Drawing.Point(18, 35);
             this.lblNumero.Name = "lblNumero";
-            this.lblNumero.Size = new System.Drawing.Size(99, 13);
+            this.lblNumero.Size = new System.Drawing.Size(94, 13);
             this.lblNumero.TabIndex = 8;
-            this.lblNumero.Text = "Numéro de la pièce";
+            this.lblNumero.Text = "Numéro du produit";
             // 
             // txtDateRetour
             // 

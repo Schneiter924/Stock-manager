@@ -71,9 +71,9 @@
             this.lblNombreCaractere.AutoSize = true;
             this.lblNombreCaractere.Location = new System.Drawing.Point(23, 85);
             this.lblNombreCaractere.Name = "lblNombreCaractere";
-            this.lblNombreCaractere.Size = new System.Drawing.Size(302, 13);
+            this.lblNombreCaractere.Size = new System.Drawing.Size(307, 13);
             this.lblNombreCaractere.TabIndex = 9;
-            this.lblNombreCaractere.Text = "Nombre de caractère actuelle 0 / nombre de caractère max 45";
+            this.lblNombreCaractere.Text = "Nombre de caractère actuelle 0 / nombre de caractères max 45";
             // 
             // cmdAjoutModification
             // 

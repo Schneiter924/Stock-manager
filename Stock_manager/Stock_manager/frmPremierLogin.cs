@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace Stock_manager
 {
-    public partial class frmNouveauLogin : Form
+    public partial class frmPremierLogin : Form
     {
         Cryptage cryLogin;
         Cryptage cryPassword;
-        public frmNouveauLogin()
+        public frmPremierLogin()
         {
             InitializeComponent();
             cryPassword = new Cryptage(Environment.GetEnvironmentVariable("APPDATA") + "\\stock_manager\\pwd.txt");

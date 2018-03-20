@@ -117,11 +117,11 @@
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmNouveauLogin.cs">
+    <Compile Include="frmPremierLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmNouveauLogin.Designer.cs">
-      <DependentUpon>frmNouveauLogin.cs</DependentUpon>
+    <Compile Include="frmPremierLogin.Designer.cs">
+      <DependentUpon>frmPremierLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="frmReHis.cs">
       <SubType>Form</SubType>
@@ -183,8 +183,8 @@
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmNouveauLogin.resx">
-      <DependentUpon>frmNouveauLogin.cs</DependentUpon>
+    <EmbeddedResource Include="frmPremierLogin.resx">
+      <DependentUpon>frmPremierLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmReHis.resx">
       <DependentUpon>frmReHis.cs</DependentUpon>

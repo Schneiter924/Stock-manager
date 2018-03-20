@@ -61,7 +61,7 @@ namespace Stock_manager
         {
             if (Directory.Exists(Environment.GetEnvironmentVariable("APPDATA") + "\\stock_manager") != true)
             {
-                Directory.CreateDirectory(chemin);
+                Directory.CreateDirectory(Environment.GetEnvironmentVariable("APPDATA") + "\\stock_manager");
             }
         }
 

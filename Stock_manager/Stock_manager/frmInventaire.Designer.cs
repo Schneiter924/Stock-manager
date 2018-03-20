@@ -72,18 +72,18 @@
             this.lblStock.AutoSize = true;
             this.lblStock.Location = new System.Drawing.Point(12, 30);
             this.lblStock.Name = "lblStock";
-            this.lblStock.Size = new System.Drawing.Size(84, 13);
+            this.lblStock.Size = new System.Drawing.Size(89, 13);
             this.lblStock.TabIndex = 10;
-            this.lblStock.Text = "Produit en stock";
+            this.lblStock.Text = "Produits en stock";
             // 
             // lblLocation
             // 
             this.lblLocation.AutoSize = true;
             this.lblLocation.Location = new System.Drawing.Point(12, 302);
             this.lblLocation.Name = "lblLocation";
-            this.lblLocation.Size = new System.Drawing.Size(95, 13);
+            this.lblLocation.Size = new System.Drawing.Size(100, 13);
             this.lblLocation.TabIndex = 11;
-            this.lblLocation.Text = "Produit en location";
+            this.lblLocation.Text = "Produits en location";
             // 
             // lblProduitEnStockEtTotal
             // 
@@ -126,7 +126,7 @@
             this.cmdToutVoir.Name = "cmdToutVoir";
             this.cmdToutVoir.Size = new System.Drawing.Size(195, 23);
             this.cmdToutVoir.TabIndex = 3;
-            this.cmdToutVoir.Text = "Voir tous les produit et location";
+            this.cmdToutVoir.Text = "Voir tous les produits et locations";
             this.cmdToutVoir.UseVisualStyleBackColor = true;
             this.cmdToutVoir.Click += new System.EventHandler(this.cmdToutVoir_Click);
             // 

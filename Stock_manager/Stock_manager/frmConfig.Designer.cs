@@ -39,6 +39,7 @@
             this.cmdParDefaut = new System.Windows.Forms.Button();
             this.cmdRetour = new System.Windows.Forms.Button();
             this.cmdModifier = new System.Windows.Forms.Button();
+            this.cmdTestConnexion = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblServeur
@@ -73,9 +74,9 @@
             this.lblMotPasse.AutoSize = true;
             this.lblMotPasse.Location = new System.Drawing.Point(12, 107);
             this.lblMotPasse.Name = "lblMotPasse";
-            this.lblMotPasse.Size = new System.Drawing.Size(153, 13);
+            this.lblMotPasse.Size = new System.Drawing.Size(149, 13);
             this.lblMotPasse.TabIndex = 3;
-            this.lblMotPasse.Text = "Mot de passe de la connection";
+            this.lblMotPasse.Text = "Mot de passe de la connexion";
             // 
             // txtServeur
             // 
@@ -139,6 +140,17 @@
             this.cmdModifier.UseVisualStyleBackColor = true;
             this.cmdModifier.Click += new System.EventHandler(this.cmdModifier_Click);
             // 
+            // cmdTestConnexion
+            // 
+            this.cmdTestConnexion.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.cmdTestConnexion.Location = new System.Drawing.Point(109, 155);
+            this.cmdTestConnexion.Name = "cmdTestConnexion";
+            this.cmdTestConnexion.Size = new System.Drawing.Size(118, 23);
+            this.cmdTestConnexion.TabIndex = 11;
+            this.cmdTestConnexion.Text = "Test de la connexion";
+            this.cmdTestConnexion.UseVisualStyleBackColor = true;
+            this.cmdTestConnexion.Click += new System.EventHandler(this.cmdTestConnexion_Click);
+            // 
             // frmConfig
             // 
             this.AcceptButton = this.cmdModifier;
@@ -146,6 +158,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.cmdRetour;
             this.ClientSize = new System.Drawing.Size(482, 190);
+            this.Controls.Add(this.cmdTestConnexion);
             this.Controls.Add(this.cmdModifier);
             this.Controls.Add(this.cmdRetour);
             this.Controls.Add(this.cmdParDefaut);
@@ -161,7 +174,7 @@
             this.MinimizeBox = false;
             this.Name = "frmConfig";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Configuration de la connection à la base de donnée";
+            this.Text = "Configuration de la connexion à la base de donnée";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmConfig_FormClosed);
             this.Load += new System.EventHandler(this.frmConfig_Load);
             this.ResumeLayout(false);
@@ -182,5 +195,6 @@
         private System.Windows.Forms.Button cmdParDefaut;
         private System.Windows.Forms.Button cmdRetour;
         private System.Windows.Forms.Button cmdModifier;
+        private System.Windows.Forms.Button cmdTestConnexion;
     }
 }

@@ -48,13 +48,13 @@
             this.lblRecherche.AutoSize = true;
             this.lblRecherche.Location = new System.Drawing.Point(12, 9);
             this.lblRecherche.Name = "lblRecherche";
-            this.lblRecherche.Size = new System.Drawing.Size(79, 13);
+            this.lblRecherche.Size = new System.Drawing.Size(132, 13);
             this.lblRecherche.TabIndex = 1;
-            this.lblRecherche.Text = "Mot à chercher";
+            this.lblRecherche.Text = "Mot à chercher ou numéro";
             // 
             // txtRecherche
             // 
-            this.txtRecherche.Location = new System.Drawing.Point(122, 6);
+            this.txtRecherche.Location = new System.Drawing.Point(150, 6);
             this.txtRecherche.Name = "txtRecherche";
             this.txtRecherche.Size = new System.Drawing.Size(151, 20);
             this.txtRecherche.TabIndex = 2;
@@ -63,7 +63,7 @@
             // cmdChercher
             // 
             this.cmdChercher.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.cmdChercher.Location = new System.Drawing.Point(294, 4);
+            this.cmdChercher.Location = new System.Drawing.Point(307, 4);
             this.cmdChercher.Name = "cmdChercher";
             this.cmdChercher.Size = new System.Drawing.Size(75, 23);
             this.cmdChercher.TabIndex = 3;
@@ -74,7 +74,7 @@
             // cmdRetour
             // 
             this.cmdRetour.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.cmdRetour.Location = new System.Drawing.Point(375, 4);
+            this.cmdRetour.Location = new System.Drawing.Point(388, 4);
             this.cmdRetour.Name = "cmdRetour";
             this.cmdRetour.Size = new System.Drawing.Size(75, 23);
             this.cmdRetour.TabIndex = 4;

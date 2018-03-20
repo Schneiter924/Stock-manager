@@ -21,14 +21,18 @@ namespace Stock_manager
         //Constructor
         public Connection_mySQL()
         {
+            config = xml.LectureXML();
+            Initialize();
+        }
+        public Connection_mySQL(Config config)
+        {
+            this.config = config;
             Initialize();
         }
 
         //Initialize values
         private void Initialize()
-        {
-            config = xml.LectureXML();
-            
+        {            
             serveur = config.Serveur;
             baseDonnee = config.BaseDonnee;
             utilisateur = config.Utilisateur;

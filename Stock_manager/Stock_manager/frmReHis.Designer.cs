@@ -62,14 +62,14 @@
             this.lblRecherche.AutoSize = true;
             this.lblRecherche.Location = new System.Drawing.Point(12, 9);
             this.lblRecherche.Name = "lblRecherche";
-            this.lblRecherche.Size = new System.Drawing.Size(99, 13);
+            this.lblRecherche.Size = new System.Drawing.Size(94, 13);
             this.lblRecherche.TabIndex = 6;
-            this.lblRecherche.Text = "Numéro de la pièce";
+            this.lblRecherche.Text = "Numéro du produit";
             // 
             // lstRecherche
             // 
             this.lstRecherche.FormattingEnabled = true;
-            this.lstRecherche.Location = new System.Drawing.Point(12, 40);
+            this.lstRecherche.Location = new System.Drawing.Point(15, 33);
             this.lstRecherche.Name = "lstRecherche";
             this.lstRecherche.Size = new System.Drawing.Size(943, 524);
             this.lstRecherche.TabIndex = 10;

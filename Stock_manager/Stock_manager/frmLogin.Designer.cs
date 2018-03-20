@@ -44,9 +44,9 @@
             this.lblLogin.AutoSize = true;
             this.lblLogin.Location = new System.Drawing.Point(12, 38);
             this.lblLogin.Name = "lblLogin";
-            this.lblLogin.Size = new System.Drawing.Size(29, 13);
+            this.lblLogin.Size = new System.Drawing.Size(95, 13);
             this.lblLogin.TabIndex = 0;
-            this.lblLogin.Text = "login";
+            this.lblLogin.Text = "Nom de l\'utilisateur";
             // 
             // lblPassword
             // 
@@ -78,16 +78,16 @@
             // 
             this.cmdReset.Location = new System.Drawing.Point(134, 123);
             this.cmdReset.Name = "cmdReset";
-            this.cmdReset.Size = new System.Drawing.Size(75, 23);
+            this.cmdReset.Size = new System.Drawing.Size(102, 23);
             this.cmdReset.TabIndex = 4;
-            this.cmdReset.Text = "reset";
+            this.cmdReset.Text = "Vider les champs";
             this.cmdReset.UseVisualStyleBackColor = true;
             this.cmdReset.Click += new System.EventHandler(this.cmdReset_Click);
             // 
             // cmdQuitter
             // 
             this.cmdQuitter.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.cmdQuitter.Location = new System.Drawing.Point(215, 123);
+            this.cmdQuitter.Location = new System.Drawing.Point(242, 123);
             this.cmdQuitter.Name = "cmdQuitter";
             this.cmdQuitter.Size = new System.Drawing.Size(75, 23);
             this.cmdQuitter.TabIndex = 5;
@@ -97,7 +97,7 @@
             // 
             // cmdConnexion
             // 
-            this.cmdConnexion.Location = new System.Drawing.Point(296, 123);
+            this.cmdConnexion.Location = new System.Drawing.Point(323, 123);
             this.cmdConnexion.Name = "cmdConnexion";
             this.cmdConnexion.Size = new System.Drawing.Size(75, 23);
             this.cmdConnexion.TabIndex = 6;
@@ -128,7 +128,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.cmdQuitter;
-            this.ClientSize = new System.Drawing.Size(391, 158);
+            this.ClientSize = new System.Drawing.Size(402, 158);
             this.Controls.Add(this.cmdOption);
             this.Controls.Add(this.cmdConnexion);
             this.Controls.Add(this.cmdQuitter);

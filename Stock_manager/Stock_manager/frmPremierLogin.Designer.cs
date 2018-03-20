@@ -1,6 +1,6 @@
 ﻿namespace Stock_manager
 {
-    partial class frmNouveauLogin
+    partial class frmPremierLogin
     {
         /// <summary>
         /// Required designer variable.
@@ -50,11 +50,11 @@
             // 
             // cmdReset
             // 
-            this.cmdReset.Location = new System.Drawing.Point(210, 128);
+            this.cmdReset.Location = new System.Drawing.Point(174, 128);
             this.cmdReset.Name = "cmdReset";
-            this.cmdReset.Size = new System.Drawing.Size(75, 23);
+            this.cmdReset.Size = new System.Drawing.Size(111, 23);
             this.cmdReset.TabIndex = 4;
-            this.cmdReset.Text = "reset";
+            this.cmdReset.Text = "Vider les champs";
             this.cmdReset.UseVisualStyleBackColor = true;
             this.cmdReset.Click += new System.EventHandler(this.cmdReset_Click);
             // 
@@ -89,9 +89,9 @@
             this.lblLogin.AutoSize = true;
             this.lblLogin.Location = new System.Drawing.Point(12, 34);
             this.lblLogin.Name = "lblLogin";
-            this.lblLogin.Size = new System.Drawing.Size(29, 13);
+            this.lblLogin.Size = new System.Drawing.Size(95, 13);
             this.lblLogin.TabIndex = 11;
-            this.lblLogin.Text = "login";
+            this.lblLogin.Text = "Nom de l\'utilisateur";
             // 
             // txtPassword2
             // 
@@ -111,7 +111,7 @@
             this.lblPassword2.TabIndex = 18;
             this.lblPassword2.Text = "Rentrée le mot de passe";
             // 
-            // frmNouveauLogin
+            // frmPremierLogin
             // 
             this.AcceptButton = this.cmdOK;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -127,9 +127,9 @@
             this.Controls.Add(this.lblLogin);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "frmNouveauLogin";
+            this.Name = "frmPremierLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Nouveau login";
+            this.Text = "nouveau mot de passe et nom d\'utilisateur";
             this.ResumeLayout(false);
             this.PerformLayout();
 
