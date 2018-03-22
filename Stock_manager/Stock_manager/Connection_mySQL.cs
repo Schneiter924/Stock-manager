@@ -15,7 +15,7 @@ namespace Stock_manager
         private string baseDonnee;
         private string utilisateur;
         private string motPasse;
-        XML xml = new XML(Environment.GetEnvironmentVariable("APPDATA") + "\\stock_manager\\config.xml");
+        XML xml = new XML(Environment.GetEnvironmentVariable("APPDATA") + "\\stock_manager\\", "config.xml");
         Config config;
 
         //Constructor
@@ -87,6 +87,10 @@ namespace Stock_manager
             }
         }
         
+        /// <summary>
+        /// fonction qui retourne si la connexion est OK ou non
+        /// </summary>
+        /// <returns></returns>
         public bool TestConnexion()
         {
             return OpenConnection();
@@ -319,6 +323,10 @@ namespace Stock_manager
             CloseConnection();
         }
 
+        /// <summary>
+        /// fonction qui supprimer le loueur sélectionner
+        /// </summary>
+        /// <param name="loueur"></param>
         public void SupprimerLoueur(Loueur loueur)
         {
             try
@@ -800,6 +808,11 @@ namespace Stock_manager
             return lstProduits;
         }
 
+        /// <summary>
+        /// fonction qui recherche les produits en stock qui contient le mot-clé passer en paramétre
+        /// </summary>
+        /// <param name="chercher"></param>
+        /// <returns></returns>
         public List<Produit> RechercherMotCleStock(string chercher)
         {
             List<Produit> lstProduits = new List<Produit>();
@@ -833,7 +846,7 @@ namespace Stock_manager
         }
 
         /// <summary>
-        /// 
+        /// fonction qui chercher dans les locations en cours qui contient le mot-clé
         /// </summary>
         /// <param name="chercher"></param>
         /// <returns></returns>

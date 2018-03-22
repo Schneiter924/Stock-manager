@@ -13,6 +13,18 @@ namespace Stock_manager
         private string utilisateur;
         private string motPasse;
 
+        public Config (string serveur, string baseDonnee, string utilisateur, string motPasse)
+        {
+            this.serveur = serveur;
+            this.baseDonnee = baseDonnee;
+            this.utilisateur = utilisateur;
+            this.motPasse = motPasse;
+        }
+
+        public Config()
+        {
+
+        }
         public string Serveur
         {
             get

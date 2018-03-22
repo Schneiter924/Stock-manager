@@ -15,68 +15,60 @@ namespace Stock_manager
     {
         Cryptage cryPassword;
         Cryptage cryLogin;
-        XML xml = new XML(Environment.GetEnvironmentVariable("APPDATA") + "\\stock_manager\\config.xml");
+        XML xml = new XML(Environment.GetEnvironmentVariable("APPDATA") + "\\stock_manager\\", "config.xml");
 
         public frmLogin()
         {
             InitializeComponent();
-            cryPassword = new Cryptage(Environment.GetEnvironmentVariable("APPDATA") + "\\stock_manager\\pwd.txt");
-            cryLogin = new Cryptage(Environment.GetEnvironmentVariable("APPDATA") + "\\stock_manager\\login.txt");
+            cryPassword = new Cryptage(Environment.GetEnvironmentVariable("APPDATA") + "\\stock_manager", "pwd.txt");
+            cryLogin = new Cryptage(Environment.GetEnvironmentVariable("APPDATA") + "\\stock_manager", "login.txt");
             
         }
 
         private void cmdConnexion_Click(object sender, EventArgs e)
         {
-            if (txtLogin.Text == "")
+            try
             {
-                string message = "Nom d'utilisateur vide";
-                string legende = "Erreur";
-                MessageBoxButtons bouton = MessageBoxButtons.OK;
-                MessageBoxIcon icon = MessageBoxIcon.Error;
-                MessageBox.Show(message, legende, bouton, icon);
-            }
-            else if (cryLogin.TestLogin(txtLogin.Text) == false)
-            {
-                string message = "Nom d'utilisateur inconnu";
-                string legende = "Erreur";
-                MessageBoxButtons bouton = MessageBoxButtons.OK;
-                MessageBoxIcon icon = MessageBoxIcon.Error;
-                MessageBox.Show(message, legende, bouton, icon);
-            }
-            else if (txtPassword.Text == "")
-            {
-                string message = "Mot de passe vide";
-                string legende = "Erreur";
-                MessageBoxButtons bouton = MessageBoxButtons.OK;
-                MessageBoxIcon icon = MessageBoxIcon.Error;
-                MessageBox.Show(message, legende, bouton, icon);
-            }
-            else if (cryPassword.TestPassword(txtPassword.Text) == false)
-            {
-                string message = "Mot de passe inconnu";
-                string legende = "Erreur";
-                MessageBoxButtons bouton = MessageBoxButtons.OK;
-                MessageBoxIcon icon = MessageBoxIcon.Error;
-                MessageBox.Show(message, legende, bouton, icon);
-            }
-            else if (cryPassword.TestPassword(txtPassword.Text))
-            {
-                Connection_mySQL smsql = new Connection_mySQL();
-                if (smsql.TestConnexion() == true)
+                if (txtLogin.Text == "")
                 {
-                    Form frmMenu = new frmMain();
-                    frmMenu.Show();
-                    this.Hide();
+                    throw new Exception("Nom d'utilisateur vide");
                 }
-                else
+                else if (cryLogin.TestLogin(txtLogin.Text) == false)
                 {
-                    string message = "Erreur dans la configuration des paramètres de connexion au serveur";
-                    string legende = "Erreur";
-                    MessageBoxButtons bouton = MessageBoxButtons.OK;
-                    MessageBoxIcon icon = MessageBoxIcon.Error;
-                    MessageBox.Show(message, legende, bouton, icon);
-                }                
+                    throw new Exception("Nom d'utilisateur inconnu");
+                }
+                else if (txtPassword.Text == "")
+                {
+                    throw new Exception("Mot de passe vide");
+                }
+                else if (cryPassword.TestPassword(txtPassword.Text) == false)
+                {
+                    throw new Exception("Mot de passe inconnu");
+                }
+                else if (cryPassword.TestPassword(txtPassword.Text))
+                {
+                    Connection_mySQL smsql = new Connection_mySQL();
+                    if (smsql.TestConnexion() == true)
+                    {
+                        Form frmMenu = new frmMain();
+                        frmMenu.Show();
+                        this.Hide();
+                    }
+                    else
+                    {
+                        throw new Exception("Erreur dans la configuration des paramètres de connexion au serveur");
+                    }
+                }
             }
+            catch (Exception ex)
+            {
+                string message = ex.Message;
+                string legende = "Erreur";
+                MessageBoxButtons bouton = MessageBoxButtons.OK;
+                MessageBoxIcon icon = MessageBoxIcon.Error;
+                MessageBox.Show(message, legende, bouton, icon);
+            }
+            
         }
 
         private void cmdAnnuler_Click(object sender, EventArgs e)

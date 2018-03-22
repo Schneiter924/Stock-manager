@@ -118,7 +118,7 @@
             this.cmdOption.Name = "cmdOption";
             this.cmdOption.Size = new System.Drawing.Size(122, 23);
             this.cmdOption.TabIndex = 3;
-            this.cmdOption.Text = "Option de connextion";
+            this.cmdOption.Text = "Option de connexion";
             this.cmdOption.UseVisualStyleBackColor = true;
             this.cmdOption.Click += new System.EventHandler(this.cmdOption_Click);
             // 
