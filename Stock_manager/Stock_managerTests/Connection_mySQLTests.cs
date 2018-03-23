@@ -17,7 +17,7 @@ namespace Stock_manager.Tests
         public void InitialisationDesTests()
         {
             Config config = new Config("localhost", "testStockManager", "root", "");
-            smsql  = new Connection_mySQL(config);
+            smsql = new Connection_mySQL(config);
         }
 
         [TestMethod()]
@@ -29,8 +29,8 @@ namespace Stock_manager.Tests
                 sc.Stop();
                 sc.WaitForStatus(ServiceControllerStatus.Stopped);
             }
-            
-            
+
+
             bool attendu = false;
 
             bool calcul = smsql.TestConnexion();
@@ -56,26 +56,6 @@ namespace Stock_manager.Tests
 
         }
 
-        [TestMethod()]
-        public void TestIDProduitTestRéussi()
-        {
-            bool attendu = true;
-
-            bool Calcul = Convert.ToBoolean(smsql.TestIDProduit(1));
-
-            Assert.AreEqual(attendu, Calcul);
-        }
-        [TestMethod]
-        public void TestIDProduitTestFail()
-        {
-
-            bool attendu = false;
-
-            bool Calcul = Convert.ToBoolean(smsql.TestIDProduit(0));
-
-            Assert.AreEqual(attendu, Calcul);
-        }
-                
         [TestMethod()]
         public void NouveauProduitTest()
         {
@@ -122,32 +102,49 @@ namespace Stock_manager.Tests
         }
 
         [TestMethod()]
-        public void LocationEnCoursTest()
+        public void LoueurAjoutTest()
         {
-            Location location = new Location();
-            Produit produit = new Produit();
             Loueur loueur = new Loueur();
-            produit.IdProduit = 2;
-            produit.NomProduit = "L300";
-            produit.Description = "";
             loueur.IdLoueur = 1;
-            loueur.NomLoueur = "Diem";
-            location.StartDate = new DateTime(2018, 1, 1);
-            location.Duree = 10;
-            location.Produit = produit;
-            location.Loueur = loueur;
-            smsql.NouveauProduit(produit);
-
+            loueur.NomLoueur = "Test";
             smsql.AjoutLoueur(loueur.NomLoueur);
+            bool attendu1 = true;
+            bool calcul1 = Convert.ToBoolean(smsql.TestNomLoueur(loueur.NomLoueur));
 
-            smsql.NouvelleLocation(location);
+            Assert.AreEqual(attendu1, calcul1);
 
-            List<Location> lstLocationA = new List<Location>();
-            lstLocationA.Add(location);
+        }
 
-            List<Location> lstLocationC = smsql.LocationEnCours();
+        [TestMethod()]
+        public void ModificationLoueurTest()
+        {
+            bool attendu = true;
+            Loueur loueurA = new Loueur();
+            loueurA.IdLoueur = 1;
+            loueurA.NomLoueur = "Test";
 
-            CollectionAssert.AreEqual(lstLocationA,lstLocationC);
+            Loueur loueurB = new Loueur();
+            loueurB.IdLoueur = 1;
+            loueurB.NomLoueur = "Test 2";
+
+            smsql.ModificationLoueur(loueurB);
+
+            bool calcul = Convert.ToBoolean(smsql.TestNomLoueur(loueurB.NomLoueur));
+            Assert.AreEqual(attendu, calcul);
+        }
+
+        [TestMethod()]
+        public void SupprimerLoueurTest()
+        {
+            bool attendu = false;
+            Loueur loueurA = new Loueur();
+            loueurA.IdLoueur = 1;
+            loueurA.NomLoueur = "Test 2";
+
+            smsql.SupprimerLoueur(loueurA);
+
+            bool calcul = Convert.ToBoolean(smsql.TestNomLoueur(loueurA.NomLoueur));
+            Assert.AreEqual(attendu, calcul);
         }
     }
 }
