@@ -29,14 +29,27 @@ namespace Stock_manager
         {
             if (cboProduit.Text != "")
             {
-                int idProduit = Convert.ToInt32(cboProduit.Text);
+                string temp = cboProduit.Text;
+
+                int index = temp.IndexOf(" - ");
+
+                temp = temp.Substring(0, index);
+
+                int idProduit = Convert.ToInt32(temp);
 
                 Location location = smsql.LocationSelectionner(idProduit);
 
                 location.EndDate = DateTime.Today;
 
                 smsql.RetourLocation(location);
+
                 chargerProduit();
+
+                string message = "La location a bien été retourner";
+                string legende = "Information";
+                MessageBoxButtons bouton = MessageBoxButtons.OK;
+                MessageBoxIcon icon = MessageBoxIcon.Information;
+                MessageBox.Show(message, legende, bouton, icon);
             }
             else
             {
@@ -59,7 +72,7 @@ namespace Stock_manager
             cboProduit.Items.Clear();
             foreach (Location location in lstlocations)
             {
-                cboProduit.Items.Add(location.Produit.DescriptionID());
+                cboProduit.Items.Add(location.Produit.ProduitAvecIDEtNomProduit());
             }
         }
 

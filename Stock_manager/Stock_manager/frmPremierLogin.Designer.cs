@@ -125,6 +125,7 @@
             this.Controls.Add(this.txtLogin);
             this.Controls.Add(this.lblpassword);
             this.Controls.Add(this.lblLogin);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmPremierLogin";

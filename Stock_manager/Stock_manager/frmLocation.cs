@@ -33,9 +33,15 @@ namespace Stock_manager
         {
             if ((cboLoueur.Text != "") && (cboProduit.Text != ""))
             {
+                string temp = cboProduit.Text;
+
+                int index = temp.IndexOf(" - ");
+
+                temp = temp.Substring(0, index);
+
                 Location location = new Location();
                 Loueur loueur = smsql.LoueurSelectionnerNom(cboLoueur.Text);
-                Produit produit = smsql.RetourProduit(Convert.ToInt32(cboProduit.Text));
+                Produit produit = smsql.RetourProduit(Convert.ToInt32(temp));
                 location.StartDate = Aujourdhui;
                 location.Duree = duree;
                 location.Loueur = loueur;
@@ -45,6 +51,13 @@ namespace Stock_manager
                 txtDateRetour.Text = "";
                 chargerProduit();
                 chargerLoueur();
+
+                string message = "La location a bien été ajouter";
+                string legende = "Information";
+                MessageBoxButtons bouton = MessageBoxButtons.OK;
+                MessageBoxIcon icon = MessageBoxIcon.Information;
+                MessageBox.Show(message, legende, bouton, icon);
+
             }
             else
             {
@@ -81,7 +94,7 @@ namespace Stock_manager
             cboProduit.Items.Clear();
             foreach (Produit produit in lstProduits)
             {
-                cboProduit.Items.Add(produit.DescriptionID());
+                cboProduit.Items.Add(produit.ProduitAvecIDEtNomProduit());
             }
         }
 

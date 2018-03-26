@@ -42,6 +42,11 @@ namespace Stock_manager
                 cboIDProduit.Enabled = true;
                 chargerProduit();
                 produit = null;
+                string message = "Le produit a bien été modiffier";
+                string legende = "Information";
+                MessageBoxButtons bouton = MessageBoxButtons.OK;
+                MessageBoxIcon icon = MessageBoxIcon.Information;
+                MessageBox.Show(message, legende, bouton, icon);
             }
             else
             {
@@ -57,6 +62,11 @@ namespace Stock_manager
                     cboIDProduit.Enabled = true;
                     chargerProduit();
                     produit = null;
+                    string message = "Le produit a bien été ajouter";
+                    string legende = "Information";
+                    MessageBoxButtons bouton = MessageBoxButtons.OK;
+                    MessageBoxIcon icon = MessageBoxIcon.Information;
+                    MessageBox.Show(message, legende, bouton, icon);
                 }
                 else
                 {
@@ -156,6 +166,11 @@ namespace Stock_manager
             {
                 smsql.SupprimerProduit(produit);
                 chargerProduit();
+                message = "Le produit a bien été supprimer";
+                legende = "Information";
+                bouton = MessageBoxButtons.OK;
+                icon = MessageBoxIcon.Information;
+                MessageBox.Show(message, legende, bouton, icon);
             }
         }
 

@@ -170,6 +170,7 @@
             this.Controls.Add(this.lblUtilisateur);
             this.Controls.Add(this.lblBaseDonnee);
             this.Controls.Add(this.lblServeur);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmConfig";

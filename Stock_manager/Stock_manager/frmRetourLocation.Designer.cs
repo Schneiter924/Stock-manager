@@ -87,6 +87,7 @@
             this.Controls.Add(this.cmdRetourProduit);
             this.Controls.Add(this.cboProduit);
             this.Controls.Add(this.lblRetour);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmRetourLocation";

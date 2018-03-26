@@ -32,12 +32,21 @@ namespace Stock_manager
                 if (cboNomLoueur.SelectedIndex == 0)
                 {
                     smsql.AjoutLoueur(txtNomLoueur.Text);
-                    
+                    string message = "Le loueur a bien été ajouter";
+                    string legende = "Information";
+                    MessageBoxButtons bouton = MessageBoxButtons.OK;
+                    MessageBoxIcon icon = MessageBoxIcon.Information;
+                    MessageBox.Show(message, legende, bouton, icon);
                 }
                 else
                 {
                     loueur.NomLoueur = txtNomLoueur.Text;
                     smsql.ModificationLoueur(loueur);
+                    string message = "Le loueur a bien été modifier";
+                    string legende = "Information";
+                    MessageBoxButtons bouton = MessageBoxButtons.OK;
+                    MessageBoxIcon icon = MessageBoxIcon.Information;
+                    MessageBox.Show(message, legende, bouton, icon);
                 }
                 chargerLoueur();
                 loueur = null;
@@ -136,6 +145,11 @@ namespace Stock_manager
             if (dialogResult == DialogResult.Yes)
             {
                 smsql.SupprimerLoueur(loueur);
+                message = "Le loueur a bien été supprimer";
+                legende = "Information";
+                bouton = MessageBoxButtons.OK;
+                icon = MessageBoxIcon.Information;
+                MessageBox.Show(message, legende, bouton, icon);
             }
         }
     }
