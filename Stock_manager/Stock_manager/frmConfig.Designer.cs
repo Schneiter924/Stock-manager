@@ -38,7 +38,7 @@
             this.txtMotPasse = new System.Windows.Forms.TextBox();
             this.cmdParDefaut = new System.Windows.Forms.Button();
             this.cmdRetour = new System.Windows.Forms.Button();
-            this.cmdModifier = new System.Windows.Forms.Button();
+            this.cmdAppliquer = new System.Windows.Forms.Button();
             this.cmdTestConnexion = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -129,16 +129,16 @@
             this.cmdRetour.UseVisualStyleBackColor = true;
             this.cmdRetour.Click += new System.EventHandler(this.cmdRetour_Click);
             // 
-            // cmdModifier
+            // cmdAppliquer
             // 
-            this.cmdModifier.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.cmdModifier.Location = new System.Drawing.Point(395, 155);
-            this.cmdModifier.Name = "cmdModifier";
-            this.cmdModifier.Size = new System.Drawing.Size(75, 23);
-            this.cmdModifier.TabIndex = 10;
-            this.cmdModifier.Text = "Modifier";
-            this.cmdModifier.UseVisualStyleBackColor = true;
-            this.cmdModifier.Click += new System.EventHandler(this.cmdModifier_Click);
+            this.cmdAppliquer.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.cmdAppliquer.Location = new System.Drawing.Point(395, 155);
+            this.cmdAppliquer.Name = "cmdAppliquer";
+            this.cmdAppliquer.Size = new System.Drawing.Size(75, 23);
+            this.cmdAppliquer.TabIndex = 10;
+            this.cmdAppliquer.Text = "Appliquer";
+            this.cmdAppliquer.UseVisualStyleBackColor = true;
+            this.cmdAppliquer.Click += new System.EventHandler(this.cmdAppliquer_Click);
             // 
             // cmdTestConnexion
             // 
@@ -153,13 +153,13 @@
             // 
             // frmConfig
             // 
-            this.AcceptButton = this.cmdModifier;
+            this.AcceptButton = this.cmdAppliquer;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.cmdRetour;
             this.ClientSize = new System.Drawing.Size(482, 190);
             this.Controls.Add(this.cmdTestConnexion);
-            this.Controls.Add(this.cmdModifier);
+            this.Controls.Add(this.cmdAppliquer);
             this.Controls.Add(this.cmdRetour);
             this.Controls.Add(this.cmdParDefaut);
             this.Controls.Add(this.txtMotPasse);
@@ -195,7 +195,7 @@
         private System.Windows.Forms.TextBox txtMotPasse;
         private System.Windows.Forms.Button cmdParDefaut;
         private System.Windows.Forms.Button cmdRetour;
-        private System.Windows.Forms.Button cmdModifier;
+        private System.Windows.Forms.Button cmdAppliquer;
         private System.Windows.Forms.Button cmdTestConnexion;
     }
 }

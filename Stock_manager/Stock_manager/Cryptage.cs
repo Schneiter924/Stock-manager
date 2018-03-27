@@ -33,8 +33,8 @@ namespace Stock_manager
         {
            string hash = BCrypt.Net.BCrypt.HashPassword(pwd);
 
-            File.WriteAllText(chemin + "\\" + nomFichier, hash);
-            File.SetAttributes(chemin + "\\" + nomFichier, FileAttributes.Hidden);
+            File.WriteAllText(chemin + nomFichier, hash);
+            File.SetAttributes(chemin + nomFichier, FileAttributes.Hidden);
             
         }
 
@@ -46,8 +46,8 @@ namespace Stock_manager
         {
             string hash = BCrypt.Net.BCrypt.HashString(login);
 
-            File.WriteAllText(chemin + "\\" + nomFichier, hash);
-            File.SetAttributes(chemin + "\\" + nomFichier, FileAttributes.Hidden);
+            File.WriteAllText(chemin + nomFichier, hash);
+            File.SetAttributes(chemin +nomFichier, FileAttributes.Hidden);
 
 
         }
@@ -82,7 +82,15 @@ namespace Stock_manager
         /// <returns></returns>
         private string LectureFichier()
         {
-            return File.ReadAllText(chemin + "\\" + nomFichier);
+            return File.ReadAllText(chemin + nomFichier);
+        }
+
+        private void TestDossier()
+        {
+            if (Directory.Exists(chemin) != true)
+            {
+                Directory.CreateDirectory(chemin);
+            }
         }
 
         /// <summary>
@@ -91,7 +99,8 @@ namespace Stock_manager
         /// <returns>le fichier exsite = true</returns>
         public Boolean TestFichier()
         {
-            return File.Exists(chemin + "\\" + nomFichier);
+            TestDossier();
+            return File.Exists(chemin + nomFichier);
         }
     }
 }

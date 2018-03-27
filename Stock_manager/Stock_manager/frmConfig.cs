@@ -35,7 +35,7 @@ namespace Stock_manager
             this.Dispose();
         }
 
-        private void cmdModifier_Click(object sender, EventArgs e)
+        private void cmdAppliquer_Click(object sender, EventArgs e)
         {
 
             this.DialogResult = DialogResult.None;

@@ -22,7 +22,7 @@ namespace Stock_manager
         {
             Config config = new Config(); ;
             List<Config> lstConfig;
-            lstConfig = (from e in XDocument.Load(chemin + "\\" + nomFichier).Root.Elements("Config1")
+            lstConfig = (from e in XDocument.Load(chemin + nomFichier).Root.Elements("Config1")
                          select new Config
                          {
                              Serveur = (string)e.Element("Serveur"),
@@ -45,7 +45,7 @@ namespace Stock_manager
                                                     new XElement("BaseDonnee", config.BaseDonnee),
                                                     new XElement("Utilisateur", config.Utilisateur),
                                                     new XElement("MotPasse", config.MotPasse))));
-            doc.Save(chemin + "\\" + nomFichier);
+            doc.Save(chemin + nomFichier);
         }
 
         public void EcritureXMLDefaut()
@@ -56,7 +56,7 @@ namespace Stock_manager
                                                    new XElement("BaseDonnee", "Stock_manager"),
                                                    new XElement("Utilisateur", "vendeur"),
                                                    new XElement("MotPasse", "Pa$$w0rd"))));
-            doc.Save(chemin + "\\" + nomFichier);
+            doc.Save(chemin + nomFichier);
         }
 
         private void TestDossier()
@@ -70,7 +70,7 @@ namespace Stock_manager
         public bool TestFichierXML()
         {
             TestDossier();
-            return File.Exists(chemin + "\\" + nomFichier);
+            return File.Exists(chemin + nomFichier);
         }
     }
 }

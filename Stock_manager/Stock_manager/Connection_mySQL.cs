@@ -53,6 +53,7 @@ namespace Stock_manager
             }
             catch (MySqlException ex)
             {
+                string message = "Erreur de configuration: ";
                 //When handling errors, you can your application's response based 
                 //on the error number.
                 //The two most common error numbers when connecting are as follows:
@@ -61,13 +62,21 @@ namespace Stock_manager
                 switch (ex.Number)
                 {
                     case 0:
-                        MessageBox.Show("Cannot connect to server.  Contact administrator");
+                        message += "Impossible de se connecter au serveur. Merci de contacter votre admministrateur informatique";
+                        break;
+                    case 1042:
+                        message += "Aucune connexion n'a pu être établie car l'ordinateur cible l'a expressément refusée";
+                        break;
+                    case 1045:
+                        message += "Nom d'utilisateur ou mot de passe invalide, merci de réessayser";
                         break;
 
-                    case 1045:
-                        MessageBox.Show("Invalid username/password, please try again");
-                        break;
                 }
+                
+                string legende = "Erreur";
+                MessageBoxButtons bouton = MessageBoxButtons.OK;
+                MessageBoxIcon icon = MessageBoxIcon.Error;
+                MessageBox.Show(message, legende, bouton, icon);
                 return false;
             }
         }
