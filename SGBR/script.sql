@@ -61,13 +61,13 @@ CREATE TABLE IF NOT EXISTS `Stock_manager`.`Location` (
   CONSTRAINT `fk_Loueur_has_Produit_Loueur`
     FOREIGN KEY (`fkLoueur`)
     REFERENCES `Stock_manager`.`Loueur` (`idLoueur`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
   CONSTRAINT `fk_Loueur_has_Produit_Produit1`
     FOREIGN KEY (`fkProduit`)
     REFERENCES `Stock_manager`.`Produit` (`idProduit`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 CREATE USER 'vendeur'@'%' IDENTIFIED BY 'Pa$$w0rd';
@@ -2083,4 +2083,3 @@ insert into Produit (nomProduit, description) values ('Silverado 1500', 'Mauris 
 insert into Produit (nomProduit, description) values ('Rainier', '');
 insert into Produit (nomProduit, description) values ('Grand Prix', 'Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.');
 insert into Produit (nomProduit, description) values ('LS', 'Integer ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi.');
-

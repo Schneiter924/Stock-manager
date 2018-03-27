@@ -67,24 +67,8 @@ namespace Stock_manager
             config.Utilisateur = txtUtilisateur.Text;
             config.MotPasse = txtMotPasse.Text;
             Connection_mySQL smsql = new Connection_mySQL(config);
-
             this.DialogResult = DialogResult.None;
-            if (smsql.TestConnexion() == true)
-            {
-                string message = "Le test de connexion au serveur à reussi";
-                string legende = "Information";
-                MessageBoxButtons bouton = MessageBoxButtons.OK;
-                MessageBoxIcon icon = MessageBoxIcon.Information;
-                MessageBox.Show(message, legende, bouton, icon);
-            }
-            else
-            {
-                string message = "Erreur dans la configuration des paramètres de connexion au serveur";
-                string legende = "Erreur";
-                MessageBoxButtons bouton = MessageBoxButtons.OK;
-                MessageBoxIcon icon = MessageBoxIcon.Error;
-                MessageBox.Show(message, legende, bouton, icon);
-            }
+            smsql.TestConnexion();
         }
     }
 }

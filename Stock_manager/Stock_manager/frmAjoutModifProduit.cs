@@ -42,7 +42,7 @@ namespace Stock_manager
                 cboIDProduit.Enabled = true;
                 chargerProduit();
                 produit = null;
-                string message = "Le produit a bien été modiffier";
+                string message = "Le produit a bien été modifier";
                 string legende = "Information";
                 MessageBoxButtons bouton = MessageBoxButtons.OK;
                 MessageBoxIcon icon = MessageBoxIcon.Information;
@@ -104,7 +104,7 @@ namespace Stock_manager
                         produit = smsql.RetourProduit(Convert.ToInt32(cboIDProduit.Text));
                         txtNomProduit.Text = produit.NomProduit;
                         txtDescription.Text = produit.Description;
-                        cmdAjout.Text = "Modification";
+                        cmdAjout.Text = "Modifier";
                         cmdSupprimer.Visible = true;
                         cmdSupprimer.Enabled = true;
                         cmdRetour.TabIndex = 4;

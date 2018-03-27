@@ -44,16 +44,25 @@ namespace Stock_manager
             connection = new MySqlConnection(connectionString);
         }
 
-        private bool OpenConnection()
+        private bool OpenConnection(int test)
         {
             try
             {
                 connection.Open();
+                if (test == 1)
+                {
+                    string message = "Le test de connexion au serveur à reussi";
+                    string legende = "Information";
+                    MessageBoxButtons bouton = MessageBoxButtons.OK;
+                    MessageBoxIcon icon = MessageBoxIcon.Information;
+                    MessageBox.Show(message, legende, bouton, icon);
+                }
+                
                 return true;
             }
             catch (MySqlException ex)
             {
-                string message = "Erreur de configuration: ";
+                string message = "Erreur de configuration : ";
                 //When handling errors, you can your application's response based 
                 //on the error number.
                 //The two most common error numbers when connecting are as follows:
@@ -62,13 +71,13 @@ namespace Stock_manager
                 switch (ex.Number)
                 {
                     case 0:
-                        message += "Impossible de se connecter au serveur. Merci de contacter votre admministrateur informatique";
+                        message += "impossible de se connecter au serveur. Merci de contacter votre admministrateur informatique";
                         break;
                     case 1042:
-                        message += "Aucune connexion n'a pu être établie car l'ordinateur cible l'a expressément refusée";
+                        message += "aucune connexion n'a pu être établie car l'ordinateur cible l'a expressément refusée";
                         break;
                     case 1045:
-                        message += "Nom d'utilisateur ou mot de passe invalide, merci de réessayser";
+                        message += "nom d'utilisateur ou mot de passe invalide, merci de réessayser";
                         break;
 
                 }
@@ -102,7 +111,7 @@ namespace Stock_manager
         /// <returns></returns>
         public bool TestConnexion()
         {
-            return OpenConnection();
+            return OpenConnection(1);
         }        
 
         /// <summary>
@@ -117,7 +126,7 @@ namespace Stock_manager
             {
                 CloseConnection();
             }
-            if (OpenConnection() == true)
+            if (OpenConnection(0) == true)
             {
                 MySqlCommand cmd = connection.CreateCommand();
 
@@ -146,7 +155,7 @@ namespace Stock_manager
             {
                 CloseConnection();
             }
-            if (OpenConnection() == true)
+            if (OpenConnection(0) == true)
             {
                 MySqlCommand cmd = this.connection.CreateCommand();
 
@@ -178,7 +187,7 @@ namespace Stock_manager
             {
                 connection.Close();
             }
-            if (OpenConnection() == true)
+            if (OpenConnection(0) == true)
             {
                 MySqlCommand cmd = connection.CreateCommand();
 
@@ -203,7 +212,7 @@ namespace Stock_manager
             {
                 CloseConnection();
             }
-            if (OpenConnection() == true)
+            if (OpenConnection(0) == true)
             {
                 MySqlCommand cmd = connection.CreateCommand();
 
@@ -232,7 +241,7 @@ namespace Stock_manager
             {
                 CloseConnection();
             }
-            if (OpenConnection() == true)
+            if (OpenConnection(0) == true)
             {
                 MySqlCommand cmd = connection.CreateCommand();
 
@@ -279,7 +288,7 @@ namespace Stock_manager
             {
                 CloseConnection();
             }
-            if (OpenConnection() == true)
+            if (OpenConnection(0) == true)
             {
                 MySqlCommand cmd = connection.CreateCommand();
 
@@ -319,7 +328,7 @@ namespace Stock_manager
             {
                 CloseConnection();
             }
-            if (OpenConnection() == true)
+            if (OpenConnection(0) == true)
             {
                 MySqlCommand cmd = connection.CreateCommand();
 
@@ -344,7 +353,7 @@ namespace Stock_manager
                 {
                     CloseConnection();
                 }
-                if(OpenConnection()==true)
+                if(OpenConnection(0)==true)
                 {
                     MySqlCommand cmd = connection.CreateCommand();
 
@@ -377,7 +386,7 @@ namespace Stock_manager
                 CloseConnection();
             }
 
-            if (OpenConnection() == true)
+            if (OpenConnection(0) == true)
             {
                 MySqlCommand cmd = connection.CreateCommand();
 
@@ -406,7 +415,7 @@ namespace Stock_manager
             {
                 CloseConnection();
             }
-            if (OpenConnection()==true)
+            if (OpenConnection(0)==true)
             {
                 MySqlCommand cmd = connection.CreateCommand();
 
@@ -431,7 +440,7 @@ namespace Stock_manager
             {
                 CloseConnection();
             }
-            if (OpenConnection() == true)
+            if (OpenConnection(0) == true)
             {
                 MySqlCommand cmd = connection.CreateCommand();
 
@@ -456,7 +465,7 @@ namespace Stock_manager
             {
                 CloseConnection();
             }
-            if (OpenConnection() == true)
+            if (OpenConnection(0) == true)
             {
                 MySqlCommand cmd = connection.CreateCommand();
 
@@ -480,7 +489,7 @@ namespace Stock_manager
             {
                 CloseConnection();
             }
-            if (OpenConnection() == true)
+            if (OpenConnection(0) == true)
             {
                 MySqlCommand cmd = connection.CreateCommand();
 
@@ -506,7 +515,7 @@ namespace Stock_manager
             {
                 CloseConnection();
             }
-            if (OpenConnection() == true)
+            if (OpenConnection(0) == true)
             {
                 MySqlCommand cmd = connection.CreateCommand();
 
@@ -541,7 +550,7 @@ namespace Stock_manager
             {
                 CloseConnection();
             }
-            if (OpenConnection() == true)
+            if (OpenConnection(0) == true)
             {
                 MySqlCommand cmd = connection.CreateCommand();
 
@@ -570,7 +579,7 @@ namespace Stock_manager
             {
                 CloseConnection();
             }
-            if (OpenConnection() == true)
+            if (OpenConnection(0) == true)
             {
                 MySqlCommand cmd = connection.CreateCommand();
 
@@ -599,7 +608,7 @@ namespace Stock_manager
             {
                 CloseConnection();
             }
-            if (OpenConnection() == true)
+            if (OpenConnection(0) == true)
             {
                 MySqlCommand cmd = connection.CreateCommand();
 
@@ -630,7 +639,7 @@ namespace Stock_manager
             {
                 CloseConnection();
             }
-            if (OpenConnection() == true)
+            if (OpenConnection(0) == true)
             {
                 MySqlCommand cmd = connection.CreateCommand();
 
@@ -663,7 +672,7 @@ namespace Stock_manager
             {
                 CloseConnection();
             }
-            if (OpenConnection() == true)
+            if (OpenConnection(0) == true)
             {
                 MySqlCommand cmd = connection.CreateCommand();
 
@@ -709,7 +718,7 @@ namespace Stock_manager
             {
                 CloseConnection();
             }
-            if (OpenConnection() == true)
+            if (OpenConnection(0) == true)
             {
                 MySqlCommand cmd = connection.CreateCommand();
 
@@ -744,7 +753,7 @@ namespace Stock_manager
             {
                 CloseConnection();
             }
-            if (OpenConnection() == true)
+            if (OpenConnection(0) == true)
             {
                 MySqlCommand cmd = connection.CreateCommand();
 
@@ -792,7 +801,7 @@ namespace Stock_manager
             {
                 CloseConnection();
             }
-            if (OpenConnection() == true)
+            if (OpenConnection(0) == true)
             {
                 MySqlCommand cmd = connection.CreateCommand();
 
@@ -829,7 +838,7 @@ namespace Stock_manager
             {
                 CloseConnection();
             }
-            if (OpenConnection() == true)
+            if (OpenConnection(0) == true)
             {
                 MySqlCommand cmd = connection.CreateCommand();
 
@@ -866,7 +875,7 @@ namespace Stock_manager
             {
                 CloseConnection();
             }
-            if (OpenConnection() == true)
+            if (OpenConnection(0) == true)
             {
                 MySqlCommand cmd = connection.CreateCommand();
 
