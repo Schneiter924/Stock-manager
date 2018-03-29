@@ -21,7 +21,7 @@ USE `Stock_manager` ;
 -- -----------------------------------------------------
 -- Table `Stock_manager`.`Loueur`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `Stock_manager`.`Loueur` ;
+DROP TABLE IF EXISTS `Stock_manager`.`Loueur` ;
 
 CREATE TABLE IF NOT EXISTS `Stock_manager`.`Loueur` (
   `idLoueur` INT NOT NULL AUTO_INCREMENT,
@@ -61,14 +61,16 @@ CREATE TABLE IF NOT EXISTS `Stock_manager`.`Location` (
   CONSTRAINT `fk_Loueur_has_Produit_Loueur`
     FOREIGN KEY (`fkLoueur`)
     REFERENCES `Stock_manager`.`Loueur` (`idLoueur`)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE,
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
   CONSTRAINT `fk_Loueur_has_Produit_Produit1`
     FOREIGN KEY (`fkProduit`)
     REFERENCES `Stock_manager`.`Produit` (`idProduit`)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB;
+
+DROP USER IF EXISTS 'vendeur';
 
 CREATE USER 'vendeur'@'%' IDENTIFIED BY 'Pa$$w0rd';
 GRANT SELECT, INSERT, UPDATE, DELETE, EXECUTE ON Stock_manager . * TO 'vendeur'@'%';

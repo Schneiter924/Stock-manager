@@ -20,7 +20,7 @@ namespace Stock_manager
 
         private void cmdRetour_Click(object sender, EventArgs e)
         {
-            Form frmM = new frmMain();
+            Form frmM = new frmMenu();
             frmM.Show();
             this.Dispose();
         }
@@ -78,7 +78,7 @@ namespace Stock_manager
 
         private void frmRetourPiece_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Form frmM = new frmMain();
+            Form frmM = new frmMenu();
             frmM.Show();
             this.Dispose();
         }

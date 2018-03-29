@@ -347,33 +347,52 @@ namespace Stock_manager
         /// <param name="loueur"></param>
         public void SupprimerLoueur(Loueur loueur)
         {
-            try
-            {
-                if (connection.State != System.Data.ConnectionState.Closed)
-                {
-                    CloseConnection();
-                }
-                if(OpenConnection(0)==true)
-                {
-                    MySqlCommand cmd = connection.CreateCommand();
-
-                    cmd.CommandText = "DELETE FROM Loueur where idLoueur = @idLoueur";
-
-                    cmd.Parameters.AddWithValue("@idLoueur", loueur.IdLoueur);
-
-                    cmd.ExecuteNonQuery();
-                }
-            }
-            catch (MySqlException ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
+            if (connection.State != System.Data.ConnectionState.Closed)
             {
                 CloseConnection();
             }
+            if(OpenConnection(0)==true)
+            {
+                MySqlCommand cmd = connection.CreateCommand();
+
+                cmd.CommandText = "DELETE FROM Loueur where idLoueur = @idLoueur";
+
+                cmd.Parameters.AddWithValue("@idLoueur", loueur.IdLoueur);
+
+                cmd.ExecuteNonQuery();
+            }
+            CloseConnection();
         }
         
+        public List<Loueur> LoueurSansLocation()
+        {
+            List<Loueur> lstLoueurs = new List<Loueur>();
+
+            if (connection.State != System.Data.ConnectionState.Closed)
+            {
+                CloseConnection();
+            }
+            if (OpenConnection(0) == true)
+            {
+                MySqlCommand cmd = connection.CreateCommand();
+
+                cmd.CommandText = "SELECT * FROM Loueur WHERE idLoueur NOT IN(SELECT fkLoueur FROM Location WHERE enddate IS NULL) order by nomLoueur";
+                MySqlDataReader l = cmd.ExecuteReader();
+
+                while (l.Read())
+                {
+                    Loueur loueur = new Loueur();
+                    loueur.IdLoueur = Convert.ToInt32(l[0]);
+                    loueur.NomLoueur = Convert.ToString(l[1]);
+                    lstLoueurs.Add(loueur);
+                }
+            }
+
+            CloseConnection();
+
+            return lstLoueurs;
+        }
+
 
         /// <summary>
         /// fonction qui ajout une nouvelle location dans la base de donnée
@@ -458,9 +477,10 @@ namespace Stock_manager
         /// </summary>
         /// <param name="nom"></param>
         /// <returns>un object</returns>
-        public object TestNomLoueur (string nom)
+        public bool TestNomLoueur (string nom)
         {
             object resultat = null;
+            bool retour;
             if (connection.State != System.Data.ConnectionState.Closed)
             {
                 CloseConnection();
@@ -476,7 +496,16 @@ namespace Stock_manager
                 resultat = cmd.ExecuteScalar();
             }
             CloseConnection();
-            return resultat;
+
+            if (resultat != null)
+            {
+                retour = true;
+            }
+            else
+            {
+                retour = false;
+            }
+            return retour;
         }
 
         /// <summary>
@@ -660,6 +689,38 @@ namespace Stock_manager
 
             return lstLoueurs;
         }
+
+        /// <summary>
+        /// fonction qui efface les locations des produits ou des loueurs qui n'existe plus 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="loueurOuProduit">0 = loueur 1 = produit</param>
+        public void SupprimeLocation(int id, int loueurOuProduit)
+        {
+            if (connection.State != System.Data.ConnectionState.Closed)
+            {
+                CloseConnection();
+            }
+            if (OpenConnection(0) == true)
+            {
+                MySqlCommand cmd = connection.CreateCommand();
+                if (loueurOuProduit == 0) //Loueur supprimer
+                {
+                    cmd.CommandText = "DELETE * FROM Location where fkLoueur = @idLoueur";
+                    cmd.Parameters.AddWithValue("@idloueur", id);
+                }
+                else //Produit supprimer
+                {
+                    cmd.CommandText = "DELETE * FROM Location where fkProduit = @idProduit";
+                    cmd.Parameters.AddWithValue("@idProduit", id);
+                }
+
+                cmd.ExecuteNonQuery();
+                
+            }
+
+            CloseConnection();
+        }
         
         /// <summary>
         /// fonction qui recherche le produit qui est hors du délais
@@ -676,7 +737,7 @@ namespace Stock_manager
             {
                 MySqlCommand cmd = connection.CreateCommand();
 
-                cmd.CommandText = "SELECT * FROM Location INNER JOIN Loueur ON idLoueur = fkLoueur INNER JOIN Produit ON idProduit = fkProduit WHERE endDate IS NULL AND DATE_ADD(startDate, INTERVAL @duree DAY) < NOW() AND idProduit=@idproduit";
+                cmd.CommandText = "SELECT * FROM Location INNER JOIN Loueur ON idLoueur = fkLoueur INNER JOIN Produit ON idProduit = fkProduit WHERE endDate IS NULL AND DATE_ADD(startDate, INTERVAL @duree DAY) < CURDATE() AND idProduit=@idproduit";
 
                 cmd.Parameters.AddWithValue("@duree", location.Duree);
                 cmd.Parameters.AddWithValue("@idProduit", location.Produit.IdProduit);
@@ -695,7 +756,7 @@ namespace Stock_manager
                     loueur.NomLoueur = Convert.ToString(l["nomLoueur"]);
                     locationRec.IdLocation = Convert.ToInt32(l["idLocation"]);
                     locationRec.StartDate = Convert.ToDateTime(l["startDate"]);
-                    location.Duree = Convert.ToInt32(l["Duree"]);
+                    locationRec.Duree = Convert.ToInt32(l["Duree"]);
                     locationRec.Produit = produit;
                     locationRec.Loueur = loueur;
                 }

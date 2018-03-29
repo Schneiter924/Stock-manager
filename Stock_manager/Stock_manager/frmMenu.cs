@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Stock_manager
 {
-    public partial class frmMain : Form
+    public partial class frmMenu : Form
     {
-        public frmMain()
+        public frmMenu()
         {
             InitializeComponent();
         }

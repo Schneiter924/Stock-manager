@@ -54,6 +54,7 @@
             // lstInventaireStock
             // 
             this.lstInventaireStock.FormattingEnabled = true;
+            this.lstInventaireStock.HorizontalScrollbar = true;
             this.lstInventaireStock.Location = new System.Drawing.Point(12, 48);
             this.lstInventaireStock.Name = "lstInventaireStock";
             this.lstInventaireStock.Size = new System.Drawing.Size(781, 251);
@@ -62,6 +63,7 @@
             // lstInventaireLoue
             // 
             this.lstInventaireLoue.FormattingEnabled = true;
+            this.lstInventaireLoue.HorizontalScrollbar = true;
             this.lstInventaireLoue.Location = new System.Drawing.Point(12, 318);
             this.lstInventaireLoue.Name = "lstInventaireLoue";
             this.lstInventaireLoue.Size = new System.Drawing.Size(781, 251);

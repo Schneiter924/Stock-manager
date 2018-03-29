@@ -22,7 +22,7 @@ namespace Stock_manager
 
         private void cmdRetour_Click(object sender, EventArgs e)
         {
-            Form frmMenu = new frmMain();
+            Form frmMenu = new frmMenu();
             frmMenu.Show();
             this.Dispose();
         }
@@ -88,7 +88,7 @@ namespace Stock_manager
           
         private void frmEntree_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Form frmMenu = new frmMain();
+            Form frmMenu = new frmMenu();
             frmMenu.Show();
             this.Dispose();
         }
@@ -99,19 +99,16 @@ namespace Stock_manager
             {
                 try
                 {
-                    if (smsql.TestIDProduit(Convert.ToInt32(cboIDProduit.Text)) != null)
-                    {
-                        produit = smsql.RetourProduit(Convert.ToInt32(cboIDProduit.Text));
-                        txtNomProduit.Text = produit.NomProduit;
-                        txtDescription.Text = produit.Description;
-                        cmdAjout.Text = "Modifier";
-                        cmdSupprimer.Visible = true;
-                        cmdSupprimer.Enabled = true;
-                        cmdRetour.TabIndex = 4;
-                        cmdSupprimer.TabIndex = 5;
-                        cmdAjout.TabIndex = 6;
-                        cmdRetour.Location = new Point(99, 205);
-                    }
+                    produit = smsql.RetourProduit(Convert.ToInt32(cboIDProduit.Text));
+                    txtNomProduit.Text = produit.NomProduit;
+                    txtDescription.Text = produit.Description;
+                    cmdAjout.Text = "Modifier";
+                    cmdSupprimer.Visible = true;
+                    cmdSupprimer.Enabled = true;
+                    cmdRetour.TabIndex = 4;
+                    cmdSupprimer.TabIndex = 5;
+                    cmdAjout.TabIndex = 6;
+                    cmdRetour.Location = new Point(99, 205);
                 }
                 catch (FormatException ex)
                 {
@@ -165,6 +162,7 @@ namespace Stock_manager
             if (dialogResult == DialogResult.Yes)
             {
                 smsql.SupprimerProduit(produit);
+                smsql.SupprimeLocation(produit.IdProduit, 1);
                 chargerProduit();
                 message = "Le produit a bien été supprimer";
                 legende = "Information";
@@ -185,6 +183,7 @@ namespace Stock_manager
             cmdRetour.TabIndex = 4;
             cmdAjout.TabIndex = 5;
             cmdRetour.Location = new Point(180, 205);
+            cboIDProduit.SelectedIndex = 0;
         }
     }
 }

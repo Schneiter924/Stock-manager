@@ -19,7 +19,7 @@ namespace Stock_manager
         Connection_mySQL smsql = new Connection_mySQL();
         private void cmdRetour_Click(object sender, EventArgs e)
         {
-            Form frmMenu = new frmMain();
+            Form frmMenu = new frmMenu();
             frmMenu.Show();
             this.Dispose();
         }
@@ -56,7 +56,7 @@ namespace Stock_manager
 
         private void frmInventaire_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Form frmMenu = new frmMain();
+            Form frmMenu = new frmMenu();
             frmMenu.Show();
             this.Dispose();
         }
@@ -80,6 +80,14 @@ namespace Stock_manager
                 {
                     lstInventaireLoue.Items.Add(location.DescriptionLocation());
                 }
+            }
+            else
+            {
+                string message = "Aucune recherche possible car le champs est vide";
+                string legende = "Erreur";
+                MessageBoxButtons bouton = MessageBoxButtons.OK;
+                MessageBoxIcon icon = MessageBoxIcon.Error;
+                MessageBox.Show(message, legende, bouton, icon);
             }
         }
 

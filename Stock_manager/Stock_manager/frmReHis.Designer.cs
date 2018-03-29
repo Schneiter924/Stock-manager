@@ -69,6 +69,7 @@
             // lstRecherche
             // 
             this.lstRecherche.FormattingEnabled = true;
+            this.lstRecherche.HorizontalScrollbar = true;
             this.lstRecherche.Location = new System.Drawing.Point(15, 33);
             this.lstRecherche.Name = "lstRecherche";
             this.lstRecherche.Size = new System.Drawing.Size(943, 524);

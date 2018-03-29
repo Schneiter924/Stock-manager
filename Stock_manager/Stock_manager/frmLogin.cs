@@ -50,7 +50,7 @@ namespace Stock_manager
                     Connection_mySQL smsql = new Connection_mySQL();
                     if (smsql.TestConnexion() == true)
                     {
-                        Form frmMenu = new frmMain();
+                        Form frmMenu = new frmMenu();
                         frmMenu.Show();
                         this.Hide();
                     }

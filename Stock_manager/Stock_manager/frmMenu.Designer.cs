@@ -1,6 +1,6 @@
 ﻿namespace Stock_manager
 {
-    partial class frmMain
+    partial class frmMenu
     {
         /// <summary>
         /// Required designer variable.
@@ -55,17 +55,17 @@
             this.cmdAMProduit.Name = "cmdAMProduit";
             this.cmdAMProduit.Size = new System.Drawing.Size(192, 23);
             this.cmdAMProduit.TabIndex = 1;
-            this.cmdAMProduit.Text = "Ajout / modification produit";
+            this.cmdAMProduit.Text = "Ajout / modifé produit";
             this.cmdAMProduit.UseVisualStyleBackColor = true;
             this.cmdAMProduit.Click += new System.EventHandler(this.cmdAMProduit_Click);
             // 
             // cmdLocation
             // 
             this.cmdLocation.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.cmdLocation.Location = new System.Drawing.Point(12, 128);
+            this.cmdLocation.Location = new System.Drawing.Point(12, 99);
             this.cmdLocation.Name = "cmdLocation";
             this.cmdLocation.Size = new System.Drawing.Size(192, 23);
-            this.cmdLocation.TabIndex = 5;
+            this.cmdLocation.TabIndex = 4;
             this.cmdLocation.Text = "Location d\'un produit";
             this.cmdLocation.UseVisualStyleBackColor = true;
             this.cmdLocation.Click += new System.EventHandler(this.cmdLocation_Click);
@@ -76,7 +76,7 @@
             this.cmdMenuRecherche.Name = "cmdMenuRecherche";
             this.cmdMenuRecherche.Size = new System.Drawing.Size(192, 23);
             this.cmdMenuRecherche.TabIndex = 6;
-            this.cmdMenuRecherche.Text = "Affiche le menu pour la recheche";
+            this.cmdMenuRecherche.Text = "Affiche le menu pour la recherche";
             this.cmdMenuRecherche.UseVisualStyleBackColor = true;
             this.cmdMenuRecherche.Click += new System.EventHandler(this.cmdMenuRecherche_Click);
             // 
@@ -93,25 +93,25 @@
             // 
             // cmdRetourPrduit
             // 
-            this.cmdRetourPrduit.Location = new System.Drawing.Point(12, 70);
+            this.cmdRetourPrduit.Location = new System.Drawing.Point(12, 128);
             this.cmdRetourPrduit.Name = "cmdRetourPrduit";
             this.cmdRetourPrduit.Size = new System.Drawing.Size(192, 23);
-            this.cmdRetourPrduit.TabIndex = 3;
+            this.cmdRetourPrduit.TabIndex = 5;
             this.cmdRetourPrduit.Text = "Retour d\'un produit";
             this.cmdRetourPrduit.UseVisualStyleBackColor = true;
             this.cmdRetourPrduit.Click += new System.EventHandler(this.cmdRetourPrduit_Click);
             // 
             // cmdLoueur
             // 
-            this.cmdLoueur.Location = new System.Drawing.Point(12, 99);
+            this.cmdLoueur.Location = new System.Drawing.Point(12, 70);
             this.cmdLoueur.Name = "cmdLoueur";
             this.cmdLoueur.Size = new System.Drawing.Size(192, 23);
-            this.cmdLoueur.TabIndex = 4;
-            this.cmdLoueur.Text = "Ajout / modification Loueur";
+            this.cmdLoueur.TabIndex = 3;
+            this.cmdLoueur.Text = "Ajout / modifié loueur";
             this.cmdLoueur.UseVisualStyleBackColor = true;
             this.cmdLoueur.Click += new System.EventHandler(this.cmdLoueur_Click);
             // 
-            // frmMain
+            // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -127,7 +127,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "frmMain";
+            this.Name = "frmMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Stock manager";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmMain_FormClosed);

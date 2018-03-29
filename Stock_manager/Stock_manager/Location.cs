@@ -100,7 +100,7 @@ namespace Stock_manager
             {
                 message += " - la date de rendu est le " + endDate.ToString("dd-MM-yyyy");
             }
-            else if (DateTime.Now > startDate.AddDays(duree))
+            else if (DateTime.Today > startDate.AddDays(duree))
             {
                 DateTime Aujourduit = DateTime.Today;
                 TimeSpan retard = (Aujourduit - startDate.AddDays(duree));

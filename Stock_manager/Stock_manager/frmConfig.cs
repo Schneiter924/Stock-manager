@@ -44,6 +44,7 @@ namespace Stock_manager
             config.Utilisateur = txtUtilisateur.Text;
             config.MotPasse = txtMotPasse.Text;
             xml.EcritureXML(config);
+            this.Dispose();
         }
 
         private void frmConfig_Load(object sender, EventArgs e)

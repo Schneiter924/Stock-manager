@@ -24,7 +24,7 @@ namespace Stock_manager
         int duree;
         private void cmdRetour_Click(object sender, EventArgs e)
         {
-            Form frmMenu = new frmMain();
+            Form frmMenu = new frmMenu();
             frmMenu.Show();
             this.Dispose();
         }
@@ -110,7 +110,7 @@ namespace Stock_manager
 
         private void frmSortie_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Form frmMenu = new frmMain();
+            Form frmMenu = new frmMenu();
             frmMenu.Show();
             this.Dispose();
         }

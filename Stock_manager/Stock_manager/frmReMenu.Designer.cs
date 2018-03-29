@@ -52,7 +52,7 @@
             this.cmdHors.Name = "cmdHors";
             this.cmdHors.Size = new System.Drawing.Size(137, 23);
             this.cmdHors.TabIndex = 7;
-            this.cmdHors.Text = "hors-délai";
+            this.cmdHors.Text = "Hors-délai";
             this.cmdHors.UseVisualStyleBackColor = true;
             this.cmdHors.Click += new System.EventHandler(this.cmdHors_Click);
             // 
@@ -74,7 +74,7 @@
             this.cmdMot.Name = "cmdMot";
             this.cmdMot.Size = new System.Drawing.Size(137, 23);
             this.cmdMot.TabIndex = 5;
-            this.cmdMot.Text = "mot-clé";
+            this.cmdMot.Text = "Mot-clé";
             this.cmdMot.UseVisualStyleBackColor = true;
             this.cmdMot.Click += new System.EventHandler(this.cmdMot_Click);
             // 
