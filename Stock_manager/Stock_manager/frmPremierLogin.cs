@@ -17,8 +17,8 @@ namespace Stock_manager
         public frmPremierLogin()
         {
             InitializeComponent();
-            cryPassword = new Cryptage(Environment.GetEnvironmentVariable("APPDATA") + "\\stock_manager", "pwd.txt");
-            cryLogin = new Cryptage(Environment.GetEnvironmentVariable("APPDATA") + "\\stock_manager", "login.txt");
+            cryPassword = new Cryptage(Environment.GetEnvironmentVariable("APPDATA") + "\\stock_manager\\", "pwd.txt");
+            cryLogin = new Cryptage(Environment.GetEnvironmentVariable("APPDATA") + "\\stock_manager\\", "login.txt");
         }
 
         private void cmdReset_Click(object sender, EventArgs e)

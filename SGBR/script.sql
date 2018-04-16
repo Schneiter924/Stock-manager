@@ -21,7 +21,7 @@ USE `Stock_manager` ;
 -- -----------------------------------------------------
 -- Table `Stock_manager`.`Loueur`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `Stock_manager`.`Loueur` ;
+DROP TABLE IF EXISTS `Stock_manageer`.`Loueur` ;
 
 CREATE TABLE IF NOT EXISTS `Stock_manager`.`Loueur` (
   `idLoueur` INT NOT NULL AUTO_INCREMENT,

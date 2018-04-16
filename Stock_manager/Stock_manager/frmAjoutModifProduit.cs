@@ -47,6 +47,7 @@ namespace Stock_manager
                 MessageBoxButtons bouton = MessageBoxButtons.OK;
                 MessageBoxIcon icon = MessageBoxIcon.Information;
                 MessageBox.Show(message, legende, bouton, icon);
+                cboIDProduit.SelectedIndex = 0;
             }
             else
             {
@@ -70,7 +71,11 @@ namespace Stock_manager
                 }
                 else
                 {
-
+                    string message = "le produit n'a pas de nom";
+                    string legende = "Erreur";
+                    MessageBoxButtons bouton = MessageBoxButtons.OK;
+                    MessageBoxIcon icon = MessageBoxIcon.Error;
+                    MessageBox.Show(message, legende, bouton, icon);
                 }
             }
         }
@@ -154,21 +159,24 @@ namespace Stock_manager
 
         private void cmdSupprimer_Click(object sender, EventArgs e)
         {
-            string message = "Confirmation de la suppresion du Produit : " + produit.NomProduit;
+            string message = "Confirmation de la suppression du Produit : " + produit.NomProduit;
             string legende = "Information";
             MessageBoxButtons bouton = MessageBoxButtons.YesNo;
             MessageBoxIcon icon = MessageBoxIcon.Information;
             DialogResult dialogResult = MessageBox.Show(message, legende, bouton, icon);
             if (dialogResult == DialogResult.Yes)
-            {
-                smsql.SupprimerProduit(produit);
+            {                
                 smsql.SupprimeLocation(produit.IdProduit, 1);
+                smsql.SupprimerProduit(produit);
                 chargerProduit();
                 message = "Le produit a bien été supprimer";
                 legende = "Information";
                 bouton = MessageBoxButtons.OK;
                 icon = MessageBoxIcon.Information;
                 MessageBox.Show(message, legende, bouton, icon);
+                txtDescription.Text = "";
+                txtNomProduit.Text = "";
+                cboIDProduit.SelectedIndex = 0;
             }
         }
 

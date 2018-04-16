@@ -61,6 +61,8 @@ namespace Stock_manager
                         MessageBoxButtons bouton = MessageBoxButtons.OK;
                         MessageBoxIcon icon = MessageBoxIcon.Information;
                         MessageBox.Show(message, legende, bouton, icon);
+                        txtNomLoueur.Text = "";
+                        cboNomLoueur.SelectedIndex = 0;
                     }
                     chargerLoueur();
                     loueur = null;
@@ -156,20 +158,23 @@ namespace Stock_manager
 
         private void cmdSupprimer_Click(object sender, EventArgs e)
         {
-            string message = "Confirmation de la suppresion du loueur : " + loueur.NomLoueur;
+            string message = "Confirmation de la suppression du loueur : " + loueur.NomLoueur;
             string legende = "Information";
             MessageBoxButtons bouton = MessageBoxButtons.YesNo;
             MessageBoxIcon icon = MessageBoxIcon.Information;
             DialogResult dialogResult = MessageBox.Show(message,legende,bouton,icon);
             if (dialogResult == DialogResult.Yes)
-            {
-                smsql.SupprimerLoueur(loueur);
+            {                
                 smsql.SupprimeLocation(loueur.IdLoueur, 0);
+                smsql.SupprimerLoueur(loueur);
                 message = "Le loueur a bien été supprimer";
                 legende = "Information";
                 bouton = MessageBoxButtons.OK;
                 icon = MessageBoxIcon.Information;
                 MessageBox.Show(message, legende, bouton, icon);
+                chargerLoueur();
+                txtNomLoueur.Text = "";
+                cboNomLoueur.SelectedIndex = 0;
             }
         }
     }

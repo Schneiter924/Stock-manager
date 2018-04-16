@@ -706,13 +706,26 @@ namespace Stock_manager
                 MySqlCommand cmd = connection.CreateCommand();
                 if (loueurOuProduit == 0) //Loueur supprimer
                 {
-                    cmd.CommandText = "DELETE * FROM Location where fkLoueur = @idLoueur";
-                    cmd.Parameters.AddWithValue("@idloueur", id);
+                    cmd.CommandText = "SELECT * FROM Location where fkLoueur = @idLoueur";
+                    cmd.Parameters.AddWithValue("@idLoueur", id);
+
+                    object resultat = cmd.ExecuteScalar();
+                    if (resultat != null)
+                    {
+                        cmd.CommandText = "DELETE FROM Location where fkLoueur = @idLoueur";
+                    }
+                    
                 }
                 else //Produit supprimer
                 {
-                    cmd.CommandText = "DELETE * FROM Location where fkProduit = @idProduit";
+                    cmd.CommandText = "SELECT * FROM Location where fkProduit = @idProduit";
                     cmd.Parameters.AddWithValue("@idProduit", id);
+
+                    object resultat = cmd.ExecuteScalar();
+                    if (resultat != null)
+                    {
+                        cmd.CommandText = "DELETE FROM Location where fkProduit = @idProduit";
+                    }
                 }
 
                 cmd.ExecuteNonQuery();

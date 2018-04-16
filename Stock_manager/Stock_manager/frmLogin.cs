@@ -13,16 +13,13 @@ namespace Stock_manager
 {
     public partial class frmLogin : Form
     {
-        Cryptage cryPassword;
-        Cryptage cryLogin;
+        Cryptage cryPassword = new Cryptage(Environment.GetEnvironmentVariable("APPDATA") + "\\stock_manager\\", "pwd.txt");
+        Cryptage cryLogin = new Cryptage(Environment.GetEnvironmentVariable("APPDATA") + "\\stock_manager\\", "login.txt");
         XML xml = new XML(Environment.GetEnvironmentVariable("APPDATA") + "\\stock_manager\\", "config.xml");
 
         public frmLogin()
         {
             InitializeComponent();
-            cryPassword = new Cryptage(Environment.GetEnvironmentVariable("APPDATA") + "\\stock_manager", "pwd.txt");
-            cryLogin = new Cryptage(Environment.GetEnvironmentVariable("APPDATA") + "\\stock_manager", "login.txt");
-            
         }
 
         private void cmdConnexion_Click(object sender, EventArgs e)
