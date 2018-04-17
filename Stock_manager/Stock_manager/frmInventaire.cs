@@ -95,6 +95,7 @@ namespace Stock_manager
         {
             chargerLstInventaireLoue();
             chargerLstProduit();
+            txtChercher.Text = "";
         }
     }
 }

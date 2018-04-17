@@ -41,6 +41,7 @@ namespace Stock_manager
                             MessageBoxButtons bouton = MessageBoxButtons.OK;
                             MessageBoxIcon icon = MessageBoxIcon.Information;
                             MessageBox.Show(message, legende, bouton, icon);
+                            txtNomLoueur.Text = "";
                         }
                         else
                         {
@@ -62,10 +63,10 @@ namespace Stock_manager
                         MessageBoxIcon icon = MessageBoxIcon.Information;
                         MessageBox.Show(message, legende, bouton, icon);
                         txtNomLoueur.Text = "";
-                        cboNomLoueur.SelectedIndex = 0;
                     }
                     chargerLoueur();
                     loueur = null;
+                    cboNomLoueur.SelectedIndex = 0;
                 }
                 else
                 {
