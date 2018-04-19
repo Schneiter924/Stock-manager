@@ -32,8 +32,11 @@ namespace Stock_manager
 
             foreach (Location location in lstLocations)
             {
-                Location loca= smsql.ProduitHorsDelais(location);
-                lstRecherche.Items.Add(loca.DescriptionLocation());
+                Location loca = smsql.ProduitHorsDelais(location);
+                if (loca != null)
+                {
+                    lstRecherche.Items.Add(loca.DescriptionLocation());
+                }
             }
             
         }

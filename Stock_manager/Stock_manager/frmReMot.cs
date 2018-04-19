@@ -17,7 +17,7 @@ namespace Stock_manager
             InitializeComponent();
         }
         Connection_mySQL smsql = new Connection_mySQL();
-        
+
         private void cmdRetour_Click(object sender, EventArgs e)
         {
             Form frmMenu = new frmReMenu();

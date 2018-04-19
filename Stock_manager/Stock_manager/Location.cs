@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Stock_manager
 {
+    /// <summary>
+    /// Classe qui défini une location
+    /// </summary>
     public class Location
     {
         private DateTime startDate;

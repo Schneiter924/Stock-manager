@@ -51,7 +51,7 @@ namespace Stock_manager
         {
 
             chargerLstInventaireLoue();
-            chargerLstProduit();            
+            chargerLstProduit();
         }
 
         private void frmInventaire_FormClosed(object sender, FormClosedEventArgs e)

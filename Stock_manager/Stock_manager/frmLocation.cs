@@ -85,7 +85,7 @@ namespace Stock_manager
             Aujourdhui = DateTime.Today;
             chargerLoueur();
             chargerProduit();
-                     
+
         }
 
         private void chargerProduit()
@@ -98,7 +98,7 @@ namespace Stock_manager
             }
         }
 
-        public void chargerLoueur()
+        private void chargerLoueur()
         {
             List<Loueur> lstLoueurs = smsql.chargeLoueur();
             cboLoueur.Items.Clear();
@@ -117,12 +117,12 @@ namespace Stock_manager
 
         private void txtDuree_Validated(object sender, EventArgs e)
         {
-            if (txtDuree.Text!="")
+            if (txtDuree.Text != "")
             {
                 try
                 {
                     duree = int.Parse(txtDuree.Text);
-                    
+
                     DateTime dureeDate = Aujourdhui.AddDays(duree);
 
                     txtDateRetour.Text = dureeDate.ToString("dd-MM-yyyy");
@@ -137,7 +137,7 @@ namespace Stock_manager
                     MessageBox.Show(message, legende, bouton, icon);
                 }
             }
-            
+
         }
     }
 }

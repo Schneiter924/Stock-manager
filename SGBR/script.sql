@@ -2085,3 +2085,34 @@ insert into Produit (nomProduit, description) values ('Silverado 1500', 'Mauris 
 insert into Produit (nomProduit, description) values ('Rainier', '');
 insert into Produit (nomProduit, description) values ('Grand Prix', 'Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.');
 insert into Produit (nomProduit, description) values ('LS', 'Integer ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi.');
+
+
+-- location
+
+use stock_manager;
+
+INSERT INTO location (startDate, endDate, Duree, fkLoueur, fkProduit) VALUES ('2017-12-10', '2017-12-31', '30', '1', '1');
+INSERT INTO location (startDate, endDate, Duree, fkLoueur, fkProduit) VALUES ('2017-12-10', NULL, '200', '1', '2');
+INSERT INTO location (startDate, endDate, Duree, fkLoueur, fkProduit) VALUES ('2017-12-30', '2018-01-06', '20', '2', '3');
+INSERT INTO location (startDate, Duree, fkLoueur, fkProduit) VALUES ('2018-01-06', '50', '3', '3');
+INSERT INTO location (startDate, endDate, Duree, fkLoueur, fkProduit) VALUES ('2018-01-06', '2018-01-20', '20', '1', '1');
+INSERT INTO location (startDate, Duree, fkLoueur, fkProduit) VALUES ('2018-01-06', '50', '5', '5');
+INSERT INTO location (startDate, endDate, Duree, fkLoueur, fkProduit) VALUES ('2018-02-01', '2018-02-03', '20', '100', '100');
+INSERT INTO location (startDate, Duree, fkLoueur, fkProduit) VALUES ('2018-02-01', '200', '100', '101');
+INSERT INTO location (startDate, endDate, Duree, fkLoueur, fkProduit) VALUES ('2018-02-01', '2018-03-01', '31', '100', '102');
+INSERT INTO location (startDate, endDate, Duree, fkLoueur, fkProduit) VALUES ('2018-02-15', '2018-02-16', '3', '15', '15');
+INSERT INTO location (startDate, endDate, Duree, fkLoueur, fkProduit) VALUES ('2018-02-15', '2018-02-19', '10', '15', '16');
+INSERT INTO location (startDate, endDate, Duree, fkLoueur, fkProduit) VALUES ('2018-02-15', '2018-03-01', '30', '15', '17');
+INSERT INTO location (startDate, endDate, Duree, fkLoueur, fkProduit) VALUES ('2018-02-15', '2018-03-01', '30', '15', '18');
+INSERT INTO location (startDate, endDate, Duree, fkLoueur, fkProduit) VALUES ('2018-02-15', '2018-03-01', '30', '15', '19');
+INSERT INTO location (startDate, Duree, fkLoueur, fkProduit) VALUES ('2018-02-15', '50', '166', '166');
+INSERT INTO location (startDate, endDate, Duree, fkLoueur, fkProduit) VALUES ('2018-02-15', NULL, '50', '166', '167');
+INSERT INTO location (startDate, Duree, fkLoueur, fkProduit) VALUES ('2018-02-15', '50', '166', '168');
+INSERT INTO location (startDate, Duree, fkLoueur, fkProduit) VALUES ('2018-02-15', '50', '166', '169');
+INSERT INTO location (startDate, Duree, fkLoueur, fkProduit) VALUES ('2018-02-15', '50', '166', '170');
+INSERT INTO location (startDate, Duree, fkLoueur, fkProduit) VALUES ('2018-02-15', '50', '166', '171');
+INSERT INTO location (startDate, Duree, fkLoueur, fkProduit) VALUES ('2018-02-15', '50', '166', '172');
+INSERT INTO location (startDate, Duree, fkLoueur, fkProduit) VALUES ('2018-03-15', '50', '190', '190');
+INSERT INTO location (startDate, Duree, fkLoueur, fkProduit) VALUES ('2018-03-15', '50', '190', '191');
+INSERT INTO location (startDate, Duree, fkLoueur, fkProduit) VALUES ('2018-03-15', '50', '190', '192');
+INSERT INTO location (startDate, Duree, fkLoueur, fkProduit) VALUES ('2018-04-19', '50', '190', '193');

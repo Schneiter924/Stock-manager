@@ -8,6 +8,9 @@ using System.Windows.Forms;
 
 namespace Stock_manager
 {
+    /// <summary>
+    /// classe qui contient les requetes pour la base de donnée et la connexion
+    /// </summary>
     public class Connection_mySQL
     {
         MySqlConnection connection;
@@ -18,19 +21,29 @@ namespace Stock_manager
         XML xml = new XML(Environment.GetEnvironmentVariable("APPDATA") + "\\stock_manager\\", "config.xml");
         Config config;
 
-        //Constructor
+        
+        /// <summary>
+        /// Constructeur sans paramètre
+        /// </summary>
         public Connection_mySQL()
         {
             config = xml.LectureXML();
             Initialize();
         }
+
+        /// <summary>
+        /// Constructeur avec paramètre
+        /// </summary>
+        /// <param name="config"></param>
         public Connection_mySQL(Config config)
         {
             this.config = config;
             Initialize();
         }
-
-        //Initialize values
+        
+        /// <summary>
+        /// initialise les valeurs
+        /// </summary>
         private void Initialize()
         {            
             serveur = config.Serveur;
@@ -44,6 +57,11 @@ namespace Stock_manager
             connection = new MySqlConnection(connectionString);
         }
 
+        /// <summary>
+        /// permet de tester la connexion avec la base de donnée
+        /// </summary>
+        /// <param name="test">1 == faire les tests de connexion, 0 = pas de test</param>
+        /// <returns></returns>
         private bool OpenConnection(int test)
         {
             try
@@ -89,8 +107,11 @@ namespace Stock_manager
                 return false;
             }
         }
-
-        //Close connection
+        
+        /// <summary>
+        /// fonction qui ferme la connexion
+        /// </summary>
+        /// <returns></returns>
         private bool CloseConnection()
         {
             try
@@ -141,8 +162,7 @@ namespace Stock_manager
 
             return resultat;
         }
-
-
+        
         /// <summary>
         /// fonction qui retourne le nom et la description du Produit qui a l'idProduit égale au paramètre passé
         /// </summary>
@@ -364,6 +384,10 @@ namespace Stock_manager
             CloseConnection();
         }
         
+        /// <summary>
+        /// fonction qui retourne la liste des loueurs qui n'ont pas de location en cours
+        /// </summary>
+        /// <returns></returns>
         public List<Loueur> LoueurSansLocation()
         {
             List<Loueur> lstLoueurs = new List<Loueur>();
@@ -392,8 +416,7 @@ namespace Stock_manager
 
             return lstLoueurs;
         }
-
-
+        
         /// <summary>
         /// fonction qui ajout une nouvelle location dans la base de donnée
         /// </summary>
@@ -773,6 +796,10 @@ namespace Stock_manager
                     locationRec.Produit = produit;
                     locationRec.Loueur = loueur;
                 }
+            }
+            if (locationRec.StartDate.ToString("dd-MM-yyyy") == "01-01-0001")
+            {
+                locationRec = null;
             }
 
             CloseConnection();

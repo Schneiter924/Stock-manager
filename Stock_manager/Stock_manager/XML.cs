@@ -8,16 +8,28 @@ using System.IO;
 
 namespace Stock_manager
 {
+    /// <summary>
+    /// Classe qui fait la lecture et l'écriture du fichier xml
+    /// </summary>
     public class XML
     {
         string chemin;
         string nomFichier;
 
+        /// <summary>
+        /// constructeur
+        /// </summary>
+        /// <param name="chemin"></param>
+        /// <param name="nomFichier"></param>
         public XML(string chemin,string nomFichier)
         {
             this.chemin = chemin;
             this.nomFichier = nomFichier;
         }
+        /// <summary>
+        /// fonction qui lit le fichier xml
+        /// </summary>
+        /// <returns></returns>
         public Config LectureXML()
         {
             Config config = new Config(); ;
@@ -37,6 +49,10 @@ namespace Stock_manager
             return config;
         }
 
+        /// <summary>
+        /// fonction qui écrit le fichier xml
+        /// </summary>
+        /// <param name="config"></param>
         public void EcritureXML(Config config)
         {
             XDocument doc = new XDocument(new XElement("Config",
@@ -48,6 +64,9 @@ namespace Stock_manager
             doc.Save(chemin + nomFichier);
         }
 
+        /// <summary>
+        /// fonction qui écrit le fichier de configuration par défaut
+        /// </summary>
         public void EcritureXMLDefaut()
         {
             XDocument doc = new XDocument(new XElement("Config",
@@ -67,6 +86,10 @@ namespace Stock_manager
             }
         }
 
+        /// <summary>
+        /// fonction qui test si le fichier existe
+        /// </summary>
+        /// <returns></returns>
         public bool TestFichierXML()
         {
             TestDossier();

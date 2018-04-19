@@ -80,14 +80,14 @@ namespace Stock_manager
             }
         }
 
-        public void chargerProduit()
+        private void chargerProduit()
         {
             List<Produit> lstProduits = smsql.chargeProduitEnStock();
             cboIDProduit.Items.Clear();
             cboIDProduit.Items.Add("Ajouter un produit");
             foreach (Produit produit in lstProduits)
             {
-                cboIDProduit.Items.Add(produit.DescriptionID());
+                cboIDProduit.Items.Add(produit.IdProduit.ToString());
             }
         }
           

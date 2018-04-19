@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Stock_manager
 {
+    /// <summary>
+    /// Classe qui contient la configuration de la connexion à la base de donnée
+    /// </summary>
     public class Config
     {
         private string serveur;
@@ -13,14 +16,9 @@ namespace Stock_manager
         private string utilisateur;
         private string motPasse;
 
-        public Config (string serveur, string baseDonnee, string utilisateur, string motPasse)
-        {
-            this.serveur = serveur;
-            this.baseDonnee = baseDonnee;
-            this.utilisateur = utilisateur;
-            this.motPasse = motPasse;
-        }
-
+        /// <summary>
+        /// constructeur sans paramètre
+        /// </summary>
         public Config()
         {
 

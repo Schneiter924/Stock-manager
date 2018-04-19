@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Stock_manager
 {
+    /// <summary>
+    /// Classe qui défini un loueur
+    /// </summary>
     public class Loueur
     {
         private string nomLoueur;

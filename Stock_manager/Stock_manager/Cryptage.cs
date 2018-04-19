@@ -15,11 +15,11 @@ namespace Stock_manager
     {
         private string chemin;
         private string nomFichier;
-         /// <summary>
+        /// <summary>
         /// constructeur passe en paramètre le chemin du fichier + le fichier
         /// </summary>
         /// <param name="chemin"></param>
-        public Cryptage(string chemin,string nomFichier)
+        public Cryptage(string chemin, string nomFichier)
         {
             this.chemin = chemin;
             this.nomFichier = nomFichier;
@@ -31,11 +31,10 @@ namespace Stock_manager
         /// <param name="pwd"></param>
         public void CrypterPassword(string pwd)
         {
-           string hash = BCrypt.Net.BCrypt.HashPassword(pwd);
+            string hash = BCrypt.Net.BCrypt.HashPassword(pwd);
 
             File.WriteAllText(chemin + nomFichier, hash);
             File.SetAttributes(chemin + nomFichier, FileAttributes.Hidden);
-            
         }
 
         /// <summary>
@@ -47,9 +46,7 @@ namespace Stock_manager
             string hash = BCrypt.Net.BCrypt.HashString(login);
 
             File.WriteAllText(chemin + nomFichier, hash);
-            File.SetAttributes(chemin +nomFichier, FileAttributes.Hidden);
-
-
+            File.SetAttributes(chemin + nomFichier, FileAttributes.Hidden);
         }
 
         /// <summary>
@@ -70,10 +67,8 @@ namespace Stock_manager
         /// <returns></returns>
         public Boolean TestLogin(string login)
         {
-            
             string hashLect = LectureFichier();
             return BCrypt.Net.BCrypt.Verify(login, hashLect);
-            
         }
 
         /// <summary>

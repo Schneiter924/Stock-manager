@@ -31,7 +31,7 @@ namespace Stock_manager
             List<Produit> lstProduit = smsql.ToutLesProduit();
             foreach (Produit produit in lstProduit)
             {
-                cboProduit.Items.Add(produit.DescriptionID());
+                cboProduit.Items.Add(produit.IdProduit.ToString());
             }
         }
 
