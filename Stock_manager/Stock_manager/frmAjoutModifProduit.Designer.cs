@@ -86,6 +86,7 @@
             // 
             // cmdRetour
             // 
+            this.cmdRetour.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cmdRetour.Location = new System.Drawing.Point(99, 205);
             this.cmdRetour.Name = "cmdRetour";
             this.cmdRetour.Size = new System.Drawing.Size(75, 23);
@@ -96,6 +97,7 @@
             // 
             // cmdAjout
             // 
+            this.cmdAjout.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cmdAjout.Location = new System.Drawing.Point(261, 205);
             this.cmdAjout.Name = "cmdAjout";
             this.cmdAjout.Size = new System.Drawing.Size(75, 23);
@@ -121,9 +123,9 @@
             this.lblNombreCaractere.AutoSize = true;
             this.lblNombreCaractere.Location = new System.Drawing.Point(14, 85);
             this.lblNombreCaractere.Name = "lblNombreCaractere";
-            this.lblNombreCaractere.Size = new System.Drawing.Size(302, 13);
+            this.lblNombreCaractere.Size = new System.Drawing.Size(307, 13);
             this.lblNombreCaractere.TabIndex = 10;
-            this.lblNombreCaractere.Text = "Nombre de caractère actuelle 0 / nombre de caractère max 45";
+            this.lblNombreCaractere.Text = "Nombre de caractère actuelle 0 / nombre de caractères max 45";
             // 
             // cmdSupprimer
             // 
@@ -139,6 +141,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.cmdRetour;
             this.ClientSize = new System.Drawing.Size(348, 249);
             this.Controls.Add(this.cmdSupprimer);
             this.Controls.Add(this.lblNombreCaractere);

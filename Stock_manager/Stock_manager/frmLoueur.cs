@@ -20,40 +20,68 @@ namespace Stock_manager
         Loueur loueur;
         private void cmdRetour_Click(object sender, EventArgs e)
         {
-            Form frmMenu = new frmMain();
+            Form frmMenu = new frmMenu();
             frmMenu.Show();
             this.Dispose();
         }
 
         private void cmdAjoutModification_Click(object sender, EventArgs e)
         {
-            if (txtNomLoueur.Text != "")
+            if (cboNomLoueur.SelectedIndex != -1)
             {
-                if (cboNomLoueur.SelectedIndex == 0)
+                if (txtNomLoueur.Text != "")
                 {
-                    smsql.AjoutLoueur(txtNomLoueur.Text);
-                    
+                    if (cboNomLoueur.SelectedIndex == 0)
+                    {
+                        if (smsql.TestNomLoueur(txtNomLoueur.Text) != true)
+                        {
+                            smsql.AjoutLoueur(txtNomLoueur.Text);
+                            string message = "Le loueur a bien été ajouter";
+                            string legende = "Information";
+                            MessageBoxButtons bouton = MessageBoxButtons.OK;
+                            MessageBoxIcon icon = MessageBoxIcon.Information;
+                            MessageBox.Show(message, legende, bouton, icon);
+                            txtNomLoueur.Text = "";
+                        }
+                        else
+                        {
+                            string message = "Le nom du loueur existe déjà";
+                            string legende = "Erreur";
+                            MessageBoxButtons bouton = MessageBoxButtons.OK;
+                            MessageBoxIcon icon = MessageBoxIcon.Error;
+                            MessageBox.Show(message, legende, bouton, icon);
+                        }
+                        
+                    }
+                    else
+                    {
+                        loueur.NomLoueur = txtNomLoueur.Text;
+                        smsql.ModificationLoueur(loueur);
+                        string message = "Le loueur a bien été modifier";
+                        string legende = "Information";
+                        MessageBoxButtons bouton = MessageBoxButtons.OK;
+                        MessageBoxIcon icon = MessageBoxIcon.Information;
+                        MessageBox.Show(message, legende, bouton, icon);
+                        txtNomLoueur.Text = "";
+                    }
+                    chargerLoueur();
+                    loueur = null;
+                    cboNomLoueur.SelectedIndex = 0;
                 }
                 else
                 {
-                    loueur.NomLoueur = txtNomLoueur.Text;
-                    smsql.ModificationLoueur(loueur);
+                    string message = "Pas de nom pour le loueur";
+                    string legende = "Erreur";
+                    MessageBoxButtons bouton = MessageBoxButtons.OK;
+                    MessageBox.Show(message, legende, bouton, MessageBoxIcon.Error);
                 }
-                chargerLoueur();
-                loueur = null;
-            }
-            else
-            {
-                string message = "Pas de nom pour le loueur";
-                string legende = "Erreur";
-                MessageBoxButtons bouton = MessageBoxButtons.OK;
-                MessageBox.Show(message, legende, bouton, MessageBoxIcon.Error);
             }
         }
+            
 
         private void frmLoueur_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Form frmMenu = new frmMain();
+            Form frmMenu = new frmMenu();
             frmMenu.Show();
             this.Dispose();
         }
@@ -86,6 +114,7 @@ namespace Stock_manager
             cmdAjoutModification.TabIndex = 4;
             cmdSupprimer.Visible = false;
             cmdSupprimer.Enabled = false;
+            cboNomLoueur.SelectedIndex = 0;
 
         }
 
@@ -101,7 +130,8 @@ namespace Stock_manager
                 cmdSupprimer.Visible = true;
                 cmdSupprimer.Enabled = true;
                 cmdSupprimer.TabIndex = 4;
-                cmdAjoutModification.TabIndex = 5;                
+                cmdAjoutModification.TabIndex = 5;
+                lblNomLoueur.Text = "Nouveau nom";
             }
             else
             {
@@ -112,12 +142,13 @@ namespace Stock_manager
                 cmdAjoutModification.TabIndex = 4;
                 cmdSupprimer.Visible = false;
                 cmdSupprimer.Enabled = false;
+                lblNomLoueur.Text = "Nom du loueur";
             }
         }
 
         private void chargerLoueur()
         {
-            List<Loueur> lstLoueurs = smsql.chargeLoueur();
+            List<Loueur> lstLoueurs = smsql.LoueurSansLocation();
             cboNomLoueur.Items.Clear();
             cboNomLoueur.Items.Add("Ajouter un Loueur");
             foreach (Loueur loueur in lstLoueurs)
@@ -128,14 +159,23 @@ namespace Stock_manager
 
         private void cmdSupprimer_Click(object sender, EventArgs e)
         {
-            string message = "Confirmation de la suppresion du loueur : " + loueur.NomLoueur;
+            string message = "Confirmation de la suppression du loueur : " + loueur.NomLoueur;
             string legende = "Information";
             MessageBoxButtons bouton = MessageBoxButtons.YesNo;
             MessageBoxIcon icon = MessageBoxIcon.Information;
             DialogResult dialogResult = MessageBox.Show(message,legende,bouton,icon);
             if (dialogResult == DialogResult.Yes)
-            {
+            {                
+                smsql.SupprimeLocation(loueur.IdLoueur, 0);
                 smsql.SupprimerLoueur(loueur);
+                message = "Le loueur a bien été supprimer";
+                legende = "Information";
+                bouton = MessageBoxButtons.OK;
+                icon = MessageBoxIcon.Information;
+                MessageBox.Show(message, legende, bouton, icon);
+                chargerLoueur();
+                txtNomLoueur.Text = "";
+                cboNomLoueur.SelectedIndex = 0;
             }
         }
     }

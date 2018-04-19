@@ -37,6 +37,7 @@
             // 
             // cmdRetour
             // 
+            this.cmdRetour.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cmdRetour.Location = new System.Drawing.Point(375, 4);
             this.cmdRetour.Name = "cmdRetour";
             this.cmdRetour.Size = new System.Drawing.Size(75, 23);
@@ -47,6 +48,7 @@
             // 
             // cmdChercher
             // 
+            this.cmdChercher.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cmdChercher.Location = new System.Drawing.Point(294, 4);
             this.cmdChercher.Name = "cmdChercher";
             this.cmdChercher.Size = new System.Drawing.Size(75, 23);
@@ -60,14 +62,15 @@
             this.lblRecherche.AutoSize = true;
             this.lblRecherche.Location = new System.Drawing.Point(12, 9);
             this.lblRecherche.Name = "lblRecherche";
-            this.lblRecherche.Size = new System.Drawing.Size(99, 13);
+            this.lblRecherche.Size = new System.Drawing.Size(94, 13);
             this.lblRecherche.TabIndex = 6;
-            this.lblRecherche.Text = "Numéro de la pièce";
+            this.lblRecherche.Text = "Numéro du produit";
             // 
             // lstRecherche
             // 
             this.lstRecherche.FormattingEnabled = true;
-            this.lstRecherche.Location = new System.Drawing.Point(12, 40);
+            this.lstRecherche.HorizontalScrollbar = true;
+            this.lstRecherche.Location = new System.Drawing.Point(15, 33);
             this.lstRecherche.Name = "lstRecherche";
             this.lstRecherche.Size = new System.Drawing.Size(943, 524);
             this.lstRecherche.TabIndex = 10;
@@ -85,8 +88,10 @@
             // 
             // frmReHis
             // 
+            this.AcceptButton = this.cmdChercher;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.cmdRetour;
             this.ClientSize = new System.Drawing.Size(967, 572);
             this.Controls.Add(this.cboProduit);
             this.Controls.Add(this.cmdRetour);

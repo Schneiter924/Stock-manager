@@ -36,6 +36,7 @@
             // 
             // cmdRetour
             // 
+            this.cmdRetour.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cmdRetour.Location = new System.Drawing.Point(12, 99);
             this.cmdRetour.Name = "cmdRetour";
             this.cmdRetour.Size = new System.Drawing.Size(137, 23);
@@ -46,16 +47,18 @@
             // 
             // cmdHors
             // 
+            this.cmdHors.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cmdHors.Location = new System.Drawing.Point(12, 70);
             this.cmdHors.Name = "cmdHors";
             this.cmdHors.Size = new System.Drawing.Size(137, 23);
             this.cmdHors.TabIndex = 7;
-            this.cmdHors.Text = "hors-délai";
+            this.cmdHors.Text = "Hors-délai";
             this.cmdHors.UseVisualStyleBackColor = true;
             this.cmdHors.Click += new System.EventHandler(this.cmdHors_Click);
             // 
             // cmdHistorique
             // 
+            this.cmdHistorique.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cmdHistorique.Location = new System.Drawing.Point(12, 41);
             this.cmdHistorique.Name = "cmdHistorique";
             this.cmdHistorique.Size = new System.Drawing.Size(137, 23);
@@ -66,11 +69,12 @@
             // 
             // cmdMot
             // 
+            this.cmdMot.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cmdMot.Location = new System.Drawing.Point(12, 12);
             this.cmdMot.Name = "cmdMot";
             this.cmdMot.Size = new System.Drawing.Size(137, 23);
             this.cmdMot.TabIndex = 5;
-            this.cmdMot.Text = "mot-clé";
+            this.cmdMot.Text = "Mot-clé";
             this.cmdMot.UseVisualStyleBackColor = true;
             this.cmdMot.Click += new System.EventHandler(this.cmdMot_Click);
             // 
@@ -78,6 +82,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.cmdRetour;
             this.ClientSize = new System.Drawing.Size(183, 141);
             this.Controls.Add(this.cmdRetour);
             this.Controls.Add(this.cmdHors);

@@ -17,13 +17,12 @@ namespace Stock_manager
 
         public frmAjoutModifProduit()
         {
-            InitializeComponent();
-            
+            InitializeComponent();            
         }
 
         private void cmdRetour_Click(object sender, EventArgs e)
         {
-            Form frmMenu = new frmMain();
+            Form frmMenu = new frmMenu();
             frmMenu.Show();
             this.Dispose();
         }
@@ -31,45 +30,70 @@ namespace Stock_manager
         private void cmdAjout_Click(object sender, EventArgs e)
         {
 
-            if (cboIDProduit.Text != "")
+            if (produit != null)
             {
-                if (produit != null)
-                {
-                    produit.IdProduit = produit.IdProduit;
-                    produit.NomProduit = txtNomProduit.Text;
-                    produit.Description = txtDescription.Text;
-                    smsql.ModificationProduit(produit);
-                }
-                else
+                produit.IdProduit = produit.IdProduit;
+                produit.NomProduit = txtNomProduit.Text;
+                produit.Description = txtDescription.Text;
+                smsql.ModificationProduit(produit);
+                cboIDProduit.Text = "";
+                txtNomProduit.Text = "";
+                txtDescription.Text = "";
+                cboIDProduit.Enabled = true;
+                chargerProduit();
+                produit = null;
+                string message = "Le produit a bien été modifier";
+                string legende = "Information";
+                MessageBoxButtons bouton = MessageBoxButtons.OK;
+                MessageBoxIcon icon = MessageBoxIcon.Information;
+                MessageBox.Show(message, legende, bouton, icon);
+                cboIDProduit.SelectedIndex = 0;
+            }
+            else
+            {
+                if (txtNomProduit.Text != "")
                 {
                     produit = new Produit();
                     produit.NomProduit = txtNomProduit.Text;
                     produit.Description = txtDescription.Text;
                     smsql.NouveauProduit(produit);
+                    cboIDProduit.Text = "";
+                    txtNomProduit.Text = "";
+                    txtDescription.Text = "";
+                    cboIDProduit.Enabled = true;
+                    chargerProduit();
+                    produit = null;
+                    string message = "Le produit a bien été ajouter";
+                    string legende = "Information";
+                    MessageBoxButtons bouton = MessageBoxButtons.OK;
+                    MessageBoxIcon icon = MessageBoxIcon.Information;
+                    MessageBox.Show(message, legende, bouton, icon);
+                }
+                else
+                {
+                    string message = "le produit n'a pas de nom";
+                    string legende = "Erreur";
+                    MessageBoxButtons bouton = MessageBoxButtons.OK;
+                    MessageBoxIcon icon = MessageBoxIcon.Error;
+                    MessageBox.Show(message, legende, bouton, icon);
                 }
             }
-            cboIDProduit.Text = "";
-            txtNomProduit.Text = "";
-            txtDescription.Text = "";
-            cboIDProduit.Enabled = true;
-            chargerProduit();
-            produit = null;
         }
 
-        public void chargerProduit()
+        private void chargerProduit()
         {
             List<Produit> lstProduits = smsql.chargeProduitEnStock();
             cboIDProduit.Items.Clear();
             cboIDProduit.Items.Add("Ajouter un produit");
             foreach (Produit produit in lstProduits)
             {
-                cboIDProduit.Items.Add(produit.DescriptionID());
+                cboIDProduit.Items.Add(produit.IdProduit.ToString());
             }
         }
           
         private void frmEntree_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Form frmMenu = new frmMain();
+            Form frmMenu = new frmMenu();
             frmMenu.Show();
             this.Dispose();
         }
@@ -80,19 +104,16 @@ namespace Stock_manager
             {
                 try
                 {
-                    if (smsql.TestIDProduit(Convert.ToInt32(cboIDProduit.Text)) != null)
-                    {
-                        produit = smsql.RetourProduit(Convert.ToInt32(cboIDProduit.Text));
-                        txtNomProduit.Text = produit.NomProduit;
-                        txtDescription.Text = produit.Description;
-                        cmdAjout.Text = "Modification";
-                        cmdSupprimer.Visible = true;
-                        cmdSupprimer.Enabled = true;
-                        cmdRetour.TabIndex = 4;
-                        cmdSupprimer.TabIndex = 5;
-                        cmdAjout.TabIndex = 6;
-                        cmdRetour.Location = new Point(99, 205);
-                    }
+                    produit = smsql.RetourProduit(Convert.ToInt32(cboIDProduit.Text));
+                    txtNomProduit.Text = produit.NomProduit;
+                    txtDescription.Text = produit.Description;
+                    cmdAjout.Text = "Modifier";
+                    cmdSupprimer.Visible = true;
+                    cmdSupprimer.Enabled = true;
+                    cmdRetour.TabIndex = 4;
+                    cmdSupprimer.TabIndex = 5;
+                    cmdAjout.TabIndex = 6;
+                    cmdRetour.Location = new Point(99, 205);
                 }
                 catch (FormatException ex)
                 {
@@ -138,15 +159,24 @@ namespace Stock_manager
 
         private void cmdSupprimer_Click(object sender, EventArgs e)
         {
-            string message = "Confirmation de la suppresion du Produit : " + produit.NomProduit;
+            string message = "Confirmation de la suppression du Produit : " + produit.NomProduit;
             string legende = "Information";
             MessageBoxButtons bouton = MessageBoxButtons.YesNo;
             MessageBoxIcon icon = MessageBoxIcon.Information;
             DialogResult dialogResult = MessageBox.Show(message, legende, bouton, icon);
             if (dialogResult == DialogResult.Yes)
-            {
+            {                
+                smsql.SupprimeLocation(produit.IdProduit, 1);
                 smsql.SupprimerProduit(produit);
                 chargerProduit();
+                message = "Le produit a bien été supprimer";
+                legende = "Information";
+                bouton = MessageBoxButtons.OK;
+                icon = MessageBoxIcon.Information;
+                MessageBox.Show(message, legende, bouton, icon);
+                txtDescription.Text = "";
+                txtNomProduit.Text = "";
+                cboIDProduit.SelectedIndex = 0;
             }
         }
 
@@ -161,6 +191,7 @@ namespace Stock_manager
             cmdRetour.TabIndex = 4;
             cmdAjout.TabIndex = 5;
             cmdRetour.Location = new Point(180, 205);
+            cboIDProduit.SelectedIndex = 0;
         }
     }
 }

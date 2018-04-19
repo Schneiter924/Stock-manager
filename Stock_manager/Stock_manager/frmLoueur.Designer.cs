@@ -57,6 +57,7 @@
             // 
             // cmdRetour
             // 
+            this.cmdRetour.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cmdRetour.Location = new System.Drawing.Point(88, 110);
             this.cmdRetour.Name = "cmdRetour";
             this.cmdRetour.Size = new System.Drawing.Size(75, 23);
@@ -70,12 +71,13 @@
             this.lblNombreCaractere.AutoSize = true;
             this.lblNombreCaractere.Location = new System.Drawing.Point(23, 85);
             this.lblNombreCaractere.Name = "lblNombreCaractere";
-            this.lblNombreCaractere.Size = new System.Drawing.Size(302, 13);
+            this.lblNombreCaractere.Size = new System.Drawing.Size(307, 13);
             this.lblNombreCaractere.TabIndex = 9;
-            this.lblNombreCaractere.Text = "Nombre de caractère actuelle 0 / nombre de caractère max 45";
+            this.lblNombreCaractere.Text = "Nombre de caractère actuelle 0 / nombre de caractères max 45";
             // 
             // cmdAjoutModification
             // 
+            this.cmdAjoutModification.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cmdAjoutModification.Location = new System.Drawing.Point(250, 110);
             this.cmdAjoutModification.Name = "cmdAjoutModification";
             this.cmdAjoutModification.Size = new System.Drawing.Size(75, 23);
@@ -117,8 +119,10 @@
             // 
             // frmLoueur
             // 
+            this.AcceptButton = this.cmdAjoutModification;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.cmdRetour;
             this.ClientSize = new System.Drawing.Size(337, 145);
             this.Controls.Add(this.cmdSupprimer);
             this.Controls.Add(this.cboNomLoueur);

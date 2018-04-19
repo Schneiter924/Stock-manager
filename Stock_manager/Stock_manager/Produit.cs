@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Stock_manager
 {
+    /// <summary>
+    /// Classe qui défini un produit
+    /// </summary>
     public class Produit
     {
         private string nomProduit;
@@ -51,9 +54,9 @@ namespace Stock_manager
             }
         }
 
-        public string DescriptionID()
+        public string ProduitAvecIDEtNomProduit()
         {
-            return idProduit.ToString();
+            return idProduit.ToString() + " - " + nomProduit;
         }
 
         public string DescriptionProduitAvecID()

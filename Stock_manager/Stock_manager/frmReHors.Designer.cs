@@ -45,6 +45,7 @@
             // lstRecherche
             // 
             this.lstRecherche.FormattingEnabled = true;
+            this.lstRecherche.HorizontalScrollbar = true;
             this.lstRecherche.Location = new System.Drawing.Point(11, 12);
             this.lstRecherche.Name = "lstRecherche";
             this.lstRecherche.Size = new System.Drawing.Size(1017, 576);
@@ -52,6 +53,7 @@
             // 
             // frmReHors
             // 
+            this.AcceptButton = this.cmdRetour;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1040, 634);

@@ -14,13 +14,15 @@ namespace Stock_manager
     public class Cryptage
     {
         private string chemin;
-         /// <summary>
+        private string nomFichier;
+        /// <summary>
         /// constructeur passe en paramètre le chemin du fichier + le fichier
         /// </summary>
         /// <param name="chemin"></param>
-        public Cryptage(string chemin)
+        public Cryptage(string chemin, string nomFichier)
         {
             this.chemin = chemin;
+            this.nomFichier = nomFichier;
         }
 
         /// <summary>
@@ -29,11 +31,10 @@ namespace Stock_manager
         /// <param name="pwd"></param>
         public void CrypterPassword(string pwd)
         {
-           string hash = BCrypt.Net.BCrypt.HashPassword(pwd);
+            string hash = BCrypt.Net.BCrypt.HashPassword(pwd);
 
-            File.WriteAllText(chemin, hash);
-            File.SetAttributes(chemin, FileAttributes.Hidden);
-            
+            File.WriteAllText(chemin + nomFichier, hash);
+            File.SetAttributes(chemin + nomFichier, FileAttributes.Hidden);
         }
 
         /// <summary>
@@ -44,10 +45,8 @@ namespace Stock_manager
         {
             string hash = BCrypt.Net.BCrypt.HashString(login);
 
-            File.WriteAllText(chemin, hash);
-            File.SetAttributes(chemin, FileAttributes.Hidden);
-
-
+            File.WriteAllText(chemin + nomFichier, hash);
+            File.SetAttributes(chemin + nomFichier, FileAttributes.Hidden);
         }
 
         /// <summary>
@@ -68,10 +67,8 @@ namespace Stock_manager
         /// <returns></returns>
         public Boolean TestLogin(string login)
         {
-            
             string hashLect = LectureFichier();
             return BCrypt.Net.BCrypt.Verify(login, hashLect);
-            
         }
 
         /// <summary>
@@ -80,7 +77,15 @@ namespace Stock_manager
         /// <returns></returns>
         private string LectureFichier()
         {
-            return File.ReadAllText(chemin);
+            return File.ReadAllText(chemin + nomFichier);
+        }
+
+        private void TestDossier()
+        {
+            if (Directory.Exists(chemin) != true)
+            {
+                Directory.CreateDirectory(chemin);
+            }
         }
 
         /// <summary>
@@ -89,7 +94,8 @@ namespace Stock_manager
         /// <returns>le fichier exsite = true</returns>
         public Boolean TestFichier()
         {
-            return File.Exists(chemin);
+            TestDossier();
+            return File.Exists(chemin + nomFichier);
         }
     }
 }

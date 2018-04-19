@@ -38,6 +38,7 @@
             // lstRecherche
             // 
             this.lstRecherche.FormattingEnabled = true;
+            this.lstRecherche.HorizontalScrollbar = true;
             this.lstRecherche.Location = new System.Drawing.Point(12, 40);
             this.lstRecherche.Name = "lstRecherche";
             this.lstRecherche.Size = new System.Drawing.Size(937, 537);
@@ -48,13 +49,13 @@
             this.lblRecherche.AutoSize = true;
             this.lblRecherche.Location = new System.Drawing.Point(12, 9);
             this.lblRecherche.Name = "lblRecherche";
-            this.lblRecherche.Size = new System.Drawing.Size(79, 13);
+            this.lblRecherche.Size = new System.Drawing.Size(132, 13);
             this.lblRecherche.TabIndex = 1;
-            this.lblRecherche.Text = "Mot à chercher";
+            this.lblRecherche.Text = "Mot à chercher ou numéro";
             // 
             // txtRecherche
             // 
-            this.txtRecherche.Location = new System.Drawing.Point(122, 6);
+            this.txtRecherche.Location = new System.Drawing.Point(150, 6);
             this.txtRecherche.Name = "txtRecherche";
             this.txtRecherche.Size = new System.Drawing.Size(151, 20);
             this.txtRecherche.TabIndex = 2;
@@ -62,7 +63,8 @@
             // 
             // cmdChercher
             // 
-            this.cmdChercher.Location = new System.Drawing.Point(294, 4);
+            this.cmdChercher.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.cmdChercher.Location = new System.Drawing.Point(307, 4);
             this.cmdChercher.Name = "cmdChercher";
             this.cmdChercher.Size = new System.Drawing.Size(75, 23);
             this.cmdChercher.TabIndex = 3;
@@ -72,7 +74,8 @@
             // 
             // cmdRetour
             // 
-            this.cmdRetour.Location = new System.Drawing.Point(375, 4);
+            this.cmdRetour.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.cmdRetour.Location = new System.Drawing.Point(388, 4);
             this.cmdRetour.Name = "cmdRetour";
             this.cmdRetour.Size = new System.Drawing.Size(75, 23);
             this.cmdRetour.TabIndex = 4;
@@ -85,6 +88,7 @@
             this.AcceptButton = this.cmdChercher;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.cmdRetour;
             this.ClientSize = new System.Drawing.Size(961, 591);
             this.Controls.Add(this.cmdRetour);
             this.Controls.Add(this.cmdChercher);

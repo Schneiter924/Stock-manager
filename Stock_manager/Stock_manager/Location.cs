@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Stock_manager
 {
+    /// <summary>
+    /// Classe qui défini une location
+    /// </summary>
     public class Location
     {
         private DateTime startDate;
@@ -95,7 +98,22 @@ namespace Stock_manager
 
         public string DescriptionLocation()
         {
-            return Produit.DescriptionProduit() + " - " + loueur.Description() + " - la date de début d'empret est le " + startDate.ToString("dd-MM-yyyy");
+            string message = Produit.DescriptionProduit() + " - " + loueur.Description() + " - la date de début de la location est le " + startDate.ToString("dd-MM-yyyy");
+            if (endDate.ToString("dd-MM-yyyy") != "01-01-0001")
+            {
+                message += " - la date de rendu est le " + endDate.ToString("dd-MM-yyyy");
+            }
+            else if (DateTime.Today > startDate.AddDays(duree))
+            {
+                DateTime Aujourduit = DateTime.Today;
+                TimeSpan retard = (Aujourduit - startDate.AddDays(duree));
+                message += " - le produit à " + retard.ToString("dd") + " jours de retard";
+            }
+            else
+            {
+                message += " - la date de rendu thorique est le " + startDate.AddDays(duree).ToString("dd-MM-yyyy");
+            }
+            return message;
         }
     }
 }
